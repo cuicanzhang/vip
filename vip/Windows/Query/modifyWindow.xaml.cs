@@ -21,27 +21,24 @@ namespace vip.Windows.Query
     /// </summary>
     public partial class modifyWindow : Window
     {
+        private static string vipName="";
+        private static string vipPhone = "";
         public modifyWindow()
         {
             InitializeComponent();
             
         }
 
-        public modifyWindow(DataRowView mySelectedElement)
+        public modifyWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();
-            /*
-            var dic = new Dictionary<string, object>();            
-            dic["Name"] = mySelectedElement[1];
-            dic["Scores"] = mySelectedElement[2];
-            dic["Phone"] = mySelectedElement[3];
-            dic["Remarks"] = mySelectedElement[4];
-            */
-            
-            NameTB.Text = mySelectedElement[1].ToString();
-            ScoresTB.Text = mySelectedElement[2].ToString();
-            PhoneTB.Text = mySelectedElement[3].ToString();
-            RemarksTB.Text = mySelectedElement[4].ToString();
+  
+            vipName= dic["Name"];
+            vipPhone = dic["Phone"];
+            NameTB.Text = dic["Name"];
+            ScoresTB.Text = dic["Scores"];
+            PhoneTB.Text = dic["Phone"];
+            RemarksTB.Text = dic["Remarks"];
             
             
         }
@@ -56,17 +53,16 @@ namespace vip.Windows.Query
                         conn.Open();
                         cmd.Connection = conn;
                         SQLiteHelper sh = new SQLiteHelper(cmd);
-                        var sql = "select * from vip where (Name='" + NameTB.Text + "' and Phone='" + PhoneTB.Text + "')";
+                        var sql = "select ID from vip where (Name='" + vipName + "' and Phone='" + vipPhone + "')";
                         DataTable dt = sh.Select(sql);
-                        if (dt.Rows.Count == 0)
+                        if (dt.Rows.Count != 0)
                         {
-                            int count = sh.ExecuteScalar<int>("select count(*) from vip;") + 1;
                             var dic = new Dictionary<string, object>();
                             dic["Name"] = NameTB.Text;
                             dic["Scores"] = ScoresTB.Text;
                             dic["Phone"] = PhoneTB.Text;
                             dic["Remarks"] = RemarksTB.Text;
-                            sh.Insert("vip", dic);
+                            sh.Update("vip", dic,"ID", dt.Rows[0]["ID"].ToString());
                             return true;
                         }
                         else

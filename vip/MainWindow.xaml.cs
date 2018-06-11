@@ -160,22 +160,26 @@ namespace vip
         private void dispDataGrid_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             
-                var dic = new Dictionary<string, object>();
+            var dic = new Dictionary<string, string>();
             DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
-            
-            //MessageBox.Show(mySelectedElement.Row[1].ToString());
-            /*
-                dic["Name"] = NameTB.Text;
-                dic["Scores"] = ScoresTB.Text;
-                dic["Phone"] = PhoneTB.Text;
-                dic["Remarks"] = RemarksTB.Text;
-              */  
-                
-            
+            dic["Name"] = mySelectedElement[1].ToString();
+            dic["Scores"] = mySelectedElement[2].ToString();
+            dic["Phone"] = mySelectedElement[3].ToString();
+            dic["Remarks"] = mySelectedElement[4].ToString();
 
-            Windows.Query.modifyWindow w= new Windows.Query.modifyWindow(mySelectedElement);
+            Windows.Query.modifyWindow w= new Windows.Query.modifyWindow(dic);
             w.ShowDialog();
         }
-        
+
+        private void addScore_CLick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("+");
+        }
+        private void subScore_CLick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("-");
+        }
+
+
     }
 }

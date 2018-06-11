@@ -40,7 +40,7 @@ namespace vip.Windows.Query
                         DataTable dt = sh.Select(sql);
                         if (dt.Rows.Count == 0)
                         {
-                            int count = sh.ExecuteScalar<int>("select count(*) from vip;") + 1;
+                            //int count = sh.ExecuteScalar<int>("select count(*) from vip;") + 1;
                             var dic = new Dictionary<string, object>();
                             dic["Name"] = NameTB.Text;
                             dic["Scores"] = ScoresTB.Text;
