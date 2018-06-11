@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="会员管理" Height="600" Width="800">
     <Grid>
-        <DataGrid Name="dispDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="390" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" ItemsSource="{Binding}">
+        <DataGrid Name="dispDataGrid" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" ItemsSource="{Binding}" MouseDoubleClick="dispDataGrid_MouseDoubleClick" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="序号" Binding="{Binding ID}" Width="60" ></DataGridTextColumn>
                 <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="100" ></DataGridTextColumn>
@@ -17,6 +17,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="findAllBtn" Content="查找" HorizontalAlignment="Left" Margin="25,438,0,0" VerticalAlignment="Top" Width="75" Click="findAllBtn_Click"/>
-        <Button Name="addBtn" Content="添加" HorizontalAlignment="Left" Margin="140,438,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click"/>
+        <Button Name="addBtn" Content="添加" HorizontalAlignment="Left" Margin="155,438,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click"/>
     </Grid>
 </Window>

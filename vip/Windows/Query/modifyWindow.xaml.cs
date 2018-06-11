@@ -17,15 +17,35 @@ using System.Windows.Shapes;
 namespace vip.Windows.Query
 {
     /// <summary>
-    /// addWindow.xaml 的交互逻辑
+    /// modifyWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class addWindow : Window
+    public partial class modifyWindow : Window
     {
-        public addWindow()
+        public modifyWindow()
         {
             InitializeComponent();
+            
         }
-        private bool vipAdd()
+
+        public modifyWindow(DataRowView mySelectedElement)
+        {
+            InitializeComponent();
+            /*
+            var dic = new Dictionary<string, object>();            
+            dic["Name"] = mySelectedElement[1];
+            dic["Scores"] = mySelectedElement[2];
+            dic["Phone"] = mySelectedElement[3];
+            dic["Remarks"] = mySelectedElement[4];
+            */
+            
+            NameTB.Text = mySelectedElement[1].ToString();
+            ScoresTB.Text = mySelectedElement[2].ToString();
+            PhoneTB.Text = mySelectedElement[3].ToString();
+            RemarksTB.Text = mySelectedElement[4].ToString();
+            
+            
+        }
+        private bool vipModify()
         {
             using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
             {
@@ -36,7 +56,7 @@ namespace vip.Windows.Query
                         conn.Open();
                         cmd.Connection = conn;
                         SQLiteHelper sh = new SQLiteHelper(cmd);
-                        var sql= "select * from vip where (Name='"+ NameTB.Text+"' and Phone='"+ PhoneTB.Text+"')";
+                        var sql = "select * from vip where (Name='" + NameTB.Text + "' and Phone='" + PhoneTB.Text + "')";
                         DataTable dt = sh.Select(sql);
                         if (dt.Rows.Count == 0)
                         {
@@ -54,8 +74,8 @@ namespace vip.Windows.Query
                             MessageBox.Show("会员已存在");
                             return false;
                         }
-                        
-                                             
+
+
                     }
                     catch (Exception ex)
                     {
@@ -72,12 +92,11 @@ namespace vip.Windows.Query
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (vipAdd())
+            if (vipModify())
             {
                 this.Close();
                 //MessageBox.Show("添加成功");
             }
-            
         }
     }
 }

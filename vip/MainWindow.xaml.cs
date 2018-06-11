@@ -154,7 +154,28 @@ namespace vip
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             Windows.Query.addWindow w = new Windows.Query.addWindow();
-            w.Show();
+            w.ShowDialog();
         }
+
+        private void dispDataGrid_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            
+                var dic = new Dictionary<string, object>();
+            DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
+            
+            //MessageBox.Show(mySelectedElement.Row[1].ToString());
+            /*
+                dic["Name"] = NameTB.Text;
+                dic["Scores"] = ScoresTB.Text;
+                dic["Phone"] = PhoneTB.Text;
+                dic["Remarks"] = RemarksTB.Text;
+              */  
+                
+            
+
+            Windows.Query.modifyWindow w= new Windows.Query.modifyWindow(mySelectedElement);
+            w.ShowDialog();
+        }
+        
     }
 }

@@ -1,24 +1,25 @@
-﻿<Window x:Class="vip.Windows.Query.addWindow"
+﻿<Window x:Class="vip.Windows.Query.modifyWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="addWindow" Height="300" Width="300">
+        Title="modifyWindow" Height="300" Width="300">
     <Grid>
-        <Label Name="NameLB_Copy" Content="添加会员" HorizontalAlignment="Left" Margin="105,-2,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Name="NameLB_Copy" Content="修改会员信息" HorizontalAlignment="Left" Margin="78,-2,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Name="NameLB" Content="会员姓名：" HorizontalAlignment="Left" Margin="17,37,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Name="ScoresLB" Content="初始积分：" HorizontalAlignment="Left" Margin="17,65,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Name="PhoneLB" Content="联系方式：" HorizontalAlignment="Left" Margin="17,93,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Name="RemarksLB" Content="信息备注：" HorizontalAlignment="Left" Margin="17,151,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="107,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
+        <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="107,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" IsReadOnly="True"/>
         <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
         <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="107,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
         <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="100" Margin="107,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <Button Content="修改" HorizontalAlignment="Left" Margin="105,229,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click"/>
 
-        <Button Content="添加" HorizontalAlignment="Left" Margin="105,229,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click"/>
-        
+
+
 
     </Grid>
 </Window>
