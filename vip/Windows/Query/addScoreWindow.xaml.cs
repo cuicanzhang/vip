@@ -41,12 +41,22 @@ namespace vip.Windows.Query
         {
             
         }
+
         private void subScore()
         {
-            string str1 = ScoresLB.Content.ToString();
-            string str2 = addScoresTB.Text;
-
-            finalScoresLB.Content = int.Parse(str1) + int.Parse(str2);
+            if (addScoresTB.Text.Replace(" ", "") != "")
+            {
+                int int1 = int.Parse(ScoresLB.Content.ToString());
+                int int2 = int.Parse(addScoresTB.Text.Replace(" ", ""));
+                finalScoresLB.Content = int1 + int2;
+            }
+            else
+            {
+                finalScoresLB.Content = ScoresLB.Content.ToString();
+            }
+            
+           
+            
         }
 
         private void addScoresTB_TextChanged(object sender, TextChangedEventArgs e)
@@ -57,6 +67,30 @@ namespace vip.Windows.Query
         {
             Windows.Tools.checkInput(e);
         }
+        /*
+        private void addScoresTB_OnPreviewKeyDown(object sender,KeyEventArgs e)
+        {
+
+        }
+        protected override void OnPreviewKeyDown( KeyEventArgs e)
+        {
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 ||
+                (e.Key >= Key.D0 && e.Key <= Key.D9) ||
+                e.Key == Key.Back ||
+                e.Key == Key.Left || e.Key == Key.Right))
+            {
+                if (e.KeyboardDevice.Modifiers != ModifierKeys.None)
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+
+            }
+        }
+        */
     }
 
 }

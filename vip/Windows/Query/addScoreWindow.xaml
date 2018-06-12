@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="addScoreWindow" Height="300" Width="300">
+        Title="addScoreWindow" Height="286" Width="300">
     <Grid>
         <Label Content="积分增加" HorizontalAlignment="Left" Margin="78,-2,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="姓名：" HorizontalAlignment="Left" Margin="17,37,0,0" VerticalAlignment="Top" FontSize="14"/>
@@ -17,11 +17,12 @@
         <Label Name="NameLB" Content="姓名" HorizontalAlignment="Left" Margin="107,36,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Name="SexLB" Content="性别" HorizontalAlignment="Left" Margin="107,65,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Name="PhoneLB" Content="电话" HorizontalAlignment="Left" Margin="107,92,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Name="ScoresLB" Content="" HorizontalAlignment="Left" Margin="107,120,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Name="ScoresLB" HorizontalAlignment="Left" Margin="107,120,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Name="finalScoresLB" Content="" HorizontalAlignment="Left" Margin="107,179,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox Name="addScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" 
                  TextChanged="addScoresTB_TextChanged"  InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" 
-                 PreviewTextInput="checkInput" MaxLength="7"/>
+                 PreviewTextInput="checkInput" MaxLength="7" />
+        <Button Content="确认" HorizontalAlignment="Left" Margin="107,212,0,0" VerticalAlignment="Top" Width="75"/>
 
 
 
