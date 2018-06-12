@@ -22,7 +22,7 @@
         <TextBox Name="addScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" 
                  TextChanged="addScoresTB_TextChanged"  InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" 
                  PreviewTextInput="checkInput" MaxLength="7" />
-        <Button Content="确认" HorizontalAlignment="Left" Margin="107,212,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="确认" HorizontalAlignment="Left" Margin="107,212,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
 
 

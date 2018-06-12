@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -58,7 +59,55 @@ namespace vip.Windows.Query
            
             
         }
+        private bool vipScoreModify()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
+            {
+                using (SQLiteCommand cmd = new SQLiteCommand())
+                {
+                    try
+                    {
+                        conn.Open();
+                        cmd.Connection = conn;
+                        SQLiteHelper sh = new SQLiteHelper(cmd);
+                        //var sql = "select ID from vip where (Name='" + vipName + "' and Phone='" + vipPhone + "')";
+                        //var sql = "select ID from vip where (Phone='" + vipPhone + "')";
+                        //DataTable dt = sh.Select(sql);
+                        //if (dt.Rows.Count != 0)
+                        //{
+                        var dic = new Dictionary<string, object>();
+                        
+                        dic["Scores"] = finalScoresLB.Content.ToString();
+                        //if (vipScore != ScoresTB.Text)
+                        //{
+                        //    dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
+                        //}
+                        
+                        //sh.Update("vip", dic,"ID", dt.Rows[0]["ID"].ToString());
+                        sh.Update("vip", dic, "Phone", PhoneLB);
+                        return true;
+                        //}
+                        //else
+                        //{
+                        //   MessageBox.Show("会员已存在");
+                        //    return false;
+                        // }
+                        //
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        return false;
+                    }
+
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+        }
         private void addScoresTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             subScore();
@@ -67,30 +116,39 @@ namespace vip.Windows.Query
         {
             Windows.Tools.checkInput(e);
         }
-        /*
-        private void addScoresTB_OnPreviewKeyDown(object sender,KeyEventArgs e)
-        {
 
-        }
-        protected override void OnPreviewKeyDown( KeyEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 ||
-                (e.Key >= Key.D0 && e.Key <= Key.D9) ||
-                e.Key == Key.Back ||
-                e.Key == Key.Left || e.Key == Key.Right))
+            if (vipScoreModify())
             {
-                if (e.KeyboardDevice.Modifiers != ModifierKeys.None)
-                {
-                    e.Handled = true;
-                }
-                else
-                {
-                    e.Handled = true;
-                }
-
+                this.Close();
+                //MessageBox.Show("添加成功");
             }
         }
-        */
+        /*
+private void addScoresTB_OnPreviewKeyDown(object sender,KeyEventArgs e)
+{
+
+}
+protected override void OnPreviewKeyDown( KeyEventArgs e)
+{
+   if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 ||
+       (e.Key >= Key.D0 && e.Key <= Key.D9) ||
+       e.Key == Key.Back ||
+       e.Key == Key.Left || e.Key == Key.Right))
+   {
+       if (e.KeyboardDevice.Modifiers != ModifierKeys.None)
+       {
+           e.Handled = true;
+       }
+       else
+       {
+           e.Handled = true;
+       }
+
+   }
+}
+*/
     }
 
 }
