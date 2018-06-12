@@ -78,25 +78,19 @@ namespace vip.Windows.Query
                         var dic = new Dictionary<string, object>();
                         
                         dic["Scores"] = finalScoresLB.Content;
-                        if (finalScoresLB.Content != ScoresLB.Content)
+                        
+                        if (finalScoresLB.Content.ToString() != "")
                         {
-                            dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
+                            if (finalScoresLB.Content.ToString() != ScoresLB.Content.ToString())
+                            {
+                                dic["LastModiTime"] = DateTime.Now.ToLocalTime().ToString();
+                                sh.Update("vip", dic, "Phone", PhoneLB.Content);
+                                return true;
+                            }
                         }
-                        //if (vipScore != ScoresTB.Text)
-                        //{
-                        //    dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
-                        //}
 
-                        //sh.Update("vip", dic,"ID", dt.Rows[0]["ID"].ToString());
-                        sh.Update("vip", dic, "Phone", PhoneLB.Content);
+                        
                         return true;
-                        //}
-                        //else
-                        //{
-                        //   MessageBox.Show("会员已存在");
-                        //    return false;
-                        // }
-                        //
 
                     }
                     catch (Exception ex)
@@ -129,30 +123,17 @@ namespace vip.Windows.Query
                 //MessageBox.Show("添加成功");
             }
         }
-        /*
-private void addScoresTB_OnPreviewKeyDown(object sender,KeyEventArgs e)
-{
+        
 
-}
-protected override void OnPreviewKeyDown( KeyEventArgs e)
-{
-   if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 ||
-       (e.Key >= Key.D0 && e.Key <= Key.D9) ||
-       e.Key == Key.Back ||
-       e.Key == Key.Left || e.Key == Key.Right))
-   {
-       if (e.KeyboardDevice.Modifiers != ModifierKeys.None)
-       {
-           e.Handled = true;
-       }
-       else
-       {
-           e.Handled = true;
-       }
-
-   }
-}
-*/
+        private void addScoresTB_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Tools.isInputNumber(e))
+            {
+                //MessageBox.Show("请输入数字！");
+            }
+        }
+        
+       
     }
 
 }

@@ -5,23 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="modifyWindow" Height="300" Width="300">
+        Title="modifyWindow" Height="420" Width="300">
     <Grid>
         <Label Name="NameLB_Copy" Content="修改会员信息" HorizontalAlignment="Left" Margin="78,-2,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Name="NameLB" Content="姓名：" HorizontalAlignment="Left" Margin="17,37,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Name="SexLB" Content="性别：" HorizontalAlignment="Left" Margin="17,65,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Name="ScoresLB" Content="积分：" HorizontalAlignment="Left" Margin="17,93,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Name="PhoneLB" Content="电话：" HorizontalAlignment="Left" Margin="17,121,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Name="RemarksLB" Content="备注：" HorizontalAlignment="Left" Margin="17,188,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="107,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
-        <ComboBox Name="SexCB" HorizontalAlignment="Left" Margin="107,69,0,0" VerticalAlignment="Top" Width="40"/>
-        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" PreviewTextInput="checkInput" MaxLength="7" InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" />
-        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="107,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" PreviewTextInput="checkInput" MaxLength="11" InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" />
-        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="100" Margin="107,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <Button Content="修改" HorizontalAlignment="Left" Margin="105,229,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click"/>
+        <Label Name="tpnScoresLB" Content="太平鸟积分：" HorizontalAlignment="Left" Margin="17,93,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Name="xyScoresLB" Content="香影积分：" HorizontalAlignment="Left" Margin="17,121,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Name="cmScoresLB" Content="CM积分：" HorizontalAlignment="Left" Margin="17,149,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Name="ScoresLB" Content="积分：" HorizontalAlignment="Left" Margin="17,177,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Name="PhoneLB" Content="电话：" HorizontalAlignment="Left" Margin="17,205,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Name="RemarksLB" Content="备注：" HorizontalAlignment="Left" Margin="17,268,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="107,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>       
         
-
-
+        <ComboBox Name="SexCB" HorizontalAlignment="Left" Margin="107,69,0,0" VerticalAlignment="Top" Width="40"/>        
+        <TextBox Name="tpnScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" PreviewTextInput="checkInput" MaxLength="7" 
+                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="ScoresTB_PreviewKeyDown"/>
+        <TextBox Name="xyScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" PreviewTextInput="checkInput" MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="ScoresTB_PreviewKeyDown"/>
+        <TextBox Name="cmScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" PreviewTextInput="checkInput" MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="ScoresTB_PreviewKeyDown"/>
+        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" PreviewTextInput="checkInput" MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="ScoresTB_PreviewKeyDown"/>
+        <Button Content="修改" HorizontalAlignment="Left" Margin="105,346,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click"/>
+        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="107,208,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" PreviewTextInput="checkInput" MaxLength="11" 
+                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="PhoneTB_PreviewKeyDown"/>
+        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="100" Margin="107,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
 
 
     </Grid>

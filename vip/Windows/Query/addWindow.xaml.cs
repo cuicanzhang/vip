@@ -111,5 +111,19 @@ namespace vip.Windows.Query
         {
             
         }
+        private void ScoresTB_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Tools.isInputNumber(e))
+            {
+                //MessageBox.Show("请输入数字！");
+            }
+        }
+        private void PhoneTB_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Tools.isInputNumber(e))
+            {
+                //MessageBox.Show("请输入数字！");
+            }
+        }
     }
 }

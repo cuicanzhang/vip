@@ -65,3 +65,5 @@ C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.csproj.CoreCompileInputs.cache
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.csproj.CopyComplete
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.exe
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.pdb
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.g.cs
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.baml
