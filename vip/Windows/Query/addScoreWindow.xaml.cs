@@ -77,14 +77,18 @@ namespace vip.Windows.Query
                         //{
                         var dic = new Dictionary<string, object>();
                         
-                        dic["Scores"] = finalScoresLB.Content.ToString();
+                        dic["Scores"] = finalScoresLB.Content;
+                        if (finalScoresLB.Content != ScoresLB.Content)
+                        {
+                            dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
+                        }
                         //if (vipScore != ScoresTB.Text)
                         //{
                         //    dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
                         //}
-                        
+
                         //sh.Update("vip", dic,"ID", dt.Rows[0]["ID"].ToString());
-                        sh.Update("vip", dic, "Phone", PhoneLB);
+                        sh.Update("vip", dic, "Phone", PhoneLB.Content);
                         return true;
                         //}
                         //else
