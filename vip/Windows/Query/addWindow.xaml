@@ -11,12 +11,12 @@
         <Label Name="NameLB" Content="姓名：" HorizontalAlignment="Left" Margin="17,37,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Name="SexLB" Content="性别：" HorizontalAlignment="Left" Margin="17,65,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Name="ScoresLB" Content="积分：" HorizontalAlignment="Left" Margin="17,93,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Name="PhoneLB" Content="电话：" HorizontalAlignment="Left" Margin="17,121,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Name="PhoneLB" Content="电话：" HorizontalAlignment="Left" Margin="17,121,0,0" VerticalAlignment="Top" FontSize="14" />
         <Label Name="RemarksLB" Content="备注：" HorizontalAlignment="Left" Margin="17,188,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="107,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
         <ComboBox Name="SexCB" HorizontalAlignment="Left" Margin="107,69,0,0" VerticalAlignment="Top" Width="40" SelectionChanged="SexCB_SelectionChanged"/>
-        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
-        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="107,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
+        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="107,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" PreviewTextInput="checkInput" MaxLength="7" InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" />
+        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="107,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" PreviewTextInput="checkInput" MaxLength="11" InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" />
         <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="100" Margin="107,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
 
         <Button Content="添加" HorizontalAlignment="Left" Margin="105,266,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click"/>

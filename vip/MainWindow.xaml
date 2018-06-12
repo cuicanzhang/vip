@@ -19,13 +19,25 @@
                 <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}" Width="130" ></DataGridTextColumn>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
-                <ContextMenu Name="rightMenu" StaysOpen="true">
-                    <MenuItem Header="修改信息"/>
+                <ContextMenu Name="rightMenu" StaysOpen="true" >
+                    <MenuItem Header="修改信息" Click="dispDataGrid_MouseDoubleClick"/>
                     <MenuItem Header="（+）积分增加" Click="addScore_CLick"/>
                     <MenuItem Header="（-）积分减少" Click="subScore_CLick">
                     </MenuItem>
                 </ContextMenu>
             </DataGrid.ContextMenu>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="MinWidth" Value="85"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="LightBlue"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
         </DataGrid>
         <Button Name="findAllBtn" Content="查找" HorizontalAlignment="Left" Margin="25,438,0,0" VerticalAlignment="Top" Width="75" Click="findAllBtn_Click"/>
         <Button Name="addBtn" Content="添加" HorizontalAlignment="Left" Margin="155,438,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click"/>

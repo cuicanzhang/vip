@@ -103,7 +103,10 @@ namespace vip.Windows.Query
             }
             
         }
-
+        private void checkInput(object sender, TextCompositionEventArgs e)
+        {
+            Windows.Tools.checkInput(e);
+        }
         private void SexCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             

@@ -112,5 +112,9 @@ namespace vip.Windows.Query
                 //MessageBox.Show("添加成功");
             }
         }
+        private void checkInput(object sender, TextCompositionEventArgs e)
+        {
+            Windows.Tools.checkInput(e);
+        }
     }
 }

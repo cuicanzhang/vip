@@ -189,17 +189,14 @@ namespace vip
                     w.ShowDialog();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
                 dispDataGrid.SelectedItem = null;
-            }
-            
-            
-
+            }         
         }
         private void dispDataFridLoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -208,7 +205,33 @@ namespace vip
         }
         private void addScore_CLick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("+");
+            try
+            {
+                DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
+                if (mySelectedElement != null)
+                {
+                    var dic = new Dictionary<string, string>();
+                    dic["Name"] = mySelectedElement[1].ToString();
+                    dic["Sex"] = mySelectedElement[2].ToString();
+                    dic["Scores"] = mySelectedElement[3].ToString();
+                    dic["Phone"] = mySelectedElement[4].ToString();
+                    dic["LastModiTime"] = mySelectedElement[5].ToString();
+                    dic["Remarks"] = mySelectedElement[6].ToString();
+                    dic["CreateTime"] = mySelectedElement[7].ToString();
+                    Windows.Query.addScoreWindow w = new Windows.Query.addScoreWindow(dic);
+                    w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                    w.Owner = this;
+                    w.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                dispDataGrid.SelectedItem = null;
+            }
         }
         private void subScore_CLick(object sender, RoutedEventArgs e)
         {

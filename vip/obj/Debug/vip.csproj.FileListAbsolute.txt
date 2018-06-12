@@ -40,3 +40,5 @@ C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.g.cs
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.g.cs
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.baml
