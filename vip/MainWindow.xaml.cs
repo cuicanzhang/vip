@@ -80,9 +80,12 @@ namespace vip
                 SQLiteTable tb = new SQLiteTable(tableName);
                 tb.Columns.Add(new SQLiteColumn("id", ColType.Integer, true,true,true,""));
                 tb.Columns.Add(new SQLiteColumn("Name", ColType.Text));
+                tb.Columns.Add(new SQLiteColumn("Sex", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("Scores", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("Phone", ColType.Text));
+                tb.Columns.Add(new SQLiteColumn("LastModiTime", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("Remarks", ColType.Text));
+                tb.Columns.Add(new SQLiteColumn("CreateTime", ColType.Text));
                 // Execute Table Creation
                 using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
                 {
@@ -119,15 +122,18 @@ namespace vip
                     
                         var sql = "select * from vip";
                         DataTable dt = sh.Select(sql);
-                        /*
+                        
                         DataRow row = dt.NewRow();
-                        row["ID"] = 11;
+                        /*
+                        row["Sex"] = 11;
                         row["Name"] = "第三个";
                         row["Scores"] = 333;
                         row["Phone"] = 33333333333;
+                        row["LastModiTime"] = "11111111";
                         row["Remarks"] = 3333333333;
+                        row["CreateTime"] = "11111111";
                         dt.Rows.Add(row);
-                       */ 
+                       */
 
                         dispDataGrid.ItemsSource = dt.DefaultView;
                         dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
@@ -148,29 +154,58 @@ namespace vip
         }
         private void findAllBtn_Click(object sender, RoutedEventArgs e)
         {
+
             vipSelect();
+
         }
         
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             Windows.Query.addWindow w = new Windows.Query.addWindow();
+            w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            w.Owner = this;
             w.ShowDialog();
         }
-
+        
         private void dispDataGrid_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
+
+            try
+            {
+                DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
+                if (mySelectedElement != null)
+                {
+                    var dic = new Dictionary<string, string>();
+                    dic["Name"] = mySelectedElement[1].ToString();
+                    dic["Sex"] = mySelectedElement[2].ToString();
+                    dic["Scores"] = mySelectedElement[3].ToString();
+                    dic["Phone"] = mySelectedElement[4].ToString();
+                    dic["LastModiTime"] = mySelectedElement[5].ToString();
+                    dic["Remarks"] = mySelectedElement[6].ToString();
+                    dic["CreateTime"] = mySelectedElement[7].ToString();
+                    Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(dic);
+                    w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                    w.Owner = this;
+                    w.ShowDialog();
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                dispDataGrid.SelectedItem = null;
+            }
             
-            var dic = new Dictionary<string, string>();
-            DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
-            dic["Name"] = mySelectedElement[1].ToString();
-            dic["Scores"] = mySelectedElement[2].ToString();
-            dic["Phone"] = mySelectedElement[3].ToString();
-            dic["Remarks"] = mySelectedElement[4].ToString();
+            
 
-            Windows.Query.modifyWindow w= new Windows.Query.modifyWindow(dic);
-            w.ShowDialog();
         }
-
+        private void dispDataFridLoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            //加载行
+            e.Row.Header = e.Row.GetIndex() + 1;
+        }
         private void addScore_CLick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("+");

@@ -23,19 +23,31 @@ namespace vip.Windows.Query
     {
         private static string vipName="";
         private static string vipPhone = "";
+        private static string vipScore = "";
         public modifyWindow()
         {
             InitializeComponent();
+            
+
+        }
+        private void loadSex()
+        {
+            SexCB.Items.Add("男");
+            SexCB.Items.Add("女");
             
         }
 
         public modifyWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();
-  
-            vipName= dic["Name"];
+            //加载会员性别
+            loadSex();
+            vipName = dic["Name"];
             vipPhone = dic["Phone"];
+            vipScore = dic["Scores"];
+
             NameTB.Text = dic["Name"];
+            SexCB.SelectedIndex=SexCB.Items.IndexOf(dic["Sex"]);
             ScoresTB.Text = dic["Scores"];
             PhoneTB.Text = dic["Phone"];
             RemarksTB.Text = dic["Remarks"];
@@ -53,24 +65,30 @@ namespace vip.Windows.Query
                         conn.Open();
                         cmd.Connection = conn;
                         SQLiteHelper sh = new SQLiteHelper(cmd);
-                        var sql = "select ID from vip where (Name='" + vipName + "' and Phone='" + vipPhone + "')";
-                        DataTable dt = sh.Select(sql);
-                        if (dt.Rows.Count != 0)
-                        {
+                        //var sql = "select ID from vip where (Name='" + vipName + "' and Phone='" + vipPhone + "')";
+                        //var sql = "select ID from vip where (Phone='" + vipPhone + "')";
+                        //DataTable dt = sh.Select(sql);
+                        //if (dt.Rows.Count != 0)
+                        //{
                             var dic = new Dictionary<string, object>();
                             dic["Name"] = NameTB.Text;
+                            dic["Sex"]= SexCB.SelectedValue;
                             dic["Scores"] = ScoresTB.Text;
                             dic["Phone"] = PhoneTB.Text;
+                            if (vipScore != ScoresTB.Text) {
+                                dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
+                            }
                             dic["Remarks"] = RemarksTB.Text;
-                            sh.Update("vip", dic,"ID", dt.Rows[0]["ID"].ToString());
+                            //sh.Update("vip", dic,"ID", dt.Rows[0]["ID"].ToString());
+                            sh.Update("vip", dic, "Phone", vipPhone);
                             return true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("会员已存在");
-                            return false;
-                        }
-
+                        //}
+                        //else
+                        //{
+                         //   MessageBox.Show("会员已存在");
+                        //    return false;
+                       // }
+                    //
 
                     }
                     catch (Exception ex)

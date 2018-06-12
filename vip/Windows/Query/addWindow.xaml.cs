@@ -24,6 +24,15 @@ namespace vip.Windows.Query
         public addWindow()
         {
             InitializeComponent();
+            //加载会员性别
+            loadSex();
+
+        }
+        private void loadSex()
+        {
+            SexCB.Items.Add("男");
+            SexCB.Items.Add("女");
+
         }
         private bool vipAdd()
         {
@@ -36,16 +45,20 @@ namespace vip.Windows.Query
                         conn.Open();
                         cmd.Connection = conn;
                         SQLiteHelper sh = new SQLiteHelper(cmd);
-                        var sql= "select * from vip where (Name='"+ NameTB.Text+"' and Phone='"+ PhoneTB.Text+"')";
+                        //var sql= "select * from vip where (Name='"+ NameTB.Text+"' and Phone='"+ PhoneTB.Text+"')";
+                        var sql = "select * from vip where (Phone='" + PhoneTB.Text.Replace(" ", "") + "')";
                         DataTable dt = sh.Select(sql);
                         if (dt.Rows.Count == 0)
                         {
                             //int count = sh.ExecuteScalar<int>("select count(*) from vip;") + 1;
                             var dic = new Dictionary<string, object>();
-                            dic["Name"] = NameTB.Text;
-                            dic["Scores"] = ScoresTB.Text;
-                            dic["Phone"] = PhoneTB.Text;
+                            dic["Name"] = NameTB.Text.Replace(" ", "");
+                            dic["Sex"] = SexCB.SelectedValue;
+                            dic["Scores"] = ScoresTB.Text.Replace(" ", "");
+                            dic["Phone"] = PhoneTB.Text.Replace(" ", "");
+                            dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
                             dic["Remarks"] = RemarksTB.Text;
+                            dic["CreateTime"] = dic["LastModiTime"];
                             sh.Insert("vip", dic);
                             return true;
                         }
@@ -72,11 +85,27 @@ namespace vip.Windows.Query
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (vipAdd())
+            if (NameTB.Text.Replace(" ", "") == "")
             {
-                this.Close();
-                //MessageBox.Show("添加成功");
+                MessageBox.Show("[姓名] 必须填写");
             }
+            else if (PhoneTB.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("[电话] 必须填写");
+            }
+            else
+            {
+                if (vipAdd())
+                {
+                    this.Close();
+                    //MessageBox.Show("添加成功");
+                }
+            }
+            
+        }
+
+        private void SexCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
             
         }
     }

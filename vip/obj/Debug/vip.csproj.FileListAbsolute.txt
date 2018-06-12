@@ -38,3 +38,5 @@ C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\vip.exe
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\vip.pdb
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.g.cs
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.baml

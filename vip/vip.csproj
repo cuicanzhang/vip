@@ -64,6 +64,7 @@
     <Compile Include="SQLiteHelper\SQLiteColumnList.cs" />
     <Compile Include="SQLiteHelper\SQLiteHelper.cs" />
     <Compile Include="SQLiteHelper\SQLiteTable.cs" />
+    <Compile Include="VipInfo.cs" />
     <Compile Include="Windows\Query\addWindow.xaml.cs">
       <DependentUpon>addWindow.xaml</DependentUpon>
     </Compile>
