@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="addScoreWindow" Height="400" Width="470">
+        Title="addScoreWindow" Height="400" Width="410">
     <Grid>
         <Label Content="积分增加" HorizontalAlignment="Left" Margin="165,0,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="姓名：" HorizontalAlignment="Left" Margin="15,28,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="性别：" HorizontalAlignment="Left" Margin="15,50,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="电话：" HorizontalAlignment="Left" Margin="15,72,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="54" Margin="205,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" IsReadOnly="True"/>
-        <Border BorderBrush="Black"  BorderThickness="1" HorizontalAlignment="Left" Height="91" Margin="10,31,0,0" VerticalAlignment="Top" Width="442"/>
+        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="51" Margin="65,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" IsReadOnly="True"/>
+        <Border BorderBrush="Black"  BorderThickness="1" HorizontalAlignment="Left" Height="125" Margin="10,28,0,0" VerticalAlignment="Top" Width="375"/>
 
-        <Label Content="积分：" HorizontalAlignment="Left" Margin="15,94,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="最终积分：" HorizontalAlignment="Left" Margin="298,93,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="现有积分：" HorizontalAlignment="Left" Margin="189,28,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="累计积分：" HorizontalAlignment="Left" Margin="189,72,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Name="NameLB" Content="如果五个字" HorizontalAlignment="Left" Margin="61,28,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Name="SexLB" Content="男" HorizontalAlignment="Left" Margin="61,50,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Name="PhoneLB" Content="13579246810" HorizontalAlignment="Left" Margin="61,72,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -40,15 +40,15 @@
         <Label Name="tpnWomanFinalScoreLB" Content="太女消费" HorizontalAlignment="Left" Margin="311,209,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
         <Label Name="xyFinalScoreLB" Content="香影消费" HorizontalAlignment="Left" Margin="311,234,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
         <Label Name="cmFinalScoreLB" Content="CM 消费" HorizontalAlignment="Left" Margin="311,259,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
-        <Label Name="ScoresLB" Content="0" HorizontalAlignment="Left" Margin="61,94,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="增加积分：" HorizontalAlignment="Left" Margin="139,93,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Name="addScoreLB" Content="0" HorizontalAlignment="Left" Margin="217,93,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Name="finalScoreLB" Content="0" HorizontalAlignment="Left" Margin="376,93,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="备注：" HorizontalAlignment="Left" Margin="155,41,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="ScoresLB" Content="0" HorizontalAlignment="Left" Margin="272,28,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="本次积分：" HorizontalAlignment="Left" Margin="189,51,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="addScoreLB" Content="0" HorizontalAlignment="Left" Margin="272,50,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="finalScoreLB" Content="0" HorizontalAlignment="Left" Margin="272,72,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="备注：" HorizontalAlignment="Left" Margin="15,94,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="服饰品牌" HorizontalAlignment="Left" Margin="5,153,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="现有消费" HorizontalAlignment="Left" Margin="82,153,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="现有消费" HorizontalAlignment="Left" Margin="81,153,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="本次消费" HorizontalAlignment="Left" Margin="189,153,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="累计消费" HorizontalAlignment="Left" Margin="314,153,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="累计消费" HorizontalAlignment="Left" Margin="311,153,0,0" VerticalAlignment="Top" FontSize="16"/>
 
 
 

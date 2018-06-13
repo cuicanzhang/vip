@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\
 vip
 none
 false
 DEBUG;TRACE
-C:\Users\Ming\Source\Repos\vip\vip\App.xaml
+C:\Users\zhang\Source\Repos\vip\vip\App.xaml
 41553797337
 
-19-800718556
-161660836301
+15-1624818266
+16-335103836
 MainWindow.xaml;Windows\Query\addScoreWindow.xaml;Windows\Query\addWindow.xaml;Windows\Query\modifyWindow.xaml;
 
-True
+False
 

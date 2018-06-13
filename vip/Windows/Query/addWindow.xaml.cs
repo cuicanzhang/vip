@@ -59,6 +59,7 @@ namespace vip.Windows.Query
                             dic["Name"] = NameTB.Text.Replace(" ", "");
                             dic["Sex"] = SexCB.SelectedValue;
                             dic["Phone"] = PhoneTB.Text.Replace(" ", "");
+                            dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日");
                             dic["Remarks"] = RemarksTB.Text;
 
 
@@ -130,6 +131,7 @@ namespace vip.Windows.Query
         private void ScoresTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             subScore();
+            String.Format("{0:N}", 1234567.891);
         }
         private void subScore()
         {

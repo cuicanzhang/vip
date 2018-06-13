@@ -5,6 +5,8 @@ using System.Data.SQLite;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using vip.Windows;
 
 namespace vip
 {
@@ -82,6 +84,7 @@ namespace vip
                 tb.Columns.Add(new SQLiteColumn("Name", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("Sex", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("Phone", ColType.Text));
+                tb.Columns.Add(new SQLiteColumn("Birthday", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("Remarks", ColType.Text));
                 
                 tb.Columns.Add(new SQLiteColumn("Scores", ColType.Integer, false, false, true, "0"));
@@ -161,11 +164,61 @@ namespace vip
         }
         private void findAllBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            vipSelect();
+            if (serarchPhoneNumber.Text == "")
+            {
+                vipSelect();
+            }
+            else
+            {
+                vipSelectUsePhone();
+            }
+            
 
         }
-        
+        void vipSelectUsePhone()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
+            {
+                using (SQLiteCommand cmd = new SQLiteCommand())
+                {
+                    try
+                    {
+                        conn.Open();
+                        cmd.Connection = conn;
+                        SQLiteHelper sh = new SQLiteHelper(cmd);
+                        //var sql= "select * from vip where (Name='"+ NameTB.Text+"' and Phone='"+ PhoneTB.Text+"')";
+                        var sql = "select * from vip where(Phone='" + serarchPhoneNumber.Text + "')";
+                        DataTable dt = sh.Select(sql);
+                        /*
+                        DataRow row = dt.NewRow();
+                        
+                        row["Sex"] = 11;
+                        row["Name"] = "第三个";
+                        row["Scores"] = 333;
+                        row["Phone"] = 33333333333;
+                        row["LastModiTime"] = "11111111";
+                        row["Remarks"] = 3333333333;
+                        row["CreateTime"] = "11111111";
+                        dt.Rows.Add(row);
+                       */
+
+                        dispDataGrid.ItemsSource = dt.DefaultView;
+                        dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+
+
+                }
+            }
+        }
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             Windows.Query.addWindow w = new Windows.Query.addWindow();
@@ -261,5 +314,13 @@ namespace vip
         {
 
         }
+        private void checkNumber_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Tools.isInputNumber(e))
+            {
+                //MessageBox.Show("请输入数字！");
+            }
+        }
+
     }
 }

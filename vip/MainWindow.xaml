@@ -7,12 +7,13 @@
         mc:Ignorable="d"
         Title="会员管理" Height="768" Width="1024">
     <Grid>
-        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,10,0,0" VerticalAlignment="Top" Width="996" ItemsSource="{Binding}" MouseDoubleClick="dispDataGrid_MouseDoubleClick" SelectionChanged="dispDataGrid_SelectionChanged" >
+        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,150,0,0" VerticalAlignment="Top" Width="996" ItemsSource="{Binding}" MouseDoubleClick="dispDataGrid_MouseDoubleClick" SelectionChanged="dispDataGrid_SelectionChanged" >
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="80" ></DataGridTextColumn>
                 <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="45" ></DataGridTextColumn>
                 <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="120" ></DataGridTextColumn>
+                <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="120" ></DataGridTextColumn>
                 <DataGridTextColumn Header="备注" Binding="{Binding Remarks}" Width="*" ></DataGridTextColumn>
                 
                 <DataGridTextColumn Header="积分合计" Binding="{Binding Scores}" Width="80" ></DataGridTextColumn>
@@ -45,7 +46,10 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Button Name="findAllBtn" Content="查找" HorizontalAlignment="Left" Margin="25,438,0,0" VerticalAlignment="Top" Width="75" Click="findAllBtn_Click"/>
-        <Button Name="addBtn" Content="添加" HorizontalAlignment="Left" Margin="155,438,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click"/>
+        <Button Name="findAllBtn" Content="查找" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="findAllBtn_Click"/>
+        <Button Name="addBtn" Content="添加" HorizontalAlignment="Left" Margin="305,10,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click"/>
+        
+        <TextBox Name="serarchPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="105,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="11" 
+                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
     </Grid>
 </Window>
