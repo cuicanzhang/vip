@@ -47,23 +47,7 @@ namespace vip.Windows.Query
             
         }
 
-        private void subScore()
-        {
-            if (addScoresTB.Text.Replace(" ", "") != "")
-            {
-                int int1 = int.Parse(ScoresLB.Content.ToString());
-                int int2 = int.Parse(addScoresTB.Text.Replace(" ", ""));
-                finalScoresLB.Content = int1 + int2;
-            }
-            else
-            {
-                finalScoresLB.Content = ScoresLB.Content.ToString();
-            }
-            
-           
-            
-        }
-        private bool vipScoreModify()
+        private bool addScore()
         {
             using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
             {
@@ -79,21 +63,24 @@ namespace vip.Windows.Query
                         //DataTable dt = sh.Select(sql);
                         //if (dt.Rows.Count != 0)
                         //{
-                        var dic = new Dictionary<string, object>();
                         
-                        dic["Scores"] = finalScoresLB.Content;
                         
-                        if (finalScoresLB.Content.ToString() != "")
+                        
+                        if (finalScoreLB.Content.ToString() != "")
                         {
-                            if (finalScoresLB.Content.ToString() != ScoresLB.Content.ToString())
+                            if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
                             {
+                                var dic = new Dictionary<string, object>();
+                                dic["Scores"] = finalScoreLB.Content;
+                                dic["TpnManScore"] = tpnManFinalScoreLB.Content;
+                                dic["TpnWomanScore"] = tpnWomanFinalScoreLB.Content;
+                                dic["XyScore"] = xyFinalScoreLB.Content;
+                                dic["CmScore"] = cmFinalScoreLB.Content;
                                 dic["LastModiTime"] = DateTime.Now.ToLocalTime().ToString();
                                 sh.Update("vip", dic, "Phone", PhoneLB.Content);
                                 return true;
                             }
                         }
-
-                        
                         return true;
 
                     }
@@ -110,10 +97,7 @@ namespace vip.Windows.Query
                 }
             }
         }
-        private void addScoresTB_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            subScore();
-        }
+
         private void checkInput(object sender, TextCompositionEventArgs e)
         {
             Windows.Tools.checkInput(e);
@@ -121,7 +105,7 @@ namespace vip.Windows.Query
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (vipScoreModify())
+            if (addScore())
             {
                 this.Close();
                 //MessageBox.Show("添加成功");
@@ -136,8 +120,60 @@ namespace vip.Windows.Query
                 //MessageBox.Show("请输入数字！");
             }
         }
-        
-       
+
+        private void RemarksTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void ScoresTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            subScore();
+        }
+        private void subScore()
+        {
+            var addtpnManScore= addtpnManScoreTB.Text.Replace(" ", "");
+            var addtpnWomanScore = addtpnWomanScoreTB.Text.Replace(" ", "");
+            var addxyScore = addxyScoreTB.Text.Replace(" ", "");
+            var addcmScore = addcmScoreTB.Text.Replace(" ", "");
+            
+
+            if (addtpnManScore == "")
+            {
+                addtpnManScore = "0";
+            }
+            if (addtpnWomanScore == "")
+            {
+                addtpnWomanScore = "0";
+            }
+            if (addxyScore == "")
+            {
+                addxyScore = "0";
+            }
+            if (addcmScore == "")
+            {
+                addcmScore = "0";
+            }
+            
+            tpnManFinalScoreLB.Content = (int.Parse(tpnManScoreLB.Content.ToString()) + int.Parse(addtpnManScore)).ToString();
+            tpnWomanFinalScoreLB.Content = (int.Parse(tpnWomanScoreLB.Content.ToString()) + int.Parse(addtpnWomanScore)).ToString();
+            xyFinalScoreLB.Content = (int.Parse(xyScoreLB.Content.ToString()) + int.Parse(addxyScore)).ToString();
+            cmFinalScoreLB.Content = (int.Parse(cmScoreLB.Content.ToString()) + int.Parse(addcmScore)).ToString();
+            addScoreLB.Content = (int.Parse(addtpnManScore) + int.Parse(addtpnWomanScore) + int.Parse(addxyScore) + int.Parse(addcmScore)).ToString();
+            finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) + int.Parse(addScoreLB.Content.ToString())).ToString();
+            /*
+        scoresTB.Text = (int.Parse(tpnManScore)
+                        + int.Parse(tpnWomanScore)
+                        + int.Parse(xyScore)
+                        + int.Parse(cmScore)).ToString();
+                        */
+        }
+        private void checkNumber_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Tools.isInputNumber(e))
+            {
+                //MessageBox.Show("请输入数字！");
+            }
+        }
     }
 
 }

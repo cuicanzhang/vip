@@ -146,5 +146,10 @@ namespace vip.Windows.Query
         {
 
         }
+
+        private void tpnManScoresTB_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

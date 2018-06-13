@@ -5,43 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="addScoreWindow" Height="270" Width="440">
+        Title="addScoreWindow" Height="400" Width="470">
     <Grid>
         <Label Content="积分增加" HorizontalAlignment="Left" Margin="165,0,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="姓名：" HorizontalAlignment="Left" Margin="15,33,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="性别：" HorizontalAlignment="Left" Margin="139,33,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="电话：" HorizontalAlignment="Left" Margin="230,33,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="现有积分" HorizontalAlignment="Left" Margin="84,80,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="最终积分" HorizontalAlignment="Left" Margin="319,80,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="增加积分" HorizontalAlignment="Left" Margin="190,80,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Name="NameLB" Content="名字" HorizontalAlignment="Left" Margin="61,33,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Name="SexLB" Content="性别" HorizontalAlignment="Left" Margin="185,33,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Name="PhoneLB" Content="电话" HorizontalAlignment="Left" Margin="276,33,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Name="ScoresLB" HorizontalAlignment="Left" Margin="107,120,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Name="finalScoresLB" Content="" HorizontalAlignment="Left" Margin="107,179,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox Name="addScoresTB" HorizontalAlignment="Left" Height="23" Margin="241,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" 
-                 TextChanged="addScoresTB_TextChanged"  InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" 
-                 PreviewKeyDown="addScoresTB_PreviewKeyDown" MaxLength="7" />
-        <Button Content="确认" HorizontalAlignment="Left" Margin="107,212,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="0,4,0,0" VerticalAlignment="Top" Width="412"/>
-        <Label Content="品牌" HorizontalAlignment="Left" Margin="15,80,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="太男" HorizontalAlignment="Left" Margin="15,110,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="太女" HorizontalAlignment="Left" Margin="15,135,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="香影" HorizontalAlignment="Left" Margin="15,160,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="C M" HorizontalAlignment="Left" Margin="15,185,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Name="tpnManScoreLB" Content="太男积分" HorizontalAlignment="Left" Margin="87,110,0,0" VerticalAlignment="Top" FontSize="14" Width="100"/>
-        <Label Name="tpnWomanScoreLB" Content="太女积分" HorizontalAlignment="Left" Margin="87,135,0,0" VerticalAlignment="Top" FontSize="14" Width="100"/>
-        <Label Name="xyScoreLB" Content="香影积分" HorizontalAlignment="Left" Margin="87,160,0,0" VerticalAlignment="Top" FontSize="14" Width="100"/>
-        <Label Name="cmScoreLB" Content="C M积分" HorizontalAlignment="Left" Margin="87,185,0,0" VerticalAlignment="Top" FontSize="14" Width="100"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="190,113,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="190,138,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="190,163,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="190,189,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
-        <Label Name="tpnManFinallScoreLB_Copy" Content="太男积分" HorizontalAlignment="Left" Margin="311,110,0,0" VerticalAlignment="Top" FontSize="14" Width="100"/>
-        <Label Name="tpnWomanFinallScoreLB_Copy" Content="太女积分" HorizontalAlignment="Left" Margin="311,135,0,0" VerticalAlignment="Top" FontSize="14" Width="100"/>
-        <Label Name="xyFinallScoreLB_Copy" Content="香影积分" HorizontalAlignment="Left" Margin="311,160,0,0" VerticalAlignment="Top" FontSize="14" Width="100"/>
-        <Label Name="cmFinallScoreLB_Copy" Content="C M积分" HorizontalAlignment="Left" Margin="311,185,0,0" VerticalAlignment="Top" FontSize="14" Width="100"/>
-        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="23" Margin="19,64,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="姓名：" HorizontalAlignment="Left" Margin="15,28,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="性别：" HorizontalAlignment="Left" Margin="15,50,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="电话：" HorizontalAlignment="Left" Margin="15,72,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="54" Margin="205,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" IsReadOnly="True"/>
+        <Border BorderBrush="Black"  BorderThickness="1" HorizontalAlignment="Left" Height="91" Margin="10,31,0,0" VerticalAlignment="Top" Width="442"/>
+
+        <Label Content="积分：" HorizontalAlignment="Left" Margin="15,94,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="最终积分：" HorizontalAlignment="Left" Margin="298,93,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="NameLB" Content="如果五个字" HorizontalAlignment="Left" Margin="61,28,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="SexLB" Content="男" HorizontalAlignment="Left" Margin="61,50,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="PhoneLB" Content="13579246810" HorizontalAlignment="Left" Margin="61,72,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="确认" HorizontalAlignment="Left" Margin="152,298,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Label Content="太男" HorizontalAlignment="Left" Margin="15,184,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="太女" HorizontalAlignment="Left" Margin="15,209,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="香影" HorizontalAlignment="Left" Margin="15,234,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="C M" HorizontalAlignment="Left" Margin="15,259,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="tpnManScoreLB" Content="太男消费" HorizontalAlignment="Left" Margin="81,184,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Name="tpnWomanScoreLB" Content="太女消费" HorizontalAlignment="Left" Margin="81,209,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Name="xyScoreLB" Content="香影消费" HorizontalAlignment="Left" Margin="81,234,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Name="cmScoreLB" Content="CM 消费" HorizontalAlignment="Left" Margin="81,259,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <TextBox Name="addtpnManScoreTB" HorizontalAlignment="Left" Height="23" Margin="190,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
+        <TextBox Name="addtpnWomanScoreTB" HorizontalAlignment="Left" Height="23" Margin="190,212,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
+        <TextBox Name="addxyScoreTB" HorizontalAlignment="Left" Height="23" Margin="190,237,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
+        <TextBox Name="addcmScoreTB" HorizontalAlignment="Left" Height="23" Margin="190,263,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
+        <Label Name="tpnManFinalScoreLB" Content="太男消费" HorizontalAlignment="Left" Margin="311,184,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Name="tpnWomanFinalScoreLB" Content="太女消费" HorizontalAlignment="Left" Margin="311,209,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Name="xyFinalScoreLB" Content="香影消费" HorizontalAlignment="Left" Margin="311,234,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Name="cmFinalScoreLB" Content="CM 消费" HorizontalAlignment="Left" Margin="311,259,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Name="ScoresLB" Content="0" HorizontalAlignment="Left" Margin="61,94,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="增加积分：" HorizontalAlignment="Left" Margin="139,93,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="addScoreLB" Content="0" HorizontalAlignment="Left" Margin="217,93,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="finalScoreLB" Content="0" HorizontalAlignment="Left" Margin="376,93,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="备注：" HorizontalAlignment="Left" Margin="155,41,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="服饰品牌" HorizontalAlignment="Left" Margin="5,153,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="已经消费" HorizontalAlignment="Left" Margin="82,153,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="本次消费" HorizontalAlignment="Left" Margin="189,153,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="消费合计" HorizontalAlignment="Left" Margin="314,153,0,0" VerticalAlignment="Top" FontSize="16"/>
+
 
 
     </Grid>
