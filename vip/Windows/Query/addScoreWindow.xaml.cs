@@ -29,11 +29,15 @@ namespace vip.Windows.Query
         {
             InitializeComponent();
             NameLB.Content = dic["Name"];
-            SexLB.Content = dic["Sex"]; ;
-            ScoresLB.Content = dic["Scores"];
+            SexLB.Content = dic["Sex"];
             PhoneLB.Content = dic["Phone"];
-            
-            //finalScoresLB.Content = "aaa";
+            RemarksTB.Text = dic["Remarks"];
+
+            ScoresLB.Content = dic["Scores"];
+            tpnManScoreLB.Content = dic["TpnManScore"];
+            tpnWomanScoreLB.Content = dic["TpnWomanScore"];
+            xyScoreLB.Content = dic["XyScore"];
+            cmScoreLB.Content = dic["CmScore"];
 
 
         }

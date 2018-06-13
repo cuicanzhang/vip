@@ -26,7 +26,11 @@ namespace vip.Windows.Query
             InitializeComponent();
             //加载会员性别
             loadSex();
-
+            scoresTB.Text = "0";
+            //tpnManScoreTB.Text = "0";
+            //tpnWomanScoreTB.Text = "0";
+            //xyScoreTB.Text = "0";
+            //cmScoreTB.Text = "0";
         }
         private void loadSex()
         {
@@ -54,10 +58,17 @@ namespace vip.Windows.Query
                             var dic = new Dictionary<string, object>();
                             dic["Name"] = NameTB.Text.Replace(" ", "");
                             dic["Sex"] = SexCB.SelectedValue;
-                            dic["Scores"] = ScoresTB.Text.Replace(" ", "");
                             dic["Phone"] = PhoneTB.Text.Replace(" ", "");
-                            dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
                             dic["Remarks"] = RemarksTB.Text;
+
+
+                            dic["Scores"] = scoresTB.Text.Replace(" ", "");
+                            dic["TpnManScore"] = tpnManScoreTB.Text.Replace(" ", "");
+                            dic["TpnWomanScore"] = tpnWomanScoreTB.Text.Replace(" ", "");
+                            dic["XyScore"] = xyScoreTB.Text.Replace(" ", "");
+                            dic["CmScore"] = cmScoreTB.Text.Replace(" ", "");
+
+                            dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
                             dic["CreateTime"] = dic["LastModiTime"];
                             sh.Insert("vip", dic);
                             return true;
@@ -103,27 +114,51 @@ namespace vip.Windows.Query
             }
             
         }
-        private void checkInput(object sender, TextCompositionEventArgs e)
-        {
-            Windows.Tools.checkInput(e);
-        }
         private void SexCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
         }
-        private void ScoresTB_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void checkNumber_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (!Tools.isInputNumber(e))
             {
                 //MessageBox.Show("请输入数字！");
             }
         }
-        private void PhoneTB_PreviewKeyDown(object sender, KeyEventArgs e)
+        
+
+        private void ScoresTB_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!Tools.isInputNumber(e))
-            {
-                //MessageBox.Show("请输入数字！");
-            }
+            subScore();
         }
+        private void subScore()
+        {
+            var tpnManScore = tpnManScoreTB.Text.Replace(" ", "");
+            var tpnWomanScore = tpnWomanScoreTB.Text.Replace(" ", "");
+            var xyScore = xyScoreTB.Text.Replace(" ", "");
+            var cmScore = cmScoreTB.Text.Replace(" ", "");
+
+            if (tpnManScore == "")
+            {
+                tpnManScore = "0";
+            }
+            if (tpnWomanScore == "")
+            {
+                tpnWomanScore = "0";
+            }
+            if (xyScore == "")
+            {
+                xyScore = "0";
+            }
+            if (cmScore == "")
+            {
+                cmScore = "0";
+            }
+            scoresTB.Text = (int.Parse(tpnManScore) 
+                            + int.Parse(tpnWomanScore) 
+                            + int.Parse(xyScore) 
+                            + int.Parse(cmScore)).ToString();
+        }
+
     }
 }

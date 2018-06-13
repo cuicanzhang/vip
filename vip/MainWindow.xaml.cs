@@ -78,14 +78,21 @@ namespace vip
             {
                 // Creating table....
                 SQLiteTable tb = new SQLiteTable(tableName);
-                tb.Columns.Add(new SQLiteColumn("id", ColType.Integer, true,true,true,""));
+                tb.Columns.Add(new SQLiteColumn("ID", ColType.Integer, true,true,true,""));
                 tb.Columns.Add(new SQLiteColumn("Name", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("Sex", ColType.Text));
-                tb.Columns.Add(new SQLiteColumn("Scores", ColType.Integer, false, false, true, "0"));
                 tb.Columns.Add(new SQLiteColumn("Phone", ColType.Text));
-                tb.Columns.Add(new SQLiteColumn("LastModiTime", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("Remarks", ColType.Text));
+                
+                tb.Columns.Add(new SQLiteColumn("Scores", ColType.Integer, false, false, true, "0"));
+                tb.Columns.Add(new SQLiteColumn("TpnManScore", ColType.Integer, false, false, true, "0"));
+                tb.Columns.Add(new SQLiteColumn("TpnWomanScore", ColType.Integer, false, false, true, "0"));
+                tb.Columns.Add(new SQLiteColumn("XyScore", ColType.Integer, false, false, true, "0"));
+                tb.Columns.Add(new SQLiteColumn("CmScore", ColType.Integer, false, false, true, "0"));
+
+                tb.Columns.Add(new SQLiteColumn("LastModiTime", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("CreateTime", ColType.Text));
+
                 // Execute Table Creation
                 using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
                 {
@@ -122,9 +129,9 @@ namespace vip
                     
                         var sql = "select * from vip";
                         DataTable dt = sh.Select(sql);
-                        
-                        DataRow row = dt.NewRow();
                         /*
+                        DataRow row = dt.NewRow();
+                        
                         row["Sex"] = 11;
                         row["Name"] = "第三个";
                         row["Scores"] = 333;
@@ -178,11 +185,17 @@ namespace vip
                     var dic = new Dictionary<string, string>();
                     dic["Name"] = mySelectedElement[1].ToString();
                     dic["Sex"] = mySelectedElement[2].ToString();
-                    dic["Scores"] = mySelectedElement[3].ToString();
-                    dic["Phone"] = mySelectedElement[4].ToString();
-                    dic["LastModiTime"] = mySelectedElement[5].ToString();
-                    dic["Remarks"] = mySelectedElement[6].ToString();
-                    dic["CreateTime"] = mySelectedElement[7].ToString();
+                    dic["Phone"] = mySelectedElement[3].ToString();
+                    dic["Remarks"] = mySelectedElement[4].ToString();
+
+                    dic["Scores"] = mySelectedElement[5].ToString();
+                    dic["TpnManScore"] = mySelectedElement[6].ToString();
+                    dic["TpnWomanScore"] = mySelectedElement[7].ToString();
+                    dic["XyScore"] = mySelectedElement[8].ToString();
+                    dic["CmScore"] = mySelectedElement[9].ToString();
+
+                    dic["LastModiTime"] = mySelectedElement[10].ToString();                    
+                    dic["CreateTime"] = mySelectedElement[11].ToString();
                     Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(dic);
                     w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     w.Owner = this;
@@ -213,11 +226,17 @@ namespace vip
                     var dic = new Dictionary<string, string>();
                     dic["Name"] = mySelectedElement[1].ToString();
                     dic["Sex"] = mySelectedElement[2].ToString();
-                    dic["Scores"] = mySelectedElement[3].ToString();
-                    dic["Phone"] = mySelectedElement[4].ToString();
-                    dic["LastModiTime"] = mySelectedElement[5].ToString();
-                    dic["Remarks"] = mySelectedElement[6].ToString();
-                    dic["CreateTime"] = mySelectedElement[7].ToString();
+                    dic["Phone"] = mySelectedElement[3].ToString();
+                    dic["Remarks"] = mySelectedElement[4].ToString();
+
+                    dic["Scores"] = mySelectedElement[5].ToString();
+                    dic["TpnManScore"] = mySelectedElement[6].ToString();
+                    dic["TpnWomanScore"] = mySelectedElement[7].ToString();
+                    dic["XyScore"] = mySelectedElement[8].ToString();
+                    dic["CmScore"] = mySelectedElement[9].ToString();
+
+                    dic["LastModiTime"] = mySelectedElement[10].ToString();
+                    dic["CreateTime"] = mySelectedElement[11].ToString();
                     Windows.Query.addScoreWindow w = new Windows.Query.addScoreWindow(dic);
                     w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     w.Owner = this;
@@ -238,6 +257,9 @@ namespace vip
             MessageBox.Show("-");
         }
 
+        private void dispDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }

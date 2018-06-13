@@ -7,15 +7,21 @@
         mc:Ignorable="d"
         Title="会员管理" Height="768" Width="1024">
     <Grid>
-        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,10,0,0" VerticalAlignment="Top" Width="996" ItemsSource="{Binding}" MouseDoubleClick="dispDataGrid_MouseDoubleClick" >
+        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,10,0,0" VerticalAlignment="Top" Width="996" ItemsSource="{Binding}" MouseDoubleClick="dispDataGrid_MouseDoubleClick" SelectionChanged="dispDataGrid_SelectionChanged" >
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="80" ></DataGridTextColumn>
                 <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="45" ></DataGridTextColumn>
-                <DataGridTextColumn Header="积分" Binding="{Binding Scores}" Width="80" ></DataGridTextColumn>
                 <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="120" ></DataGridTextColumn>
-                <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}" Width="130" ></DataGridTextColumn>
-                <DataGridTextColumn Header="备注" Binding="{Binding Remarks}" Width="*" ></DataGridTextColumn>                
+                <DataGridTextColumn Header="备注" Binding="{Binding Remarks}" Width="*" ></DataGridTextColumn>
+                
+                <DataGridTextColumn Header="积分合计" Binding="{Binding Scores}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="太男积分" Binding="{Binding TpnManScore}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="太女积分" Binding="{Binding TpnWomanScore}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="香影积分" Binding="{Binding XyScore}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="CM  积分" Binding="{Binding CmScore}" Width="80" ></DataGridTextColumn>
+                
+                <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}" Width="130" ></DataGridTextColumn>                               
                 <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}" Width="130" ></DataGridTextColumn>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>

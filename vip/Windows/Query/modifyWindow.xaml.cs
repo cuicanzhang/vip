@@ -21,7 +21,7 @@ namespace vip.Windows.Query
     /// </summary>
     public partial class modifyWindow : Window
     {
-        private static string vipName="";
+
         private static string vipPhone = "";
         private static string vipScore = "";
         public modifyWindow()
@@ -42,17 +42,20 @@ namespace vip.Windows.Query
             InitializeComponent();
             //加载会员性别
             loadSex();
-            vipName = dic["Name"];
+            
             vipPhone = dic["Phone"];
             vipScore = dic["Scores"];
 
             NameTB.Text = dic["Name"];
             SexCB.SelectedIndex=SexCB.Items.IndexOf(dic["Sex"]);
-            ScoresTB.Text = dic["Scores"];
             PhoneTB.Text = dic["Phone"];
             RemarksTB.Text = dic["Remarks"];
-            
-            
+
+            ScoresTB.Text = dic["Scores"];
+            tpnManScoresTB.Text= dic["TpnManScore"];
+            tpnWomanScoresTB.Text = dic["TpnWomanScore"];
+            xyScoresTB.Text = dic["XyScore"];
+            cmScoresTB.Text = dic["CmScore"];
         }
         private bool vipModify()
         {
@@ -65,31 +68,24 @@ namespace vip.Windows.Query
                         conn.Open();
                         cmd.Connection = conn;
                         SQLiteHelper sh = new SQLiteHelper(cmd);
-                        //var sql = "select ID from vip where (Name='" + vipName + "' and Phone='" + vipPhone + "')";
-                        //var sql = "select ID from vip where (Phone='" + vipPhone + "')";
-                        //DataTable dt = sh.Select(sql);
-                        //if (dt.Rows.Count != 0)
-                        //{
                             var dic = new Dictionary<string, object>();
                             dic["Name"] = NameTB.Text;
-                            dic["Sex"]= SexCB.SelectedValue;
-                            dic["Scores"] = ScoresTB.Text;
+                            dic["Sex"]= SexCB.SelectedValue;                          
                             dic["Phone"] = PhoneTB.Text;
-                            if (vipScore != ScoresTB.Text) {
+                            dic["Remarks"] = RemarksTB.Text;
+
+                            dic["Scores"] = ScoresTB.Text;
+                            dic["TpnManScore"]=tpnManScoresTB.Text ;
+                            dic["TpnWomanScore"]=tpnWomanScoresTB.Text  ;
+                            dic["XyScore"]=xyScoresTB.Text ;
+                            dic["CmScore"]=cmScoresTB.Text ;
+
+                        if (vipScore != ScoresTB.Text) {
                                 dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
                             }
-                            dic["Remarks"] = RemarksTB.Text;
-                            //sh.Update("vip", dic,"ID", dt.Rows[0]["ID"].ToString());
+                            
                             sh.Update("vip", dic, "Phone", vipPhone);
                             return true;
-                        //}
-                        //else
-                        //{
-                         //   MessageBox.Show("会员已存在");
-                        //    return false;
-                       // }
-                    //
-
                     }
                     catch (Exception ex)
                     {
@@ -129,6 +125,26 @@ namespace vip.Windows.Query
             {
                 //MessageBox.Show("请输入数字！");
             }
+        }
+
+        private void tpnWomanScoresTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tpnManScoresTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void xyScoresTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void cmScoresTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
