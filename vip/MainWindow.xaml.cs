@@ -18,102 +18,11 @@ namespace vip
         public MainWindow()
         {
             InitializeComponent();
-            if (createNewSQLiteDatabase())
-            {
-                CreateTable("vip");
-            }
-        }
-        private bool createNewSQLiteDatabase()
-        {
-            config.DatabaseFile = "vip.sqlite";
-            try
-            {
-                if (TestConnection())
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                return false;
-            }
+            //数据库初始化
+            conn.Init();
 
         }
-        bool TestConnection()
-        {
-            try
-            {
-                if (!File.Exists(config.DatabaseFile))
-                {
-                    using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
-                    {
-                        conn.Open();
-                        conn.Close();
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                return false;
-            }
-        }
-        private void CreateTable(string tableName)
-        {
-            try
-            {
-                // Creating table....
-                SQLiteTable tb = new SQLiteTable(tableName);
-                tb.Columns.Add(new SQLiteColumn("ID", ColType.Integer, true,true,true,""));
-                tb.Columns.Add(new SQLiteColumn("Name", ColType.Text));
-                tb.Columns.Add(new SQLiteColumn("Sex", ColType.Text));
-                tb.Columns.Add(new SQLiteColumn("Phone", ColType.Text));
-                tb.Columns.Add(new SQLiteColumn("Birthday", ColType.Text));
-                tb.Columns.Add(new SQLiteColumn("Remarks", ColType.Text));
-                
-                tb.Columns.Add(new SQLiteColumn("Scores", ColType.Integer, false, false, true, "0"));
-                tb.Columns.Add(new SQLiteColumn("TpnManScore", ColType.Integer, false, false, true, "0"));
-                tb.Columns.Add(new SQLiteColumn("TpnWomanScore", ColType.Integer, false, false, true, "0"));
-                tb.Columns.Add(new SQLiteColumn("XyScore", ColType.Integer, false, false, true, "0"));
-                tb.Columns.Add(new SQLiteColumn("CmScore", ColType.Integer, false, false, true, "0"));
-
-                tb.Columns.Add(new SQLiteColumn("LastModiTime", ColType.Text));
-                tb.Columns.Add(new SQLiteColumn("CreateTime", ColType.Text));
-
-                // Execute Table Creation
-                using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
-                {
-                    using (SQLiteCommand cmd = new SQLiteCommand())
-                    {
-                        conn.Open();
-                        cmd.Connection = conn;
-
-                        SQLiteHelper sh = new SQLiteHelper(cmd);
-
-                        sh.DropTable(tableName);
-                        sh.CreateTable(tb);
-
-                        conn.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-        void vipSelect(string searchStr)
+        void Select(string searchStr)
         {
             using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
             {
@@ -170,7 +79,7 @@ namespace vip
         }
         private void findAllBtn_Click(object sender, RoutedEventArgs e)
         {
-            vipSelect(serarchTB.Text);        
+            Select(serarchTB.Text);        
         }
         
         private void addBtn_Click(object sender, RoutedEventArgs e)

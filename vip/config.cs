@@ -8,7 +8,7 @@ namespace vip
 {
     class config
     {
-        public static string DatabaseFile = "";
+        public static string DatabaseFile = "vip.sqlite";
         public static string DataSource
         {
             get
