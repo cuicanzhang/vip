@@ -11,6 +11,7 @@ namespace vip
         public string Name { get; set; }
         public string Sex { get; set; }
         public string Phone { get; set; }
+        public string Birthday { get; set; }
         public string Remarks { get; set; }
         public string LastModiTime { get; set; }
         public string CreateTime { get; set; }

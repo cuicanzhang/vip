@@ -31,6 +31,7 @@ namespace vip.Windows.Query
             NameLB.Content = dic["Name"];
             SexLB.Content = dic["Sex"];
             PhoneLB.Content = dic["Phone"];
+            BirthdayLB.Content = dic["Birdthday"];
             RemarksTB.Text = dic["Remarks"];
 
             ScoresLB.Content = dic["Scores"];
@@ -105,11 +106,22 @@ namespace vip.Windows.Query
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (addScore())
+            if (tpnManFinalScoreLB.Content.ToString()!="0"
+                || tpnWomanFinalScoreLB.Content.ToString() != "0"
+                || xyFinalScoreLB.Content.ToString() != "0"
+                || cmFinalScoreLB.Content.ToString() != "0")
+            {
+                if (addScore())
+                {
+                    this.Close();
+                    //MessageBox.Show("添加成功");
+                }
+            }
+            else
             {
                 this.Close();
-                //MessageBox.Show("添加成功");
             }
+            
         }
         
 

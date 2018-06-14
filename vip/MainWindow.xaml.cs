@@ -239,7 +239,7 @@ namespace vip
                     dic["Name"] = mySelectedElement[1].ToString();
                     dic["Sex"] = mySelectedElement[2].ToString();
                     dic["Phone"] = mySelectedElement[3].ToString();
-                    dic["Birdthday"] = mySelectedElement[4].ToString();
+                    dic["Birthday"] = mySelectedElement[4].ToString();
                     dic["Remarks"] = mySelectedElement[5].ToString();
 
                     dic["Scores"] = mySelectedElement[6].ToString();

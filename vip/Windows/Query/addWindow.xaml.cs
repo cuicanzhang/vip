@@ -60,7 +60,7 @@ namespace vip.Windows.Query
                             dic["Name"] = NameTB.Text.Replace(" ", "");
                             dic["Sex"] = SexCB.SelectedValue;
                             dic["Phone"] = PhoneTB.Text.Replace(" ", "");
-                            dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
+                            dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日");
                             //dic["Birthday"] = BirthdayDP.SelectedDateFormat("yyyy年MM月dd日");
                             dic["Remarks"] = RemarksTB.Text;
 
@@ -103,10 +103,15 @@ namespace vip.Windows.Query
             {
                 MessageBox.Show("[姓名] 必须填写");
             }
+            else if (SexCB.SelectedValue == null)
+            {
+                MessageBox.Show("[性别] 必须填写");
+            }
             else if (PhoneTB.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("[电话] 必须填写");
             }
+
             else
             {
                 if (vipAdd())

@@ -21,9 +21,7 @@ namespace vip.Windows.Query
     /// </summary>
     public partial class modifyWindow : Window
     {
-
-        private static string vipPhone = "";
-        private static string vipScore = "";
+        VipInfo vip = new VipInfo();
         public modifyWindow()
         {
             InitializeComponent();
@@ -42,21 +40,27 @@ namespace vip.Windows.Query
             InitializeComponent();
             //加载会员性别
             loadSex();
+            vip.Name = dic["Name"];
             
-            vipPhone = dic["Phone"];
-            vipScore = dic["Scores"];
+            vip.Sex = dic["Sex"];
+            vip.Phone = dic["Phone"];
+            vip.Birthday = dic["Birthday"];
+            vip.Remarks = dic["Remarks"].ToString() ;
 
-            NameTB.Text = dic["Name"];
-            SexCB.SelectedIndex=SexCB.Items.IndexOf(dic["Sex"]);
-            PhoneTB.Text = dic["Phone"];
-            BirthdayDP.SelectedDate =Convert.ToDateTime(dic["Birdthday"]);
-            RemarksTB.Text = dic["Remarks"];
+            //加载控件数据
+            NameTB.Text = vip.Name;
+            SexCB.SelectedIndex=SexCB.Items.IndexOf(vip.Sex);
+            PhoneTB.Text = vip.Phone;
+            BirthdayDP.SelectedDate =Convert.ToDateTime(vip.Birthday);
+            RemarksTB.Text = vip.Remarks;
 
+            
             ScoresTB.Text = dic["Scores"];
             tpnManScoresTB.Text= dic["TpnManScore"];
             tpnWomanScoresTB.Text = dic["TpnWomanScore"];
             xyScoresTB.Text = dic["XyScore"];
             cmScoresTB.Text = dic["CmScore"];
+            
         }
         private bool vipModify()
         {
@@ -69,25 +73,38 @@ namespace vip.Windows.Query
                         conn.Open();
                         cmd.Connection = conn;
                         SQLiteHelper sh = new SQLiteHelper(cmd);
+
+                        var sql = "select * from vip where (Phone='" + PhoneTB.Text.Replace(" ", "") + "')";
+                        DataTable dt = sh.Select(sql);
+                        if (dt.Rows.Count == 0)
+                        {
                             var dic = new Dictionary<string, object>();
                             dic["Name"] = NameTB.Text;
-                            dic["Sex"]= SexCB.SelectedValue;                          
+                            dic["Sex"] = SexCB.SelectedValue;
                             dic["Phone"] = PhoneTB.Text;
                             dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日");
                             dic["Remarks"] = RemarksTB.Text;
+                            /*
+                                dic["Scores"] = ScoresTB.Text;
+                                dic["TpnManScore"]=tpnManScoresTB.Text ;
+                                dic["TpnWomanScore"]=tpnWomanScoresTB.Text  ;
+                                dic["XyScore"]=xyScoresTB.Text ;
+                                dic["CmScore"]=cmScoresTB.Text ;
+                                */
 
-                            dic["Scores"] = ScoresTB.Text;
-                            dic["TpnManScore"]=tpnManScoresTB.Text ;
-                            dic["TpnWomanScore"]=tpnWomanScoresTB.Text  ;
-                            dic["XyScore"]=xyScoresTB.Text ;
-                            dic["CmScore"]=cmScoresTB.Text ;
+                            //if (vipScore != ScoresTB.Text) {
+                            //       dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
+                            //   }
 
-                        if (vipScore != ScoresTB.Text) {
-                                dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
-                            }
-                            
-                            sh.Update("vip", dic, "Phone", vipPhone);
+                            sh.Update("vip", dic, "Phone", vip.Phone);
                             return true;
+                        }else
+                        {
+                            MessageBox.Show("会员手机号码重复");
+                            return false;
+                        }
+
+
                     }
                     catch (Exception ex)
                     {
@@ -104,11 +121,35 @@ namespace vip.Windows.Query
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (vipModify())
+            string sexTemp;
+            if (SexCB.SelectedValue == null)
+            {
+                sexTemp = "";
+            }
+            else
+            {
+                sexTemp = SexCB.SelectedValue.ToString();
+            }
+           
+            var c = PhoneTB.Text;
+            var d = BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日");
+            var ea = RemarksTB.Text;
+            if (vip.Name != NameTB.Text
+                || vip.Sex != sexTemp
+                || vip.Phone!= PhoneTB.Text
+                ||vip.Birthday!= BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日")
+                ||vip.Remarks!= RemarksTB.Text)
+            {
+                if (vipModify())
+                {
+                    this.Close();
+                    //MessageBox.Show("添加成功");
+                }
+            }
+            else
             {
                 this.Close();
-                //MessageBox.Show("添加成功");
-            }
+            }          
         }
         private void checkInput(object sender, TextCompositionEventArgs e)
         {
