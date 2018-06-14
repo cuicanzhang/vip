@@ -118,7 +118,7 @@ namespace vip
                 MessageBox.Show(ex.ToString());
             }
         }
-        void vipSelect()
+        void vipSelect(string searchStr)
         {
             using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
             {
@@ -129,8 +129,19 @@ namespace vip
                         conn.Open();
                         cmd.Connection = conn;
                         SQLiteHelper sh = new SQLiteHelper(cmd);
-                    
-                        var sql = "select * from vip";
+                        string sql="";
+                        if (searchStr.Length == 11)
+                        {
+                            sql = "select * from vip where(Phone='" + searchStr + "')";
+                        }
+                        else if (searchStr.Length>0&&searchStr.Length < 11)
+                        {
+                            sql = "select * from vip where(Name='" + searchStr + "')";
+                        }
+                        else 
+                        {
+                            sql = "select * from vip";
+                        }
                         DataTable dt = sh.Select(sql);
                         /*
                         DataRow row = dt.NewRow();
@@ -164,61 +175,9 @@ namespace vip
         }
         private void findAllBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (serarchPhoneNumber.Text == "")
-            {
-                vipSelect();
-            }
-            else
-            {
-                vipSelectUsePhone();
-            }
-            
-
+            vipSelect(serarchTB.Text);        
         }
-        void vipSelectUsePhone()
-        {
-            using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
-            {
-                using (SQLiteCommand cmd = new SQLiteCommand())
-                {
-                    try
-                    {
-                        conn.Open();
-                        cmd.Connection = conn;
-                        SQLiteHelper sh = new SQLiteHelper(cmd);
-                        //var sql= "select * from vip where (Name='"+ NameTB.Text+"' and Phone='"+ PhoneTB.Text+"')";
-                        var sql = "select * from vip where(Phone='" + serarchPhoneNumber.Text + "')";
-                        DataTable dt = sh.Select(sql);
-                        /*
-                        DataRow row = dt.NewRow();
-                        
-                        row["Sex"] = 11;
-                        row["Name"] = "第三个";
-                        row["Scores"] = 333;
-                        row["Phone"] = 33333333333;
-                        row["LastModiTime"] = "11111111";
-                        row["Remarks"] = 3333333333;
-                        row["CreateTime"] = "11111111";
-                        dt.Rows.Add(row);
-                       */
-
-                        dispDataGrid.ItemsSource = dt.DefaultView;
-                        dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                    }
-                    finally
-                    {
-                        conn.Close();
-                    }
-
-
-                }
-            }
-        }
+        
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             Windows.Query.addWindow w = new Windows.Query.addWindow();

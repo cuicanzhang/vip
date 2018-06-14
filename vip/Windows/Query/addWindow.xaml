@@ -43,7 +43,7 @@
             InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" Grid.Column="1" TextChanged="ScoresTB_TextChanged"/>
 
 
-        <Button Content="添加" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click" Height="24" Grid.Column="1"/>
+        <Button Content="新建" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click" Height="24" Grid.Column="1"/>
         <DatePicker Name="BirthdayDP" HorizontalAlignment="Left" Margin="65,123,0,0" VerticalAlignment="Top"/>
         <Label Name="RemarksLB" Content="备注：" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>
 
