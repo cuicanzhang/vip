@@ -28,9 +28,7 @@
             <DataGrid.ContextMenu>
                 <ContextMenu Name="rightMenu" StaysOpen="true" >
                     <MenuItem Header="修改信息" Click="dispDataGrid_MouseDoubleClick"/>
-                    <MenuItem Header="（+）积分增加" Click="addScore_CLick"/>
-                    <MenuItem Header="（-）积分减少" Click="subScore_CLick">
-                    </MenuItem>
+                    <MenuItem Header="积分变动" Click="addScore_CLick"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.CellStyle>
@@ -46,8 +44,8 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Button Name="findAllBtn" Content="查询" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="75" Click="findAllBtn_Click" FontSize="15"/>
-        <Button Name="addBtn" Content="新建" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click" FontSize="15"/>
+        <Button Name="findAllBtn" Content="查询" HorizontalAlignment="Left" Margin="250,13,0,0" VerticalAlignment="Top" Width="75" Click="findAllBtn_Click" FontSize="15"/>
+        <Button Name="addBtn" Content="新建" HorizontalAlignment="Left" Margin="340,13,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click" FontSize="15"/>
 
         <TextBox Name="serarchTB" HorizontalAlignment="Left" Height="23" Margin="116,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="11" />
         <Label Content="姓名或电话：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -57,11 +55,11 @@
         <TextBox Name="BirthdayTB" HorizontalAlignment="Left" Height="26" Margin="76,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
         <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="75" Margin="76,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="354" FontSize="16" IsReadOnly="True"/>
         <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="26" Margin="310,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
-        <TextBox Name="TpnManScoreTB" HorizontalAlignment="Left" Height="26" Margin="546,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="TpnManScoreTB" HorizontalAlignment="Left" Height="26" Margin="544,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
         <TextBox Name="TpnWomanScoreTB" HorizontalAlignment="Left" Height="26" Margin="544,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
         <TextBox Name="XyScoreTB" HorizontalAlignment="Left" Height="26" Margin="544,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
         <TextBox Name="CmScoreTB" HorizontalAlignment="Left" Height="26" Margin="544,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
-        <TextBox Name="LastModiTime" HorizontalAlignment="Left" Height="51" Margin="546,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="LastModiTime" HorizontalAlignment="Left" Height="51" Margin="544,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
         <TextBox Name="CreateTime" HorizontalAlignment="Left" Height="26" Margin="310,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
         <Label Content="姓名：" HorizontalAlignment="Left" Margin="20,50,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="性别：" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -75,7 +73,12 @@
         <Label Content="CM 消费：" HorizontalAlignment="Left" Margin="456,140,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="最近消费：" HorizontalAlignment="Left" Margin="456,170,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="首次消费：" HorizontalAlignment="Left" Margin="220,113,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="15,46,0,0" VerticalAlignment="Top" Width="425"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="15,46,0,0" VerticalAlignment="Top" Width="425">
+            <Border.Background>
+                <ImageBrush/>
+            </Border.Background>
+        </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="450,46,0,0" VerticalAlignment="Top" Width="205"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="200" Margin="5,40,0,0" VerticalAlignment="Top" Width="660"/>
     </Grid>
 </Window>
