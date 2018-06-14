@@ -239,16 +239,17 @@ namespace vip
                     dic["Name"] = mySelectedElement[1].ToString();
                     dic["Sex"] = mySelectedElement[2].ToString();
                     dic["Phone"] = mySelectedElement[3].ToString();
-                    dic["Remarks"] = mySelectedElement[4].ToString();
+                    dic["Birdthday"] = mySelectedElement[4].ToString();
+                    dic["Remarks"] = mySelectedElement[5].ToString();
 
-                    dic["Scores"] = mySelectedElement[5].ToString();
-                    dic["TpnManScore"] = mySelectedElement[6].ToString();
-                    dic["TpnWomanScore"] = mySelectedElement[7].ToString();
-                    dic["XyScore"] = mySelectedElement[8].ToString();
-                    dic["CmScore"] = mySelectedElement[9].ToString();
+                    dic["Scores"] = mySelectedElement[6].ToString();
+                    dic["TpnManScore"] = mySelectedElement[7].ToString();
+                    dic["TpnWomanScore"] = mySelectedElement[8].ToString();
+                    dic["XyScore"] = mySelectedElement[9].ToString();
+                    dic["CmScore"] = mySelectedElement[10].ToString();
 
-                    dic["LastModiTime"] = mySelectedElement[10].ToString();                    
-                    dic["CreateTime"] = mySelectedElement[11].ToString();
+                    dic["LastModiTime"] = mySelectedElement[11].ToString();                    
+                    dic["CreateTime"] = mySelectedElement[12].ToString();
                     Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(dic);
                     w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     w.Owner = this;
@@ -280,16 +281,17 @@ namespace vip
                     dic["Name"] = mySelectedElement[1].ToString();
                     dic["Sex"] = mySelectedElement[2].ToString();
                     dic["Phone"] = mySelectedElement[3].ToString();
-                    dic["Remarks"] = mySelectedElement[4].ToString();
+                    dic["Birdthday"] = mySelectedElement[4].ToString();
+                    dic["Remarks"] = mySelectedElement[5].ToString();
 
-                    dic["Scores"] = mySelectedElement[5].ToString();
-                    dic["TpnManScore"] = mySelectedElement[6].ToString();
-                    dic["TpnWomanScore"] = mySelectedElement[7].ToString();
-                    dic["XyScore"] = mySelectedElement[8].ToString();
-                    dic["CmScore"] = mySelectedElement[9].ToString();
+                    dic["Scores"] = mySelectedElement[6].ToString();
+                    dic["TpnManScore"] = mySelectedElement[7].ToString();
+                    dic["TpnWomanScore"] = mySelectedElement[8].ToString();
+                    dic["XyScore"] = mySelectedElement[9].ToString();
+                    dic["CmScore"] = mySelectedElement[10].ToString();
 
-                    dic["LastModiTime"] = mySelectedElement[10].ToString();
-                    dic["CreateTime"] = mySelectedElement[11].ToString();
+                    dic["LastModiTime"] = mySelectedElement[11].ToString();
+                    dic["CreateTime"] = mySelectedElement[12].ToString();
                     Windows.Query.addScoreWindow w = new Windows.Query.addScoreWindow(dic);
                     w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     w.Owner = this;

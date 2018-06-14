@@ -27,6 +27,7 @@ namespace vip.Windows.Query
             //加载会员性别
             loadSex();
             scoresTB.Text = "0";
+            BirthdayDP.SelectedDate= DateTime.Now.Date;
             //tpnManScoreTB.Text = "0";
             //tpnWomanScoreTB.Text = "0";
             //xyScoreTB.Text = "0";
@@ -59,7 +60,8 @@ namespace vip.Windows.Query
                             dic["Name"] = NameTB.Text.Replace(" ", "");
                             dic["Sex"] = SexCB.SelectedValue;
                             dic["Phone"] = PhoneTB.Text.Replace(" ", "");
-                            dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日");
+                            dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
+                            //dic["Birthday"] = BirthdayDP.SelectedDateFormat("yyyy年MM月dd日");
                             dic["Remarks"] = RemarksTB.Text;
 
 

@@ -49,7 +49,7 @@ namespace vip.Windows.Query
             NameTB.Text = dic["Name"];
             SexCB.SelectedIndex=SexCB.Items.IndexOf(dic["Sex"]);
             PhoneTB.Text = dic["Phone"];
-            dic["Birthday"] = PhoneTB.Text.Replace(" ", "");
+            BirthdayDP.SelectedDate =Convert.ToDateTime(dic["Birdthday"]);
             RemarksTB.Text = dic["Remarks"];
 
             ScoresTB.Text = dic["Scores"];

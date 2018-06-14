@@ -14,6 +14,7 @@ namespace System.Data.SQLite
     public enum ColType
     {
         Text,
+        Date,
         DateTime,
         Integer,
         Decimal,
@@ -393,6 +394,8 @@ namespace System.Data.SQLite
                         sb.Append("integer"); break;
                     case ColType.Decimal:
                         sb.Append("decimal"); break;
+                    case ColType.Date:
+                        sb.Append("date");break;
                     case ColType.DateTime:
                         sb.Append("datetime"); break;
                     case ColType.BLOB:
