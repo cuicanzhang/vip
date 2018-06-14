@@ -68,7 +68,7 @@ namespace vip.Windows.Query
                             dic["XyScore"] = xyScoreTB.Text.Replace(" ", "");
                             dic["CmScore"] = cmScoreTB.Text.Replace(" ", "");
 
-                            dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
+                            dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             dic["CreateTime"] = dic["LastModiTime"];
 
                             sh.Insert("vip", dic);

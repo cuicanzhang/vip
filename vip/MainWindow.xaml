@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip"
         mc:Ignorable="d"
-        Title="会员管理" Height="768" Width="1024">
+        Title="会员管理" Height="720" Width="1280">
     <Grid>
-        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,150,0,0" VerticalAlignment="Top" Width="996" ItemsSource="{Binding}" MouseDoubleClick="dispDataGrid_MouseDoubleClick" SelectionChanged="dispDataGrid_SelectionChanged" >
+        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,280,0,0" VerticalAlignment="Top" Width="1240" ItemsSource="{Binding}" MouseDoubleClick="dispDataGrid_MouseDoubleClick" SelectionChanged="dispDataGrid_SelectionChanged"  >
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="80" ></DataGridTextColumn>
                 <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="45" ></DataGridTextColumn>
                 <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="120" ></DataGridTextColumn>
-                <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="120" ></DataGridTextColumn>
+                <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="100" ></DataGridTextColumn>
                 <DataGridTextColumn Header="备注" Binding="{Binding Remarks}" Width="*" ></DataGridTextColumn>
 
-                <DataGridTextColumn Header="积分合计" Binding="{Binding Scores}" Width="80" ></DataGridTextColumn>
-                <DataGridTextColumn Header="太男积分" Binding="{Binding TpnManScore}" Width="80" ></DataGridTextColumn>
-                <DataGridTextColumn Header="太女积分" Binding="{Binding TpnWomanScore}" Width="80" ></DataGridTextColumn>
-                <DataGridTextColumn Header="香影积分" Binding="{Binding XyScore}" Width="80" ></DataGridTextColumn>
-                <DataGridTextColumn Header="CM  积分" Binding="{Binding CmScore}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="现有积分" Binding="{Binding Scores}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="太男消费" Binding="{Binding TpnManScore}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="太女消费" Binding="{Binding TpnWomanScore}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="香影消费" Binding="{Binding XyScore}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="CM  消费" Binding="{Binding CmScore}" Width="80" ></DataGridTextColumn>
 
-                <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}" Width="130" ></DataGridTextColumn>
-                <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}" Width="130" ></DataGridTextColumn>
+                <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}" Width="100" ></DataGridTextColumn>
+                <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}" Width="100" ></DataGridTextColumn>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu Name="rightMenu" StaysOpen="true" >
@@ -51,5 +51,29 @@
 
         <TextBox Name="serarchTB" HorizontalAlignment="Left" Height="23" Margin="116,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="11" />
         <Label Content="姓名或电话：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Name="NameTB" HorizontalAlignment="Left" Height="26" Margin="76,53,0,0" TextWrapping="Wrap" Text="名字呀" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="SexTB" HorizontalAlignment="Left" Height="26" Margin="76,83,0,0" TextWrapping="Wrap" Text="sexTB" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="26" Margin="310,85,0,0" TextWrapping="Wrap" Text="phoneTB" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="BirthdayTB" HorizontalAlignment="Left" Height="26" Margin="76,112,0,0" TextWrapping="Wrap" Text="birthdayTB" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="75" Margin="76,149,0,0" TextWrapping="Wrap" Text="备注信息内容能写多少呢啊" VerticalAlignment="Top" Width="354" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="26" Margin="310,55,0,0" TextWrapping="Wrap" Text="scoresTB" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="TpnManScoreTB" HorizontalAlignment="Left" Height="26" Margin="546,53,0,0" TextWrapping="Wrap" Text="tpnManScoreTB" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="TpnWomanScoreTB" HorizontalAlignment="Left" Height="26" Margin="544,83,0,0" TextWrapping="Wrap" Text="tpnWomanScoreTB" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="XyScoreTB" HorizontalAlignment="Left" Height="26" Margin="544,113,0,0" TextWrapping="Wrap" Text="xyScoreTB" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="CmScoreTB" HorizontalAlignment="Left" Height="26" Margin="544,143,0,0" TextWrapping="Wrap" Text="cmScoreTB" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="LastModiTime" HorizontalAlignment="Left" Height="51" Margin="546,173,0,0" TextWrapping="Wrap" Text="lastModiTime" VerticalAlignment="Top" Width="100" FontSize="16" IsReadOnly="True"/>
+        <TextBox Name="CreateTime" HorizontalAlignment="Left" Height="26" Margin="310,115,0,0" TextWrapping="Wrap" Text="createTime" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
+        <Label Content="姓名：" HorizontalAlignment="Left" Margin="20,50,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="性别：" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="手机号码：" HorizontalAlignment="Left" Margin="220,80,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="生日：" HorizontalAlignment="Left" Margin="20,110,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="现有积分：" HorizontalAlignment="Left" Margin="220,50,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="太男消费：" HorizontalAlignment="Left" Margin="456,50,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="太女消费：" HorizontalAlignment="Left" Margin="456,80,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="备注：" HorizontalAlignment="Left" Margin="20,149,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="香影消费：" HorizontalAlignment="Left" Margin="456,110,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="CM 消费：" HorizontalAlignment="Left" Margin="456,140,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="最近消费：" HorizontalAlignment="Left" Margin="456,170,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="首次消费：" HorizontalAlignment="Left" Margin="220,113,0,0" VerticalAlignment="Top" FontSize="16"/>
     </Grid>
 </Window>

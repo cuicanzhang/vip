@@ -86,7 +86,7 @@ namespace vip.Windows.Query
                                 dic["TpnWomanScore"] = tpnWomanFinalScoreLB.Content;
                                 dic["XyScore"] = xyFinalScoreLB.Content;
                                 dic["CmScore"] = cmFinalScoreLB.Content;
-                                dic["LastModiTime"] = DateTime.Now.ToLocalTime().ToString();
+                                dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                 sh.Update("vip", dic, "Phone", PhoneLB.Content);
                                 return true;
                             }

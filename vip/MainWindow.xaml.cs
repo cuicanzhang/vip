@@ -21,6 +21,9 @@ namespace vip
             //数据库初始化
             conn.Init();
 
+
+
+
         }
         void Select(string searchStr)
         {
@@ -168,7 +171,28 @@ namespace vip
 
         private void dispDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
+            if (mySelectedElement != null)
+            {
+                var dic = initDic(mySelectedElement);
+                NameTB.Text = dic["Name"];
+                SexTB.Text = dic["Sex"];
+                PhoneTB.Text=dic["Phone"];
+                BirthdayTB.Text= dic["Birthday"];
+                RemarksTB.Text=dic["Remarks"] ;
 
+                ScoresTB.Text=dic["Scores"];
+                TpnManScoreTB.Text=dic["TpnManScore"];
+                TpnWomanScoreTB.Text=dic["TpnWomanScore"];
+                XyScoreTB.Text=dic["XyScore"];
+                CmScoreTB.Text=dic["CmScore"] ;
+
+                LastModiTime.Text=dic["LastModiTime"];
+                CreateTime.Text=dic["CreateTime"];
+
+
+
+            }
         }
         private void checkNumber_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -177,6 +201,7 @@ namespace vip
                 //MessageBox.Show("请输入数字！");
             }
         }
+
 
     }
 }
