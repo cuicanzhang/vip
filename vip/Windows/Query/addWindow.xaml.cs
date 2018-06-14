@@ -24,10 +24,10 @@ namespace vip.Windows.Query
         public addWindow()
         {
             InitializeComponent();
-            //加载会员性别
+            //加载控件数据
             loadSex();
-            scoresTB.Text = "0";
-            BirthdayDP.SelectedDate= DateTime.Now.Date;
+            BirthdayDP.SelectedDate = DateTime.Now.Date;
+            // scoresTB.Text = "0";
             //tpnManScoreTB.Text = "0";
             //tpnWomanScoreTB.Text = "0";
             //xyScoreTB.Text = "0";
@@ -37,9 +37,8 @@ namespace vip.Windows.Query
         {
             SexCB.Items.Add("男");
             SexCB.Items.Add("女");
-
         }
-        private bool vipAdd()
+        private bool Add()
         {
             using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
             {
@@ -60,10 +59,8 @@ namespace vip.Windows.Query
                             dic["Name"] = NameTB.Text.Replace(" ", "");
                             dic["Sex"] = SexCB.SelectedValue;
                             dic["Phone"] = PhoneTB.Text.Replace(" ", "");
-                            dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日");
-                            //dic["Birthday"] = BirthdayDP.SelectedDateFormat("yyyy年MM月dd日");
+                            dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
                             dic["Remarks"] = RemarksTB.Text;
-
 
                             dic["Scores"] = scoresTB.Text.Replace(" ", "");
                             dic["TpnManScore"] = tpnManScoreTB.Text.Replace(" ", "");
@@ -73,6 +70,7 @@ namespace vip.Windows.Query
 
                             dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
                             dic["CreateTime"] = dic["LastModiTime"];
+
                             sh.Insert("vip", dic);
                             return true;
                         }
@@ -80,16 +78,13 @@ namespace vip.Windows.Query
                         {
                             MessageBox.Show("会员已存在");
                             return false;
-                        }
-                        
-                                             
+                        }                                             
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.ToString());
                         return false;
                     }
-
                     finally
                     {
                         conn.Close();
@@ -114,16 +109,12 @@ namespace vip.Windows.Query
 
             else
             {
-                if (vipAdd())
+                if (Add())
                 {
                     this.Close();
                     //MessageBox.Show("添加成功");
                 }
             }
-            
-        }
-        private void SexCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
             
         }
         private void checkNumber_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -133,8 +124,6 @@ namespace vip.Windows.Query
                 //MessageBox.Show("请输入数字！");
             }
         }
-        
-
         private void ScoresTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             subScore();
@@ -169,5 +158,9 @@ namespace vip.Windows.Query
                             + int.Parse(cmScore)).ToString();
         }
 
+        private void SexCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

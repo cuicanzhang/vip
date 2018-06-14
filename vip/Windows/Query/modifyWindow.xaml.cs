@@ -38,31 +38,31 @@ namespace vip.Windows.Query
         public modifyWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();
-            //加载会员性别
-            loadSex();
+            //vip初始化
+            vip.ID = dic["ID"];
             vip.Name = dic["Name"];
-            
             vip.Sex = dic["Sex"];
             vip.Phone = dic["Phone"];
             vip.Birthday = dic["Birthday"];
-            vip.Remarks = dic["Remarks"].ToString() ;
+            vip.Remarks = dic["Remarks"].ToString();
 
             //加载控件数据
             NameTB.Text = vip.Name;
+            loadSex();
             SexCB.SelectedIndex=SexCB.Items.IndexOf(vip.Sex);
             PhoneTB.Text = vip.Phone;
             BirthdayDP.SelectedDate =Convert.ToDateTime(vip.Birthday);
             RemarksTB.Text = vip.Remarks;
-
-            
             ScoresTB.Text = dic["Scores"];
             tpnManScoresTB.Text= dic["TpnManScore"];
             tpnWomanScoresTB.Text = dic["TpnWomanScore"];
             xyScoresTB.Text = dic["XyScore"];
             cmScoresTB.Text = dic["CmScore"];
+
             
+
         }
-        private bool vipModify()
+        private bool Modify()
         {
             using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
             {
@@ -73,29 +73,31 @@ namespace vip.Windows.Query
                         conn.Open();
                         cmd.Connection = conn;
                         SQLiteHelper sh = new SQLiteHelper(cmd);
-
-                        var sql = "select * from vip where (Phone='" + PhoneTB.Text.Replace(" ", "") + "')";
+                        var sql = "select * from vip where (ID<>'"+vip.ID+"' and Phone='" + PhoneTB.Text.Replace(" ", "") + "')";
                         DataTable dt = sh.Select(sql);
                         if (dt.Rows.Count == 0)
                         {
                             var dic = new Dictionary<string, object>();
-                            dic["Name"] = NameTB.Text;
-                            dic["Sex"] = SexCB.SelectedValue;
-                            dic["Phone"] = PhoneTB.Text;
-                            dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日");
-                            dic["Remarks"] = RemarksTB.Text;
-                            /*
-                                dic["Scores"] = ScoresTB.Text;
-                                dic["TpnManScore"]=tpnManScoresTB.Text ;
-                                dic["TpnWomanScore"]=tpnWomanScoresTB.Text  ;
-                                dic["XyScore"]=xyScoresTB.Text ;
-                                dic["CmScore"]=cmScoresTB.Text ;
-                                */
-
-                            //if (vipScore != ScoresTB.Text) {
-                            //       dic["LastModiTime"] = DateTime.Now.ToLongDateString().ToString();
-                            //   }
-
+                            if (vip.Name != NameTB.Text)
+                            {
+                                dic["Name"] = NameTB.Text;
+                            }
+                            if (vip.Phone != PhoneTB.Text)
+                            {
+                                dic["Phone"] = PhoneTB.Text;
+                            }
+                            if (vip.Remarks != RemarksTB.Text)
+                            {
+                                dic["Remarks"] = RemarksTB.Text;
+                            }
+                            if (vip.Sex != SexCB.SelectedValue.ToString())
+                            {
+                                dic["Sex"] = SexCB.SelectedValue;
+                            }
+                            if (vip.Birthday != BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd"))
+                            {
+                                dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
+                            }
                             sh.Update("vip", dic, "Phone", vip.Phone);
                             return true;
                         }else
@@ -103,7 +105,6 @@ namespace vip.Windows.Query
                             MessageBox.Show("会员手机号码重复");
                             return false;
                         }
-
 
                     }
                     catch (Exception ex)
@@ -129,18 +130,14 @@ namespace vip.Windows.Query
             else
             {
                 sexTemp = SexCB.SelectedValue.ToString();
-            }
-           
-            var c = PhoneTB.Text;
-            var d = BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日");
-            var ea = RemarksTB.Text;
+            }          
             if (vip.Name != NameTB.Text
                 || vip.Sex != sexTemp
                 || vip.Phone!= PhoneTB.Text
-                ||vip.Birthday!= BirthdayDP.SelectedDate.Value.ToString("yyyy年MM月dd日")
-                ||vip.Remarks!= RemarksTB.Text)
+                || vip.Birthday!= BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd")
+                || vip.Remarks!= RemarksTB.Text)
             {
-                if (vipModify())
+                if (Modify())
                 {
                     this.Close();
                     //MessageBox.Show("添加成功");
@@ -151,48 +148,12 @@ namespace vip.Windows.Query
                 this.Close();
             }          
         }
-        private void checkInput(object sender, TextCompositionEventArgs e)
-        {
-            Windows.Tools.checkInput(e);
-        }
-        private void ScoresTB_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void checkNumber_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (!Tools.isInputNumber(e))
             {
                 //MessageBox.Show("请输入数字！");
             }
-        }
-        private void PhoneTB_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (!Tools.isInputNumber(e))
-            {
-                //MessageBox.Show("请输入数字！");
-            }
-        }
-
-        private void tpnWomanScoresTB_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void tpnManScoresTB_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void xyScoresTB_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void cmScoresTB_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void tpnManScoresTB_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

@@ -19,8 +19,8 @@
 
         <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="65,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <ComboBox Name="SexCB" HorizontalAlignment="Left" Margin="65,63,0,0" VerticalAlignment="Top" Width="40" Height="22"/>
-        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="65,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" PreviewTextInput="checkInput" MaxLength="11" 
-                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="PhoneTB_PreviewKeyDown"/>
+        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="65,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLength="11" 
+                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
         <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="80" Margin="65,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
 
@@ -30,16 +30,16 @@
         <Label Name="xyScoresLB" Content="香   影    消   费：" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" FontSize="14" Grid.Column="1" Height="28" Width="120"/>
         <Label Name="cmScoresLB" Content="C    M    消   费：" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" FontSize="14" Grid.Column="1" Height="28" Width="120"/>
 
-        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" PreviewTextInput="checkInput" MaxLength="7" 
-            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="ScoresTB_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
-        <TextBox Name="tpnManScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" PreviewTextInput="checkInput" MaxLength="7" 
-                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="ScoresTB_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
-        <TextBox Name="tpnWomanScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" PreviewTextInput="checkInput" MaxLength="7" 
-            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="ScoresTB_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
-        <TextBox Name="xyScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" PreviewTextInput="checkInput" MaxLength="7" 
-            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="ScoresTB_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
-        <TextBox Name="cmScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" PreviewTextInput="checkInput" MaxLength="7" 
-            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="ScoresTB_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
+        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
+        <TextBox Name="tpnManScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
+        <TextBox Name="tpnWomanScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
+        <TextBox Name="xyScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
+        <TextBox Name="cmScoresTB" HorizontalAlignment="Left" Height="23" Margin="135,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" Grid.Column="1" IsEnabled="False"/>
 
         <Button Content="修改" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click" Height="24" Grid.Column="1"/>
         <Label Name="BirthdayLB" Content="生日：" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>

@@ -21,6 +21,7 @@ namespace vip.Windows.Query
     /// </summary>
     public partial class addScoreWindow : Window
     {
+        VipInfo vip = new VipInfo();
         public addScoreWindow()
         {
             InitializeComponent();
@@ -28,19 +29,30 @@ namespace vip.Windows.Query
         public addScoreWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();
-            NameLB.Content = dic["Name"];
-            SexLB.Content = dic["Sex"];
-            PhoneLB.Content = dic["Phone"];
-            BirthdayLB.Content = dic["Birdthday"];
-            RemarksTB.Text = dic["Remarks"];
+            //vip初始化
+            vip.ID = dic["ID"];
+            vip.Name = dic["Name"];
+            vip.Sex = dic["Sex"];
+            vip.Phone = dic["Phone"];
+            vip.Birthday = dic["Birthday"];
+            vip.Remarks = dic["Remarks"];
+            vip.Scores = dic["Scores"];
+            vip.tpnManScore = dic["TpnManScore"];
+            vip.tpnWomanScore = dic["TpnWomanScore"];
+            vip.xyScore = dic["XyScore"];
+            vip.cmScore = dic["CmScore"];
 
-            ScoresLB.Content = dic["Scores"];
-            tpnManScoreLB.Content = dic["TpnManScore"];
-            tpnWomanScoreLB.Content = dic["TpnWomanScore"];
-            xyScoreLB.Content = dic["XyScore"];
-            cmScoreLB.Content = dic["CmScore"];
-
-
+            //加载控件数据
+            NameLB.Content = vip.Name;
+            SexLB.Content = vip.Sex;
+            PhoneLB.Content = vip.Phone;
+            BirthdayLB.Content = vip.Birthday;
+            RemarksTB.Text = vip.Remarks;
+            ScoresLB.Content = vip.Scores;
+            tpnManScoreLB.Content = vip.tpnManScore;
+            tpnWomanScoreLB.Content = vip.tpnWomanScore;
+            xyScoreLB.Content = vip.xyScore;
+            cmScoreLB.Content = vip.cmScore;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -64,9 +76,6 @@ namespace vip.Windows.Query
                         //DataTable dt = sh.Select(sql);
                         //if (dt.Rows.Count != 0)
                         //{
-                        
-                        
-                        
                         if (finalScoreLB.Content.ToString() != "")
                         {
                             if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
@@ -133,10 +142,6 @@ namespace vip.Windows.Query
             }
         }
 
-        private void RemarksTB_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
         private void ScoresTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             subScore();
@@ -172,12 +177,6 @@ namespace vip.Windows.Query
             cmFinalScoreLB.Content = (int.Parse(cmScoreLB.Content.ToString()) + int.Parse(addcmScore)).ToString();
             addScoreLB.Content = (int.Parse(addtpnManScore) + int.Parse(addtpnWomanScore) + int.Parse(addxyScore) + int.Parse(addcmScore)).ToString();
             finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) + int.Parse(addScoreLB.Content.ToString())).ToString();
-            /*
-        scoresTB.Text = (int.Parse(tpnManScore)
-                        + int.Parse(tpnWomanScore)
-                        + int.Parse(xyScore)
-                        + int.Parse(cmScore)).ToString();
-                        */
         }
         private void checkNumber_PreviewKeyDown(object sender, KeyEventArgs e)
         {

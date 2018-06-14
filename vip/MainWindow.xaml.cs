@@ -22,12 +22,7 @@ namespace vip
             {
                 CreateTable("vip");
             }
-            
-
         }
-
-
-
         private bool createNewSQLiteDatabase()
         {
             config.DatabaseFile = "vip.sqlite";
@@ -194,22 +189,7 @@ namespace vip
                 DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
                 if (mySelectedElement != null)
                 {
-                    var dic = new Dictionary<string, string>();
-                    dic["Name"] = mySelectedElement[1].ToString();
-                    dic["Sex"] = mySelectedElement[2].ToString();
-                    dic["Phone"] = mySelectedElement[3].ToString();
-                    dic["Birthday"] = mySelectedElement[4].ToString();
-                    dic["Remarks"] = mySelectedElement[5].ToString();
-
-                    dic["Scores"] = mySelectedElement[6].ToString();
-                    dic["TpnManScore"] = mySelectedElement[7].ToString();
-                    dic["TpnWomanScore"] = mySelectedElement[8].ToString();
-                    dic["XyScore"] = mySelectedElement[9].ToString();
-                    dic["CmScore"] = mySelectedElement[10].ToString();
-
-                    dic["LastModiTime"] = mySelectedElement[11].ToString();                    
-                    dic["CreateTime"] = mySelectedElement[12].ToString();
-                    Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(dic);
+                    Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(initDic(mySelectedElement));
                     w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     w.Owner = this;
                     w.ShowDialog();
@@ -229,6 +209,26 @@ namespace vip
             //加载行
             e.Row.Header = e.Row.GetIndex() + 1;
         }
+        private Dictionary<string,string> initDic(DataRowView mySelectedElement)
+        {
+            var dic = new Dictionary<string, string>();
+            dic["ID"] = mySelectedElement[0].ToString();
+            dic["Name"] = mySelectedElement[1].ToString();
+            dic["Sex"] = mySelectedElement[2].ToString();
+            dic["Phone"] = mySelectedElement[3].ToString();
+            dic["Birthday"] = mySelectedElement[4].ToString();
+            dic["Remarks"] = mySelectedElement[5].ToString();
+
+            dic["Scores"] = mySelectedElement[6].ToString();
+            dic["TpnManScore"] = mySelectedElement[7].ToString();
+            dic["TpnWomanScore"] = mySelectedElement[8].ToString();
+            dic["XyScore"] = mySelectedElement[9].ToString();
+            dic["CmScore"] = mySelectedElement[10].ToString();
+
+            dic["LastModiTime"] = mySelectedElement[11].ToString();
+            dic["CreateTime"] = mySelectedElement[12].ToString();
+            return dic;
+        }
         private void addScore_CLick(object sender, RoutedEventArgs e)
         {
             try
@@ -236,22 +236,8 @@ namespace vip
                 DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
                 if (mySelectedElement != null)
                 {
-                    var dic = new Dictionary<string, string>();
-                    dic["Name"] = mySelectedElement[1].ToString();
-                    dic["Sex"] = mySelectedElement[2].ToString();
-                    dic["Phone"] = mySelectedElement[3].ToString();
-                    dic["Birdthday"] = mySelectedElement[4].ToString();
-                    dic["Remarks"] = mySelectedElement[5].ToString();
-
-                    dic["Scores"] = mySelectedElement[6].ToString();
-                    dic["TpnManScore"] = mySelectedElement[7].ToString();
-                    dic["TpnWomanScore"] = mySelectedElement[8].ToString();
-                    dic["XyScore"] = mySelectedElement[9].ToString();
-                    dic["CmScore"] = mySelectedElement[10].ToString();
-
-                    dic["LastModiTime"] = mySelectedElement[11].ToString();
-                    dic["CreateTime"] = mySelectedElement[12].ToString();
-                    Windows.Query.addScoreWindow w = new Windows.Query.addScoreWindow(dic);
+                    
+                    Windows.Query.addScoreWindow w = new Windows.Query.addScoreWindow(initDic(mySelectedElement));
                     w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     w.Owner = this;
                     w.ShowDialog();
