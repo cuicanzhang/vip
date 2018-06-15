@@ -173,7 +173,7 @@ namespace vip.Windows.Query
                 cmFinalScoreLB.Content = (int.Parse(cmScoreLB.Content.ToString()) + int.Parse(addcmScore)).ToString();
                 tempScoreDataLB.Content = (int.Parse(addtpnManScore) + int.Parse(addtpnWomanScore) + int.Parse(addxyScore) + int.Parse(addcmScore)).ToString();
                 finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) + int.Parse(tempScoreDataLB.Content.ToString())).ToString();
-            }
+            } 
             if (scoresTC.SelectedIndex == 1)
             {
                 var subScore = subScoreTB.Text.Replace(" ", "");
