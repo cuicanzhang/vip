@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="会员管理" Height="768" Width="1024">
     <Grid>
-        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,280,0,0" VerticalAlignment="Top" Width="985" ItemsSource="{Binding}" MouseDoubleClick="dispDataGrid_MouseDoubleClick" SelectionChanged="dispDataGrid_SelectionChanged"  >
+        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,280,0,0" VerticalAlignment="Top" Width="985" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged"  >
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="80" ></DataGridTextColumn>
@@ -27,8 +27,8 @@
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu Name="rightMenu" StaysOpen="true" >
-                    <MenuItem Header="修改信息" Click="dispDataGrid_MouseDoubleClick"/>
-                    <MenuItem Header="积分变动" Click="addScore_CLick"/>
+                    <MenuItem Header="修改信息" Click="modifyAction_Click"/>
+                    <MenuItem Header="积分变动" Click="changeAction_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.CellStyle>

@@ -40,8 +40,6 @@ C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.g.cs
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.g.cs
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.baml
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.g.cs
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.baml
 C:\Users\Ming\Source\Repos\vip\vip\bin\Debug\vip.exe.config
 C:\Users\Ming\Source\Repos\vip\vip\bin\Debug\vip.exe
 C:\Users\Ming\Source\Repos\vip\vip\bin\Debug\vip.pdb
@@ -67,3 +65,5 @@ C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.exe
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.pdb
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.g.cs
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.baml

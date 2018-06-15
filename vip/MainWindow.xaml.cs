@@ -92,17 +92,30 @@ namespace vip
             w.Owner = this;
             w.ShowDialog();
         }
-        private void changeScores()
+        private void menuAction(string action)
         {
             try
             {
                 DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
                 if (mySelectedElement != null)
                 {
-                    Windows.Query.addScoreWindow w = new Windows.Query.addScoreWindow(initDic(mySelectedElement));
-                    w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                    w.Owner = this;
-                    w.ShowDialog();
+                    
+                        
+                        if (action== "modify")
+                    {
+                        Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(initDic(mySelectedElement));
+                        w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                        w.Owner = this;
+                        w.ShowDialog();
+                    }
+                    if (action == "changeScore")
+                    {
+
+                        Windows.Query.changeScoreWindow w = new Windows.Query.changeScoreWindow(initDic(mySelectedElement));
+                        w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                        w.Owner = this;
+                        w.ShowDialog();
+                    }
                 }
             }
             catch (Exception ex)
@@ -114,11 +127,13 @@ namespace vip
                 dispDataGrid.SelectedItem = null;
             }
         }
-        private void dispDataGrid_MouseDoubleClick(object sender, RoutedEventArgs e)
+        private void modifyAction_Click(object sender, RoutedEventArgs e)
         {
-            changeScores();
-
-
+            menuAction("modify");
+        }
+        private void changeAction_Click(object sender, RoutedEventArgs e)
+        {
+            menuAction("changeScore");
         }
         private void dispDataFridLoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -145,14 +160,7 @@ namespace vip
             dic["CreateTime"] = mySelectedElement[12].ToString();
             return dic;
         }
-        private void addScore_CLick(object sender, RoutedEventArgs e)
-        {
-            changeScores();
-        }
-        private void subScore_CLick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("-");
-        }
+
 
         private void dispDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -174,8 +182,6 @@ namespace vip
 
                 LastModiTime.Text=dic["LastModiTime"];
                 CreateTime.Text=dic["CreateTime"];
-
-
 
             }
         }

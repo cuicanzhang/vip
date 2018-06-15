@@ -1,11 +1,11 @@
-﻿<Window x:Class="vip.Windows.Query.addScoreWindow"
+﻿<Window x:Class="vip.Windows.Query.changeScoreWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="addScoreWindow" Height="455" Width="459">
+        Title="" Height="455" Width="459">
     <Grid>
         <Label Content="积分变动" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="姓名：" HorizontalAlignment="Left" Margin="25,38,0,0" VerticalAlignment="Top" FontSize="16"/>

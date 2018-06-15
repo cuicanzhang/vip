@@ -66,8 +66,8 @@
     <Compile Include="SQLiteHelper\SQLiteHelper.cs" />
     <Compile Include="SQLiteHelper\SQLiteTable.cs" />
     <Compile Include="VipInfo.cs" />
-    <Compile Include="Windows\Query\addScoreWindow.xaml.cs">
-      <DependentUpon>addScoreWindow.xaml</DependentUpon>
+    <Compile Include="Windows\Query\changeScoreWindow.xaml.cs">
+      <DependentUpon>changeScoreWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Query\addWindow.xaml.cs">
       <DependentUpon>addWindow.xaml</DependentUpon>
@@ -88,7 +88,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Windows\Query\addScoreWindow.xaml">
+    <Page Include="Windows\Query\changeScoreWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

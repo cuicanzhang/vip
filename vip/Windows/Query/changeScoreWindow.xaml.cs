@@ -17,16 +17,16 @@ using System.Windows.Shapes;
 namespace vip.Windows.Query
 {
     /// <summary>
-    /// addScoreWindow.xaml 的交互逻辑
+    /// changeScoreWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class addScoreWindow : Window
+    public partial class changeScoreWindow : Window
     {
         VipInfo vip = new VipInfo();
-        public addScoreWindow()
+        public changeScoreWindow()
         {
             InitializeComponent();
         }
-        public addScoreWindow(Dictionary<string, string> dic)
+        public changeScoreWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();
             //vip初始化
