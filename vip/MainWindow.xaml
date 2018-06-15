@@ -27,8 +27,13 @@
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu Name="rightMenu" StaysOpen="true" >
-                    <MenuItem Header="修改信息" Click="modifyAction_Click"/>
-                    <MenuItem Header="积分变动" Click="changeAction_Click"/>
+                    <MenuItem Header="积分变动" Click="changeAction_Click" FontSize="14"/>
+                    <MenuItem Header="会员修改" Click="modifyAction_Click" FontSize="14"/>
+                    
+                    <MenuItem Header=""/>
+                    <MenuItem Header=""/>
+                    <MenuItem Header=""/>
+                    <MenuItem Header="会员删除" Click="deleteAction_Click" FontSize="14"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.CellStyle>
