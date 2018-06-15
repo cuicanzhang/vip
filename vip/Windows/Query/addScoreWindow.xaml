@@ -20,14 +20,14 @@
         <Label Name="BirthdayLB" Content="出生日期" HorizontalAlignment="Left" Margin="61,50,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Name="PhoneLB" Content="13579246810" HorizontalAlignment="Left" Margin="61,72,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Name="ScoresLB" Content="0" HorizontalAlignment="Left" Margin="309,28,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="本次积分：" HorizontalAlignment="Left" Margin="226,51,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Name="addScoreLB" Content="0" HorizontalAlignment="Left" Margin="309,50,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="tempScoreLB" Content="本次积分：" HorizontalAlignment="Left" Margin="226,51,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="tempScoreDataLB" Content="0" HorizontalAlignment="Left" Margin="309,50,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Name="finalScoreLB" Content="0" HorizontalAlignment="Left" Margin="309,72,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="备注：" HorizontalAlignment="Left" Margin="15,94,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="性别：" HorizontalAlignment="Left" Margin="151,28,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Name="SexLB" Content="男" HorizontalAlignment="Left" Margin="197,28,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TabControl Name="aa" HorizontalAlignment="Left" Height="225" Margin="10,158,0,0" VerticalAlignment="Top" Width="405">
-            <TabItem Header="新增消费">
+        <TabControl Name="scoresTC" HorizontalAlignment="Left" Height="225" Margin="10,158,0,0" VerticalAlignment="Top" Width="405"  SelectionChanged="scoresTC_SelectionChanged">
+            <TabItem Header="新增消费" TabIndex="0">
                 <Grid Background="#FFE5E5E5">
                     <Label Content="太男" HorizontalAlignment="Left" Margin="25,46,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <Label Content="太女" HorizontalAlignment="Left" Margin="25,71,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -56,8 +56,13 @@
                     <Button Content="确认" HorizontalAlignment="Left" Margin="152,169,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="积分兑换">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="积分兑换" TabIndex="1">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="兑换积分" HorizontalAlignment="Left" Margin="52,66,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+                    <TextBox x:Name="subScoreTB" HorizontalAlignment="Left" Height="23" Margin="151,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
+                        InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="259,71,0,0" VerticalAlignment="Top" Width="75"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

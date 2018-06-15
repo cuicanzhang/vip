@@ -60,7 +60,7 @@ namespace vip.Windows.Query
             
         }
 
-        private bool addScore()
+        private bool changeScores()
         {
             using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
             {
@@ -108,11 +108,6 @@ namespace vip.Windows.Query
             }
         }
 
-        private void checkInput(object sender, TextCompositionEventArgs e)
-        {
-            Windows.Tools.checkInput(e);
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (tpnManFinalScoreLB.Content.ToString()!="0"
@@ -120,7 +115,7 @@ namespace vip.Windows.Query
                 || xyFinalScoreLB.Content.ToString() != "0"
                 || cmFinalScoreLB.Content.ToString() != "0")
             {
-                if (addScore())
+                if (changeScores())
                 {
                     this.Close();
                     //MessageBox.Show("添加成功");
@@ -144,39 +139,62 @@ namespace vip.Windows.Query
 
         private void ScoresTB_TextChanged(object sender, TextChangedEventArgs e)
         {
-            subScore();
+            addScore();
         }
-        private void subScore()
+        private void addScore()
         {
-            var addtpnManScore= addtpnManScoreTB.Text.Replace(" ", "");
-            var addtpnWomanScore = addtpnWomanScoreTB.Text.Replace(" ", "");
-            var addxyScore = addxyScoreTB.Text.Replace(" ", "");
-            var addcmScore = addcmScoreTB.Text.Replace(" ", "");
-            
+            if (scoresTC.SelectedIndex == 0)
+            {
+                var addtpnManScore = addtpnManScoreTB.Text.Replace(" ", "");
+                var addtpnWomanScore = addtpnWomanScoreTB.Text.Replace(" ", "");
+                var addxyScore = addxyScoreTB.Text.Replace(" ", "");
+                var addcmScore = addcmScoreTB.Text.Replace(" ", "");
 
-            if (addtpnManScore == "")
-            {
-                addtpnManScore = "0";
+                if (addtpnManScore == "")
+                {
+                    addtpnManScore = "0";
+                }
+                if (addtpnWomanScore == "")
+                {
+                    addtpnWomanScore = "0";
+                }
+                if (addxyScore == "")
+                {
+                    addxyScore = "0";
+                }
+                if (addcmScore == "")
+                {
+                    addcmScore = "0";
+                }
+
+                tpnManFinalScoreLB.Content = (int.Parse(tpnManScoreLB.Content.ToString()) + int.Parse(addtpnManScore)).ToString();
+                tpnWomanFinalScoreLB.Content = (int.Parse(tpnWomanScoreLB.Content.ToString()) + int.Parse(addtpnWomanScore)).ToString();
+                xyFinalScoreLB.Content = (int.Parse(xyScoreLB.Content.ToString()) + int.Parse(addxyScore)).ToString();
+                cmFinalScoreLB.Content = (int.Parse(cmScoreLB.Content.ToString()) + int.Parse(addcmScore)).ToString();
+                tempScoreDataLB.Content = (int.Parse(addtpnManScore) + int.Parse(addtpnWomanScore) + int.Parse(addxyScore) + int.Parse(addcmScore)).ToString();
+                finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) + int.Parse(tempScoreDataLB.Content.ToString())).ToString();
             }
-            if (addtpnWomanScore == "")
+            if (scoresTC.SelectedIndex == 1)
             {
-                addtpnWomanScore = "0";
+                var subScore = subScoreTB.Text.Replace(" ", "");
+                if (subScore == "")
+                {
+                    subScore = "0";
+                }
+                if (int.Parse(subScore)<= int.Parse(ScoresLB.Content.ToString()))
+                {
+                    tempScoreDataLB.Content = (int.Parse(subScore)).ToString();
+                    finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) - int.Parse(subScore)).ToString();
+                }
+                else
+                {
+                    subScoreTB.Text = ScoresLB.Content.ToString();
+                }
+                
             }
-            if (addxyScore == "")
-            {
-                addxyScore = "0";
-            }
-            if (addcmScore == "")
-            {
-                addcmScore = "0";
-            }
-            
-            tpnManFinalScoreLB.Content = (int.Parse(tpnManScoreLB.Content.ToString()) + int.Parse(addtpnManScore)).ToString();
-            tpnWomanFinalScoreLB.Content = (int.Parse(tpnWomanScoreLB.Content.ToString()) + int.Parse(addtpnWomanScore)).ToString();
-            xyFinalScoreLB.Content = (int.Parse(xyScoreLB.Content.ToString()) + int.Parse(addxyScore)).ToString();
-            cmFinalScoreLB.Content = (int.Parse(cmScoreLB.Content.ToString()) + int.Parse(addcmScore)).ToString();
-            addScoreLB.Content = (int.Parse(addtpnManScore) + int.Parse(addtpnWomanScore) + int.Parse(addxyScore) + int.Parse(addcmScore)).ToString();
-            finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) + int.Parse(addScoreLB.Content.ToString())).ToString();
+
+
+
         }
         private void checkNumber_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -184,6 +202,38 @@ namespace vip.Windows.Query
             {
                 //MessageBox.Show("请输入数字！");
             }
+        }
+
+        private void scoresTC_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (scoresTC.SelectedIndex == 1 )
+            {
+                tempScoreLB.Content = "兑换积分";
+                if (addtpnManScoreTB.Text != "" || addtpnWomanScoreTB.Text != "" || addxyScoreTB.Text != "" || addcmScoreTB.Text != "")
+                {
+                    addtpnManScoreTB.Text = "";
+                    addtpnWomanScoreTB.Text = "";
+                    addxyScoreTB.Text = "";
+                    addcmScoreTB.Text = "";
+                    tpnManFinalScoreLB.Content = "";
+                    tpnWomanFinalScoreLB.Content = "";
+                    xyFinalScoreLB.Content = "";
+                    cmFinalScoreLB.Content = "";
+                    tempScoreDataLB.Content = "";
+                }                 
+            }
+
+            if (scoresTC.SelectedIndex == 0)
+            {
+                tempScoreLB.Content = "本次积分";
+                if (subScoreTB.Text != "")
+                {
+                    subScoreTB.Text = "";
+                    tempScoreDataLB.Content = "";
+                }
+                    
+            }
+
         }
     }
 
