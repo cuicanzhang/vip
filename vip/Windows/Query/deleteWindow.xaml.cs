@@ -92,11 +92,22 @@ namespace vip.Windows.Query
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Delete())
+            MessageBoxResult confirmToDel = MessageBox.Show("确认要删除:\n\n姓名："+vip.Name+"\n性别："+vip.Sex+"\n电话："+vip.Phone, "提示", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (confirmToDel == MessageBoxResult.Yes)
             {
-                this.Close();
-                //MessageBox.Show("添加成功");
+                //此处加删除的操作
+                if (Delete())
+                {
+                    this.Close();
+                    //MessageBox.Show("添加成功");
+                }
             }
+            else
+            {
+                //此处加不删除的操作
+            }
+
+            
 
         }
         private void checkNumber_PreviewKeyDown(object sender, KeyEventArgs e)
