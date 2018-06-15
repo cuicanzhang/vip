@@ -82,7 +82,20 @@ namespace System.Data.SQLite
             cmd.CommandText = "rollback";
             cmd.ExecuteNonQuery();
         }
-
+        /////////////////////
+        public DataTable Delete(string sql)
+        {
+            return Delete(sql, new List<SQLiteParameter>());
+        }
+        public DataTable Delete(string sql, IEnumerable<SQLiteParameter> parameters = null)
+        {
+            cmd.CommandText = sql;
+            SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        ///////////////////////////
         public DataTable Select(string sql)
         {
             return Select(sql, new List<SQLiteParameter>());

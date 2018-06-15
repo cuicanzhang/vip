@@ -85,38 +85,49 @@ namespace vip
             Select(serarchTB.Text);        
         }
         
-        private void addBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Windows.Query.addWindow w = new Windows.Query.addWindow();
-            w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            w.Owner = this;
-            w.ShowDialog();
-        }
+        
         private void menuAction(string action)
         {
             try
             {
-                DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
-                if (mySelectedElement != null)
-                {
-                    
-                        
-                        if (action== "modify")
+                if (action == "add")
                     {
-                        Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(initDic(mySelectedElement));
+                        Windows.Query.addWindow w = new Windows.Query.addWindow();
                         w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                         w.Owner = this;
                         w.ShowDialog();
                     }
-                    if (action == "changeScore")
+                else
+                {
+                    DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
+                    if (mySelectedElement != null)
                     {
 
-                        Windows.Query.changeScoreWindow w = new Windows.Query.changeScoreWindow(initDic(mySelectedElement));
-                        w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                        w.Owner = this;
-                        w.ShowDialog();
+
+                        if (action == "modify")
+                        {
+                            Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(initDic(mySelectedElement));
+                            w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                            w.Owner = this;
+                            w.ShowDialog();
+                        }
+                        if (action == "changeScore")
+                        {
+                            Windows.Query.changeScoreWindow w = new Windows.Query.changeScoreWindow(initDic(mySelectedElement));
+                            w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                            w.Owner = this;
+                            w.ShowDialog();
+                        }
+                        if (action == "delete")
+                        {
+                            Windows.Query.deleteWindow w = new Windows.Query.deleteWindow(initDic(mySelectedElement));
+                            w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                            w.Owner = this;
+                            w.ShowDialog();
+                        }
                     }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -127,6 +138,10 @@ namespace vip
                 dispDataGrid.SelectedItem = null;
             }
         }
+        private void addBtn_Click(object sender, RoutedEventArgs e)
+        {
+            menuAction("add");
+        }
         private void modifyAction_Click(object sender, RoutedEventArgs e)
         {
             menuAction("modify");
@@ -135,6 +150,11 @@ namespace vip
         {
             menuAction("changeScore");
         }
+        private void deleteAction_Click(object sender, RoutedEventArgs e)
+        {
+            menuAction("delete");
+        }
+        
         private void dispDataFridLoadingRow(object sender, DataGridRowEventArgs e)
         {
             //加载行

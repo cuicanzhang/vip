@@ -33,7 +33,7 @@
                     <MenuItem Header=""/>
                     <MenuItem Header=""/>
                     <MenuItem Header=""/>
-                    <MenuItem Header="会员删除" Click="deleteAction_Click" FontSize="14"/>
+                    <MenuItem Header="会员删除" Click="deleteAction_Click" FontSize="14" Foreground="Red"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.CellStyle>
@@ -78,11 +78,7 @@
         <Label Content="CM 消费：" HorizontalAlignment="Left" Margin="456,140,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="最近消费：" HorizontalAlignment="Left" Margin="456,170,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="首次消费：" HorizontalAlignment="Left" Margin="220,113,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="15,46,0,0" VerticalAlignment="Top" Width="425">
-            <Border.Background>
-                <ImageBrush/>
-            </Border.Background>
-        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="15,46,0,0" VerticalAlignment="Top" Width="425"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="450,46,0,0" VerticalAlignment="Top" Width="205"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="200" Margin="5,40,0,0" VerticalAlignment="Top" Width="660"/>
     </Grid>
