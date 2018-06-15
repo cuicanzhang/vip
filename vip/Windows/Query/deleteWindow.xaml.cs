@@ -98,6 +98,8 @@ namespace vip.Windows.Query
                 //此处加删除的操作
                 if (Delete())
                 {
+                    var mainWindow = (MainWindow)Owner;
+                    mainWindow.reload("");
                     this.Close();
                     //MessageBox.Show("添加成功");
                 }

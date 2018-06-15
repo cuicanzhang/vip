@@ -46,14 +46,12 @@ C:\Users\Ming\Source\Repos\vip\vip\bin\Debug\vip.pdb
 C:\Users\Ming\Source\Repos\vip\vip\bin\Debug\System.Data.SQLite.dll
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.csprojAssemblyReference.cache
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\MainWindow.g.cs
-C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.g.cs
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\addWindow.g.cs
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.g.cs
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\App.g.cs
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip_MarkupCompile.cache
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip_MarkupCompile.lref
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\MainWindow.baml
-C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.baml
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\addWindow.baml
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.baml
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.g.resources
@@ -69,3 +67,7 @@ C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.g
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.g.cs
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.baml
+C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.g.cs
+C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.g.cs
+C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.baml
+C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.baml

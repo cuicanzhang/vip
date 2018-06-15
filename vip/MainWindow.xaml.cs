@@ -25,7 +25,13 @@ namespace vip
 
 
         }
+        public void reload(string str)
+        {
+            Select(str);
+            //dispDataGrid.CurrentCell=("1","1");
+            //dispDataGrid_SelectionChanged;
 
+        }
         void Select(string searchStr)
         {
             using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))

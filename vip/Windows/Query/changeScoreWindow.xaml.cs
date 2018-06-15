@@ -134,6 +134,8 @@ namespace vip.Windows.Query
                 {
                     if (changeScores())
                     {
+                        var mainWindow = (MainWindow)Owner;
+                        mainWindow.reload(vip.Phone);
                         this.Close();
                         //MessageBox.Show("添加成功");
                     }
@@ -150,6 +152,8 @@ namespace vip.Windows.Query
                 {
                     if (changeScores())
                     {
+                        var mainWindow = (MainWindow)Owner;
+                        mainWindow.reload(vip.Phone);
                         this.Close();
                         //MessageBox.Show("添加成功");
                     }

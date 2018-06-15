@@ -111,6 +111,8 @@ namespace vip.Windows.Query
             {
                 if (Add())
                 {
+                    var mainWindow = (MainWindow)Owner;
+                    mainWindow.reload(PhoneTB.Text.Replace(" ", ""));
                     this.Close();
                     //MessageBox.Show("添加成功");
                 }
