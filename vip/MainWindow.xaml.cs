@@ -92,16 +92,14 @@ namespace vip
             w.Owner = this;
             w.ShowDialog();
         }
-        
-        private void dispDataGrid_MouseDoubleClick(object sender, RoutedEventArgs e)
+        private void changeScores()
         {
-
             try
             {
                 DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
                 if (mySelectedElement != null)
                 {
-                    Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(initDic(mySelectedElement));
+                    Windows.Query.addScoreWindow w = new Windows.Query.addScoreWindow(initDic(mySelectedElement));
                     w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     w.Owner = this;
                     w.ShowDialog();
@@ -114,7 +112,13 @@ namespace vip
             finally
             {
                 dispDataGrid.SelectedItem = null;
-            }         
+            }
+        }
+        private void dispDataGrid_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            changeScores();
+
+
         }
         private void dispDataFridLoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -143,26 +147,7 @@ namespace vip
         }
         private void addScore_CLick(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
-                if (mySelectedElement != null)
-                {
-                    
-                    Windows.Query.addScoreWindow w = new Windows.Query.addScoreWindow(initDic(mySelectedElement));
-                    w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                    w.Owner = this;
-                    w.ShowDialog();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                dispDataGrid.SelectedItem = null;
-            }
+            changeScores();
         }
         private void subScore_CLick(object sender, RoutedEventArgs e)
         {

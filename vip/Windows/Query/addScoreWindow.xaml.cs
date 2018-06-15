@@ -49,10 +49,12 @@ namespace vip.Windows.Query
             BirthdayLB.Content = vip.Birthday;
             RemarksTB.Text = vip.Remarks;
             ScoresLB.Content = vip.Scores;
+            finalScoreLB.Content=vip.Scores;
             tpnManScoreLB.Content = vip.tpnManScore;
             tpnWomanScoreLB.Content = vip.tpnWomanScore;
             xyScoreLB.Content = vip.xyScore;
             cmScoreLB.Content = vip.cmScore;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -76,21 +78,37 @@ namespace vip.Windows.Query
                         //DataTable dt = sh.Select(sql);
                         //if (dt.Rows.Count != 0)
                         //{
-                        if (finalScoreLB.Content.ToString() != "")
-                        {
+                        
                             if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
                             {
                                 var dic = new Dictionary<string, object>();
-                                dic["Scores"] = finalScoreLB.Content;
-                                dic["TpnManScore"] = tpnManFinalScoreLB.Content;
+                                if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
+                                {
+                                    dic["Scores"] = finalScoreLB.Content;
+                                }
+                                if (tpnManFinalScoreLB.Content.ToString() != tpnManScoreLB.Content.ToString())
+                                {
+                                    dic["TpnManScore"] = tpnManFinalScoreLB.Content;
+                                }
+                            if (tpnWomanFinalScoreLB.Content.ToString() != tpnWomanScoreLB.Content.ToString())
+                            {
                                 dic["TpnWomanScore"] = tpnWomanFinalScoreLB.Content;
+                            }
+
+                            if (xyFinalScoreLB.Content.ToString() != xyScoreLB.Content.ToString())
+                            {
                                 dic["XyScore"] = xyFinalScoreLB.Content;
+                            }
+
+                            if (cmFinalScoreLB.Content.ToString() != cmScoreLB.Content.ToString())
+                            {
                                 dic["CmScore"] = cmFinalScoreLB.Content;
+                            }
                                 dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                 sh.Update("vip", dic, "Phone", PhoneLB.Content);
                                 return true;
                             }
-                        }
+                        
                         return true;
 
                     }
@@ -110,22 +128,39 @@ namespace vip.Windows.Query
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (tpnManFinalScoreLB.Content.ToString()!="0"
-                || tpnWomanFinalScoreLB.Content.ToString() != "0"
-                || xyFinalScoreLB.Content.ToString() != "0"
-                || cmFinalScoreLB.Content.ToString() != "0")
+            if (scoresTC.SelectedIndex == 0)
             {
-                if (changeScores())
+                if (tempScoreDataLB.Content.ToString() != "0")
+                {
+                    if (changeScores())
+                    {
+                        this.Close();
+                        //MessageBox.Show("添加成功");
+                    }
+                }
+                else
                 {
                     this.Close();
-                    //MessageBox.Show("添加成功");
                 }
             }
-            else
+            if (scoresTC.SelectedIndex == 1)
             {
-                this.Close();
+                
+                if (tempScoreDataLB.Content.ToString() != "0")
+                {
+                    if (changeScores())
+                    {
+                        this.Close();
+                        //MessageBox.Show("添加成功");
+                    }
+                }
+                else
+                {
+                    this.Close();
+                }
             }
-            
+
+
         }
         
 
@@ -143,6 +178,7 @@ namespace vip.Windows.Query
         }
         private void addScore()
         {
+            
             if (scoresTC.SelectedIndex == 0)
             {
                 var addtpnManScore = addtpnManScoreTB.Text.Replace(" ", "");
@@ -226,6 +262,12 @@ namespace vip.Windows.Query
             if (scoresTC.SelectedIndex == 0)
             {
                 tempScoreLB.Content = "本次积分";
+                tpnManFinalScoreLB.Content = vip.tpnManScore;
+                tpnWomanFinalScoreLB.Content = vip.tpnWomanScore;
+                xyFinalScoreLB.Content = vip.xyScore;
+                cmFinalScoreLB.Content = vip.cmScore;
+
+
                 if (subScoreTB.Text != "")
                 {
                     subScoreTB.Text = "";
