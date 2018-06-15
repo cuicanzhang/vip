@@ -61,7 +61,7 @@
                     <Label Content="兑换积分" HorizontalAlignment="Left" Margin="52,66,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
                     <TextBox x:Name="subScoreTB" HorizontalAlignment="Left" Height="23" Margin="151,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
                         InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="259,71,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="确认兑换" HorizontalAlignment="Left" Margin="259,71,0,0" VerticalAlignment="Top" Width="75"/>
                 </Grid>
             </TabItem>
         </TabControl>
