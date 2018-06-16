@@ -7,10 +7,16 @@
         mc:Ignorable="d"
         Title="会员管理" Height="768" Width="1024" WindowStartupLocation="CenterScreen" Background="#FFA7BBFF" WindowStyle="None" AllowsTransparency="True">
     <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
-        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="15,345,0,0" VerticalAlignment="Top" Width="985" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" Background="#FF4F7EA4" BorderBrush="#FF0C00FF" Foreground="Black" OpacityMask="#FFF90D0D"  >
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+        </Grid.Background>
+        <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,310,0,0" VerticalAlignment="Top" Width="985" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" BorderBrush="Black" Foreground="Black" OpacityMask="#FFF90D0D"  >
+            <DataGrid.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+            </DataGrid.Background>
             <DataGrid.Columns>
 
-                <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="80" ></DataGridTextColumn>
+                <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="80"  ></DataGridTextColumn>
                 <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="45" ></DataGridTextColumn>
                 <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="120" ></DataGridTextColumn>
                 <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="100" ></DataGridTextColumn>
@@ -49,8 +55,8 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Button Name="findAllBtn" Content="查询" HorizontalAlignment="Left" Margin="255,78,0,0" VerticalAlignment="Top" Width="75" Click="findAllBtn_Click" FontSize="15"/>
-        <Button Name="addBtn" Content="新建" HorizontalAlignment="Left" Margin="345,78,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click" FontSize="15"/>
+        <Button Name="findAllBtn" Content="查询" HorizontalAlignment="Left" Margin="255,78,0,0" VerticalAlignment="Top" Width="75" Click="findAllBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <Button Name="addBtn" Content="新建" HorizontalAlignment="Left" Margin="345,78,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"/>
 
         <TextBox Name="serarchTB" HorizontalAlignment="Left" Height="23" Margin="121,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="11" />
         <Label Content="姓名或电话：" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -81,5 +87,6 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="20,111,0,0" VerticalAlignment="Top" Width="425"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="455,111,0,0" VerticalAlignment="Top" Width="205"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="200" Margin="10,105,0,0" VerticalAlignment="Top" Width="660"/>
+        <Button Content="退出" HorizontalAlignment="Left" Margin="920,78,0,0" VerticalAlignment="Top" Width="75" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click"/>
     </Grid>
 </Window>

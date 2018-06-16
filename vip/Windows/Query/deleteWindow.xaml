@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="" Height="275" Width="460" AllowsTransparency="True" WindowStyle="None">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+        </Grid.Background>
+
         <Label Name="NameLB_Copy" Content="删除会员" HorizontalAlignment="Left" Margin="183,6,-6,0" VerticalAlignment="Top" FontSize="18" Height="36" Width="142" Foreground="Red"/>
         <Label Name="NameLB" Content="姓名：" HorizontalAlignment="Left" Margin="18,46,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" Foreground="Red"/>
         <Label Name="SexLB" Content="性别：" HorizontalAlignment="Left" Margin="18,76,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" Foreground="Red"/>
@@ -17,7 +18,7 @@
         <Label Name="RemarksLB" Content="备注：" HorizontalAlignment="Left" Margin="18,166,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" Foreground="Red"/>
 
         <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="73,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="Red"/>
-        <ComboBox Name="SexCB" HorizontalAlignment="Left" Margin="73,79,0,0" VerticalAlignment="Top" Width="40" Height="22" IsEnabled="False" Foreground="Red"/>
+        <ComboBox Name="SexCB" HorizontalAlignment="Left" Margin="73,79,0,0" VerticalAlignment="Top" Width="40" Height="22" IsEnabled="False" Foreground="Red"  BorderBrush="{x:Null}" Background="{x:Null}"/>
         <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="73,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLength="11" 
                  InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red"/>
         <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="80" Margin="73,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="Red"/>
@@ -40,10 +41,11 @@
         <TextBox Name="cmScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
             InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red"/>
 
-        <Button Content="删除" HorizontalAlignment="Left" Margin="208,222,0,0" VerticalAlignment="Top" Width="75" FontSize="16" Click="Button_Click" Height="24" Foreground="Red"/>
+        <Button Content="删除" HorizontalAlignment="Left" Margin="240,225,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click" Foreground="Red" BorderBrush="{x:Null}" Background="{x:Null}"/>
         <Label Name="BirthdayLB" Content="生日：" HorizontalAlignment="Left" Margin="18,136,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" Foreground="Red"/>
         <DatePicker Name="BirthdayDP"  HorizontalAlignment="Left" Margin="73,139,0,0" VerticalAlignment="Top" IsEnabled="False" Foreground="Red"/>
         <Border BorderBrush="Red" BorderThickness="1" HorizontalAlignment="Left" Height="230" Margin="8,36,0,0" VerticalAlignment="Top" Width="440"/>
+        <Button Content="取消" HorizontalAlignment="Left" Margin="358,225,0,0" VerticalAlignment="Top" Width="75" FontSize="14" BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click_1"/>
 
 
 

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Canlan\Source\Repos\vip\vip\App.xaml
-61811326022
+7-1758603215
 
-19757336777
+202082634504
 16-56448100
-LoginWindow.xaml;MainWindow.xaml;Windows\Query\changeScoreWindow.xaml;Windows\Query\addWindow.xaml;Windows\Query\deleteWindow.xaml;Windows\Query\modifyWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;MsgBoxWindow.xaml;Windows\Query\changeScoreWindow.xaml;Windows\Query\addWindow.xaml;Windows\Query\deleteWindow.xaml;Windows\Query\modifyWindow.xaml;
 
 False
 

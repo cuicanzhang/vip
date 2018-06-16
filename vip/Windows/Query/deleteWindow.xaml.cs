@@ -64,8 +64,10 @@ namespace vip.Windows.Query
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult confirmToDel = MessageBox.Show("确认要删除:\n\n姓名："+vip.Name+"\n性别："+vip.Sex+"\n电话："+vip.Phone, "提示", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (confirmToDel == MessageBoxResult.Yes)
+            DialogResult  =MsgBoxWindow.Show("删除确认！", "姓名：" + vip.Name + "\n性别：" + vip.Sex + "\n电话：" + vip.Phone);
+            //MessageBoxResult confirmToDel = MessageBox.Show("确认要删除:\n\n姓名："+vip.Name+"\n性别："+vip.Sex+"\n电话："+vip.Phone, "提示", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            //if (confirmToDel == MessageBoxResult.Yes)
+            if (DialogResult == true)
             {
                 //此处加删除的操作
                 if (Core.SqlAction.DeleteVip(vip.ID))
@@ -90,6 +92,11 @@ namespace vip.Windows.Query
             {
                 //MessageBox.Show("请输入数字！");
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="登陆" Height="216" Width="359" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="#FF3399FF">
     <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+        </Grid.Background>
         <Label Content="用 户：" HorizontalAlignment="Left" Margin="65,60,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White"/>
         <Label Content="密 码：" HorizontalAlignment="Left" Margin="65,100,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White"/>
         <TextBox Name="adminNameLB" HorizontalAlignment="Left" Height="23" Margin="140,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135"/>

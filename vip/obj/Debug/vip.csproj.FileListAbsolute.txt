@@ -73,3 +73,5 @@ C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.bam
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\LoginWindow.g.cs
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\LoginWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.baml
