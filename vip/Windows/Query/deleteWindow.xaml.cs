@@ -62,41 +62,13 @@ namespace vip.Windows.Query
             
 
         }
-        private bool Delete()
-        {
-            using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
-            {
-                using (SQLiteCommand cmd = new SQLiteCommand())
-                {
-                    try
-                    {
-                        conn.Open();
-                        cmd.Connection = conn;
-                        SQLiteHelper sh = new SQLiteHelper(cmd);
-                        var sql = "DELETE FROM vip WHERE (Phone='" + PhoneTB.Text.Replace(" ", "") + "')";
-                        DataTable dt = sh.Select(sql);
-                        return true;  
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                        return false;
-                    }
-
-                    finally
-                    {
-                        conn.Close();
-                    }
-                }
-            }
-        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult confirmToDel = MessageBox.Show("确认要删除:\n\n姓名："+vip.Name+"\n性别："+vip.Sex+"\n电话："+vip.Phone, "提示", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (confirmToDel == MessageBoxResult.Yes)
             {
                 //此处加删除的操作
-                if (Delete())
+                if (Core.SqlAction.DeleteVip(vip.ID))
                 {
                     var mainWindow = (MainWindow)Owner;
                     mainWindow.reload("");

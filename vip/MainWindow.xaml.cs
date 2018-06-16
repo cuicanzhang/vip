@@ -20,6 +20,12 @@ namespace vip
             InitializeComponent();
             //数据库初始化
             conn.Init();
+            LoginWindow login = new LoginWindow();
+            login.ShowDialog();
+            if(login.DialogResult!=Convert.ToBoolean(1))
+            {
+                this.Close();
+            }
 
 
 
@@ -27,69 +33,16 @@ namespace vip
         }
         public void reload(string str)
         {
-            Select(str);
+            dispDataGrid.ItemsSource = Core.SqlAction.Select(str).DefaultView;
+            //dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
             dispDataGrid.SelectedIndex = 0;
             //dispDataGrid.Focus();
 
         }
-        void Select(string searchStr)
-        {
-            using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
-            {
-                using (SQLiteCommand cmd = new SQLiteCommand())
-                {
-                    try
-                    {
-                        conn.Open();
-                        cmd.Connection = conn;
-                        SQLiteHelper sh = new SQLiteHelper(cmd);
-                        string sql="";
-                        if (searchStr.Length == 11)
-                        {
-                            sql = "select * from vip where(Phone='" + searchStr + "')";
-                        }
-                        else if (searchStr.Length>0&&searchStr.Length < 11)
-                        {
-                            sql = "select * from vip where(Name='" + searchStr + "')";
-                        }
-                        else 
-                        {
-                            sql = "select * from vip";
-                        }
-                        DataTable dt = sh.Select(sql);
-                        /*
-                        DataRow row = dt.NewRow();
-                        
-                        row["Sex"] = 11;
-                        row["Name"] = "第三个";
-                        row["Scores"] = 333;
-                        row["Phone"] = 33333333333;
-                        row["LastModiTime"] = "11111111";
-                        row["Remarks"] = 3333333333;
-                        row["CreateTime"] = "11111111";
-                        dt.Rows.Add(row);
-                       */
-
-                        dispDataGrid.ItemsSource = dt.DefaultView;
-                        dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                    }
-                    finally
-                    {
-                        conn.Close();
-                    }
-
-                    
-                }
-            }
-        }
         private void findAllBtn_Click(object sender, RoutedEventArgs e)
         {
-            Select(serarchTB.Text);        
+            dispDataGrid.ItemsSource = Core.SqlAction.Select(serarchTB.Text).DefaultView;
+            dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
         }
         
         

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using vip.Windows;
 
 namespace vip
 {
@@ -19,6 +20,7 @@ namespace vip
                 if (TestConnection())
                 {
                     CreateTable("vip");
+                    CreateAdminTable("admin");
                     return true;
                 }
                 else
@@ -56,6 +58,50 @@ namespace vip
             {
                 MessageBox.Show(ex.ToString());
                 return false;
+            }
+        }
+        private static void CreateAdminTable(string tableName)
+        {
+            try
+            {
+                // Creating table....
+                SQLiteTable tb = new SQLiteTable(tableName);
+                tb.Columns.Add(new SQLiteColumn("ID", ColType.Integer, true, true, true, ""));
+                tb.Columns.Add(new SQLiteColumn("adminName", ColType.Text));
+                tb.Columns.Add(new SQLiteColumn("adminPass", ColType.Text));
+                tb.Columns.Add(new SQLiteColumn("adminPower", ColType.Text));
+                tb.Columns.Add(new SQLiteColumn("LastLoginTime", ColType.Text));
+                tb.Columns.Add(new SQLiteColumn("CreateTime", ColType.Text));
+
+                // Execute Table Creation
+                using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
+                {
+                    using (SQLiteCommand cmd = new SQLiteCommand())
+                    {
+                        conn.Open();
+                        cmd.Connection = conn;
+
+                        SQLiteHelper sh = new SQLiteHelper(cmd);
+
+                        sh.DropTable(tableName);
+                        sh.CreateTable(tb);
+                        ////
+                        var dic = new Dictionary<string, object>();
+                        dic["adminName"] = "admin";
+                        dic["adminPass"] = Tools.StringToMD5Hash("123456");
+                        dic["adminPower"] = "";
+                        dic["LastLoginTime"] = "";
+                        dic["CreateTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                        sh.Insert("admin", dic);
+                        ///
+                        conn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
         private static void CreateTable(string tableName)

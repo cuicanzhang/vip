@@ -62,64 +62,7 @@ namespace vip.Windows.Query
             
 
         }
-        private bool Modify()
-        {
-            using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
-            {
-                using (SQLiteCommand cmd = new SQLiteCommand())
-                {
-                    try
-                    {
-                        conn.Open();
-                        cmd.Connection = conn;
-                        SQLiteHelper sh = new SQLiteHelper(cmd);
-                        var sql = "select * from vip where (ID<>'"+vip.ID+"' and Phone='" + PhoneTB.Text.Replace(" ", "") + "')";
-                        DataTable dt = sh.Select(sql);
-                        if (dt.Rows.Count == 0)
-                        {
-                            var dic = new Dictionary<string, object>();
-                            if (vip.Name != NameTB.Text)
-                            {
-                                dic["Name"] = NameTB.Text;
-                            }
-                            if (vip.Phone != PhoneTB.Text)
-                            {
-                                dic["Phone"] = PhoneTB.Text;
-                            }
-                            if (vip.Remarks != RemarksTB.Text)
-                            {
-                                dic["Remarks"] = RemarksTB.Text;
-                            }
-                            if (vip.Sex != SexCB.SelectedValue.ToString())
-                            {
-                                dic["Sex"] = SexCB.SelectedValue;
-                            }
-                            if (vip.Birthday != BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd"))
-                            {
-                                dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
-                            }
-                            sh.Update("vip", dic, "Phone", vip.Phone);
-                            return true;
-                        }else
-                        {
-                            MessageBox.Show("会员手机号码重复");
-                            return false;
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                        return false;
-                    }
-
-                    finally
-                    {
-                        conn.Close();
-                    }
-                }
-            }
-        }
+   
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string sexTemp;
@@ -137,7 +80,29 @@ namespace vip.Windows.Query
                 || vip.Birthday!= BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd")
                 || vip.Remarks!= RemarksTB.Text)
             {
-                if (Modify())
+                var dic = new Dictionary<string, object>();
+                dic["ID"] = vip.ID;
+                if (vip.Name != NameTB.Text)
+                {
+                    dic["Name"] = NameTB.Text;
+                }
+                if (vip.Phone != PhoneTB.Text)
+                {
+                    dic["Phone"] = PhoneTB.Text;
+                }
+                if (vip.Remarks != RemarksTB.Text)
+                {
+                    dic["Remarks"] = RemarksTB.Text;
+                }
+                if (vip.Sex != SexCB.SelectedValue.ToString())
+                {
+                    dic["Sex"] = SexCB.SelectedValue;
+                }
+                if (vip.Birthday != BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd"))
+                {
+                    dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
+                }
+                if (Core.SqlAction.VipModify(dic))
                 {
                     var mainWindow = (MainWindow)Owner;
                     mainWindow.reload(PhoneTB.Text.Replace(" ", ""));

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip"
         mc:Ignorable="d"
-        Title="会员管理" Height="768" Width="1024">
+        Title="会员管理" Height="768" Width="1024" WindowStartupLocation="CenterScreen">
     <Grid>
         <DataGrid Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390" Margin="10,280,0,0" VerticalAlignment="Top" Width="985" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged"  >
             <DataGrid.Columns>

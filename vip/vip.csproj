@@ -61,6 +61,10 @@
     </ApplicationDefinition>
     <Compile Include="config.cs" />
     <Compile Include="conn.cs" />
+    <Compile Include="Core\SqlAction.cs" />
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SQLiteHelper\SQLiteColumn.cs" />
     <Compile Include="SQLiteHelper\SQLiteColumnList.cs" />
     <Compile Include="SQLiteHelper\SQLiteHelper.cs" />
@@ -79,6 +83,10 @@
       <DependentUpon>modifyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Tools.cs" />
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -38,60 +38,6 @@ namespace vip.Windows.Query
             SexCB.Items.Add("男");
             SexCB.Items.Add("女");
         }
-        private bool Add()
-        {
-            using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
-            {
-                using (SQLiteCommand cmd = new SQLiteCommand())
-                {
-                    try
-                    {
-                        conn.Open();
-                        cmd.Connection = conn;
-                        SQLiteHelper sh = new SQLiteHelper(cmd);
-                        //var sql= "select * from vip where (Name='"+ NameTB.Text+"' and Phone='"+ PhoneTB.Text+"')";
-                        var sql = "select * from vip where (Phone='" + PhoneTB.Text.Replace(" ", "") + "')";
-                        DataTable dt = sh.Select(sql);
-                        if (dt.Rows.Count == 0)
-                        {
-                            //int count = sh.ExecuteScalar<int>("select count(*) from vip;") + 1;
-                            var dic = new Dictionary<string, object>();
-                            dic["Name"] = NameTB.Text.Replace(" ", "");
-                            dic["Sex"] = SexCB.SelectedValue;
-                            dic["Phone"] = PhoneTB.Text.Replace(" ", "");
-                            dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
-                            dic["Remarks"] = RemarksTB.Text;
-
-                            dic["Scores"] = scoresTB.Text.Replace(" ", "");
-                            dic["TpnManScore"] = tpnManScoreTB.Text.Replace(" ", "");
-                            dic["TpnWomanScore"] = tpnWomanScoreTB.Text.Replace(" ", "");
-                            dic["XyScore"] = xyScoreTB.Text.Replace(" ", "");
-                            dic["CmScore"] = cmScoreTB.Text.Replace(" ", "");
-
-                            dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                            dic["CreateTime"] = dic["LastModiTime"];
-
-                            sh.Insert("vip", dic);
-                            return true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("会员已存在");
-                            return false;
-                        }                                             
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                        return false;
-                    }
-                    finally
-                    {
-                        conn.Close();
-                    }
-                }
-            }
-        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (NameTB.Text.Replace(" ", "") == "")
@@ -109,7 +55,23 @@ namespace vip.Windows.Query
 
             else
             {
-                if (Add())
+                var dic = new Dictionary<string, object>();
+                dic["Name"] = NameTB.Text.Replace(" ", "");
+                dic["Sex"] = SexCB.SelectedValue;
+                dic["Phone"] = PhoneTB.Text.Replace(" ", "");
+                dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
+                dic["Remarks"] = RemarksTB.Text;
+
+                dic["Scores"] = scoresTB.Text.Replace(" ", "");
+                dic["TpnManScore"] = tpnManScoreTB.Text.Replace(" ", "");
+                dic["TpnWomanScore"] = tpnWomanScoreTB.Text.Replace(" ", "");
+                dic["XyScore"] = xyScoreTB.Text.Replace(" ", "");
+                dic["CmScore"] = cmScoreTB.Text.Replace(" ", "");
+
+                dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                dic["CreateTime"] = dic["LastModiTime"];
+
+                if (Core.SqlAction.AddVip(dic))
                 {
                     var mainWindow = (MainWindow)Owner;
                     mainWindow.reload(PhoneTB.Text.Replace(" ", ""));

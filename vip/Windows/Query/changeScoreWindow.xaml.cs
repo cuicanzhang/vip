@@ -62,77 +62,60 @@ namespace vip.Windows.Query
             
         }
 
-        private bool changeScores()
+        private bool isChangeScores()
         {
-            using (SQLiteConnection conn = new SQLiteConnection(config.DataSource))
-            {
-                using (SQLiteCommand cmd = new SQLiteCommand())
+
+            try
+            {                     
+                if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
                 {
-                    try
+                    var dic = new Dictionary<string, object>();
+                    dic["ID"] = vip.ID;
+                    if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
                     {
-                        conn.Open();
-                        cmd.Connection = conn;
-                        SQLiteHelper sh = new SQLiteHelper(cmd);
-                        //var sql = "select ID from vip where (Name='" + vipName + "' and Phone='" + vipPhone + "')";
-                        //var sql = "select ID from vip where (Phone='" + vipPhone + "')";
-                        //DataTable dt = sh.Select(sql);
-                        //if (dt.Rows.Count != 0)
-                        //{
+                        dic["Scores"] = finalScoreLB.Content;
+                    }
+                    if (tpnManFinalScoreLB.Content.ToString() != tpnManScoreLB.Content.ToString())
+                    {
+                        dic["TpnManScore"] = tpnManFinalScoreLB.Content;
+                    }
+                    if (tpnWomanFinalScoreLB.Content.ToString() != tpnWomanScoreLB.Content.ToString())
+                    {
+                        dic["TpnWomanScore"] = tpnWomanFinalScoreLB.Content;
+                    }
+
+                    if (xyFinalScoreLB.Content.ToString() != xyScoreLB.Content.ToString())
+                    {
+                        dic["XyScore"] = xyFinalScoreLB.Content;
+                    }
+
+                    if (cmFinalScoreLB.Content.ToString() != cmScoreLB.Content.ToString())
+                    {
+                        dic["CmScore"] = cmFinalScoreLB.Content;
+                    }
+                    dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                    Core.SqlAction.ChangeScores(dic);
+                    return true;
+                    }
                         
-                            if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
-                            {
-                                var dic = new Dictionary<string, object>();
-                                if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
-                                {
-                                    dic["Scores"] = finalScoreLB.Content;
-                                }
-                                if (tpnManFinalScoreLB.Content.ToString() != tpnManScoreLB.Content.ToString())
-                                {
-                                    dic["TpnManScore"] = tpnManFinalScoreLB.Content;
-                                }
-                            if (tpnWomanFinalScoreLB.Content.ToString() != tpnWomanScoreLB.Content.ToString())
-                            {
-                                dic["TpnWomanScore"] = tpnWomanFinalScoreLB.Content;
-                            }
+                return true;
 
-                            if (xyFinalScoreLB.Content.ToString() != xyScoreLB.Content.ToString())
-                            {
-                                dic["XyScore"] = xyFinalScoreLB.Content;
-                            }
-
-                            if (cmFinalScoreLB.Content.ToString() != cmScoreLB.Content.ToString())
-                            {
-                                dic["CmScore"] = cmFinalScoreLB.Content;
-                            }
-                                dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                                sh.Update("vip", dic, "Phone", PhoneLB.Content);
-                                return true;
-                            }
-                        
-                        return true;
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                        return false;
-                    }
-
-                    finally
-                    {
-                        conn.Close();
-                    }
-                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (scoresTC.SelectedIndex == 0)
-            {
+            
                 if (tempScoreDataLB.Content.ToString() != "0")
                 {
-                    if (changeScores())
+                    if (isChangeScores())
                     {
                         var mainWindow = (MainWindow)Owner;
                         mainWindow.reload(vip.Phone);
@@ -144,25 +127,7 @@ namespace vip.Windows.Query
                 {
                     this.Close();
                 }
-            }
-            if (scoresTC.SelectedIndex == 1)
-            {
-                
-                if (tempScoreDataLB.Content.ToString() != "0")
-                {
-                    if (changeScores())
-                    {
-                        var mainWindow = (MainWindow)Owner;
-                        mainWindow.reload(vip.Phone);
-                        this.Close();
-                        //MessageBox.Show("添加成功");
-                    }
-                }
-                else
-                {
-                    this.Close();
-                }
-            }
+            
 
 
         }
