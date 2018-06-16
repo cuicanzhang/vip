@@ -5,13 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="" Height="455" Width="459">
+        Title="" Height="455" Width="459" AllowsTransparency="True" WindowStyle="None">
     <Grid>
-        <Label Content="积分变动" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+        </Grid.Background>
+        <Label Content="积 分 变 动" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" FontSize="18" Width="405" HorizontalContentAlignment="Center" FontWeight="Bold"/>
         <Label Content="姓名：" HorizontalAlignment="Left" Margin="25,38,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="生日：" HorizontalAlignment="Left" Margin="25,60,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="电话：" HorizontalAlignment="Left" Margin="25,82,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="51" Margin="75,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340" IsReadOnly="True"/>
+        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="51" Margin="83,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" IsReadOnly="True">
+            <TextBox.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+            </TextBox.Background>
+        </TextBox>
         <Border BorderBrush="Black"  BorderThickness="1" HorizontalAlignment="Left" Height="140" Margin="20,38,0,0" VerticalAlignment="Top" Width="405"/>
 
         <Label Content="现有积分：" HorizontalAlignment="Left" Margin="236,38,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -26,9 +33,12 @@
         <Label Content="备注：" HorizontalAlignment="Left" Margin="25,113,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="性别：" HorizontalAlignment="Left" Margin="161,38,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Name="SexLB" Content="男" HorizontalAlignment="Left" Margin="207,38,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TabControl Name="scoresTC" HorizontalAlignment="Left" Height="225" Margin="20,180,0,0" VerticalAlignment="Top" Width="405"  SelectionChanged="scoresTC_SelectionChanged">
+        <TabControl Name="scoresTC" HorizontalAlignment="Left" Height="225" Margin="20,180,0,0" VerticalAlignment="Top" Width="405"  SelectionChanged="scoresTC_SelectionChanged" Background="#FFABC2FF" BorderBrush="#FF2C4FB8" Foreground="#FF952C2C">
             <TabItem Header="新增消费" TabIndex="0">
-                <Grid Background="#FFE5E5E5">
+                <Grid>
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                    </Grid.Background>
                     <Label Content="太男" HorizontalAlignment="Left" Margin="25,46,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <Label Content="太女" HorizontalAlignment="Left" Margin="25,71,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <Label Content="香影" HorizontalAlignment="Left" Margin="25,96,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -38,7 +48,7 @@
                     <Label x:Name="xyScoreLB" Content="香影消费" HorizontalAlignment="Left" Margin="101,96,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
                     <Label x:Name="cmScoreLB" Content="CM 消费" HorizontalAlignment="Left" Margin="101,121,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
                     <TextBox x:Name="addtpnManScoreTB" HorizontalAlignment="Left" Height="23" Margin="200,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
-                        InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
+                        InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" Background="White"/>
                     <TextBox x:Name="addtpnWomanScoreTB" HorizontalAlignment="Left" Height="23" Margin="200,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
                         InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
                     <TextBox x:Name="addxyScoreTB" HorizontalAlignment="Left" Height="23" Margin="200,99,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
@@ -57,11 +67,15 @@
                 </Grid>
             </TabItem>
             <TabItem Header="积分兑换" TabIndex="1">
-                <Grid Background="#FFE5E5E5">
-                    <Label Content="兑换积分" HorizontalAlignment="Left" Margin="52,66,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
-                    <TextBox x:Name="subScoreTB" HorizontalAlignment="Left" Height="23" Margin="151,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
+                <Grid>
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                    </Grid.Background>
+
+                    <Label Content="兑换积分：" HorizontalAlignment="Left" Margin="45,66,0,0" VerticalAlignment="Top" FontSize="16" Width="87" FontWeight="Bold"/>
+                    <TextBox x:Name="subScoreTB" HorizontalAlignment="Left" Height="23" Margin="137,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="ScoresTB_TextChanged" MaxLength="7" 
                         InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
-                    <Button Content="确认兑换" HorizontalAlignment="Left" Margin="259,71,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                    <Button Content="确认兑换" HorizontalAlignment="Left" Margin="255,70,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" FontSize="14" FontWeight="Bold"/>
                 </Grid>
             </TabItem>
         </TabControl>

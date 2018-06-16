@@ -5,45 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="" Height="310" Width="475">
+        Title="" Height="265" Width="480" AllowsTransparency="True" WindowStyle="None">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Name="NameLB_Copy" Content="修改会员信息" HorizontalAlignment="Left" Margin="183,6,-6,0" VerticalAlignment="Top" FontSize="18" Height="36" Width="142"/>
-        <Label Name="NameLB" Content="姓名：" HorizontalAlignment="Left" Margin="18,46,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>
-        <Label Name="SexLB" Content="性别：" HorizontalAlignment="Left" Margin="18,76,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>
-        <Label Name="PhoneLB" Content="电话：" HorizontalAlignment="Left" Margin="18,106,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" />
-        <Label Name="RemarksLB" Content="备注：" HorizontalAlignment="Left" Margin="18,166,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>
+        <Label Name="NameLB_Copy" Content="修 改 会 员 信 息" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top" FontSize="18" Height="36" Width="438" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label Name="NameLB" Content="姓名：" HorizontalAlignment="Left" Margin="20,40,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>
+        <Label Name="SexLB" Content="性别：" HorizontalAlignment="Left" Margin="20,70,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>
+        <Label Name="PhoneLB" Content="电话：" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" />
+        <Label Name="RemarksLB" Content="备注：" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>
 
-        <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="73,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="SexCB" HorizontalAlignment="Left" Margin="73,79,0,0" VerticalAlignment="Top" Width="40" Height="22"/>
-        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="73,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLength="11" 
+        <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="75,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
+        <ComboBox Name="SexCB" HorizontalAlignment="Left" Margin="75,71,0,0" VerticalAlignment="Top" Width="40" Height="22"/>
+        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="75,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" MaxLength="11" 
                  InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"/>
-        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="80" Margin="73,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="80" Margin="75,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
 
 
-        <Label Name="ScoresLB" Content="当   前    积   分：" HorizontalAlignment="Left" Margin="208,46,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
-        <Label x:Name="tpnManScoresLB" Content="太平鸟男装消费：" HorizontalAlignment="Left" Margin="208,76,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
-        <Label Name="tpnWomanScoresLB" Content="太平鸟女装消费：" HorizontalAlignment="Left" Margin="208,106,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
-        <Label Name="xyScoresLB" Content="香   影    消   费：" HorizontalAlignment="Left" Margin="208,136,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
-        <Label Name="cmScoresLB" Content="C    M    消   费：" HorizontalAlignment="Left" Margin="208,166,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
+        <Label Name="ScoresLB" Content="当   前    积   分：" HorizontalAlignment="Left" Margin="225,40,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
+        <Label x:Name="tpnManScoresLB" Content="太平鸟男装消费：" HorizontalAlignment="Left" Margin="225,70,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
+        <Label Name="tpnWomanScoresLB" Content="太平鸟女装消费：" HorizontalAlignment="Left" Margin="225,100,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
+        <Label Name="xyScoresLB" Content="香   影    消   费：" HorizontalAlignment="Left" Margin="225,130,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
+        <Label Name="cmScoresLB" Content="C    M    消   费：" HorizontalAlignment="Left" Margin="225,160,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120"/>
 
-        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="355,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
             InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsEnabled="False"/>
-        <TextBox Name="tpnManScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+        <TextBox Name="tpnManScoresTB" HorizontalAlignment="Left" Height="23" Margin="355,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
                  InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsEnabled="False"/>
-        <TextBox Name="tpnWomanScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" MaxLength="7" 
+        <TextBox Name="tpnWomanScoresTB" HorizontalAlignment="Left" Height="23" Margin="355,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" MaxLength="7" 
             InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsEnabled="False"/>
-        <TextBox Name="xyScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+        <TextBox Name="xyScoresTB" HorizontalAlignment="Left" Height="23" Margin="355,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
             InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsEnabled="False"/>
-        <TextBox Name="cmScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+        <TextBox Name="cmScoresTB" HorizontalAlignment="Left" Height="23" Margin="355,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
             InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsEnabled="False"/>
 
-        <Button Content="修改" HorizontalAlignment="Left" Margin="208,222,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click" Height="24"/>
-        <Label Name="BirthdayLB" Content="生日：" HorizontalAlignment="Left" Margin="18,136,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>
-        <DatePicker Name="BirthdayDP"  HorizontalAlignment="Left" Margin="73,139,0,0" VerticalAlignment="Top"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="230" Margin="8,36,-0,0" VerticalAlignment="Top" Width="440"/>
+        <Button Content="修改" HorizontalAlignment="Left" Margin="210,214,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click" Height="24"/>
+        <Label Name="BirthdayLB" Content="生日：" HorizontalAlignment="Left" Margin="20,128,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"/>
+        <DatePicker Name="BirthdayDP"  HorizontalAlignment="Left" Margin="75,133,0,0" VerticalAlignment="Top" Width="130"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="225" Margin="10,30,0,0" VerticalAlignment="Top" Width="460"/>
 
 
 

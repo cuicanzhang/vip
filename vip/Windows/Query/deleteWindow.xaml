@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="" Height="310" Width="475">
+        Title="" Height="275" Width="460" AllowsTransparency="True" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -43,7 +43,7 @@
         <Button Content="删除" HorizontalAlignment="Left" Margin="208,222,0,0" VerticalAlignment="Top" Width="75" FontSize="16" Click="Button_Click" Height="24" Foreground="Red"/>
         <Label Name="BirthdayLB" Content="生日：" HorizontalAlignment="Left" Margin="18,136,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" Foreground="Red"/>
         <DatePicker Name="BirthdayDP"  HorizontalAlignment="Left" Margin="73,139,0,0" VerticalAlignment="Top" IsEnabled="False" Foreground="Red"/>
-        <Border BorderBrush="Red" BorderThickness="1" HorizontalAlignment="Left" Height="230" Margin="8,36,-0,0" VerticalAlignment="Top" Width="440"/>
+        <Border BorderBrush="Red" BorderThickness="1" HorizontalAlignment="Left" Height="230" Margin="8,36,0,0" VerticalAlignment="Top" Width="440"/>
 
 
 
