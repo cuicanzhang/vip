@@ -43,8 +43,20 @@ namespace vip.Windows.Query
             vip.cmScore = dic["CmScore"];
 
             //加载控件数据
-            NameLB.Content = vip.Name;
-            SexLB.Content = vip.Sex;
+            
+            if (vip.Sex == "男")
+            {
+                NameLB.Content = vip.Name + " （先生）";
+            }
+            else if (vip.Sex == "女")
+            {
+                NameLB.Content = vip.Name + " （女士）";
+            }
+            else
+            {
+                MessageBox.Show("异常");
+            }
+            //SexLB.Content = vip.Sex;
             PhoneLB.Content = vip.Phone;
             BirthdayLB.Content = vip.Birthday;
             RemarksTB.Text = vip.Remarks;
