@@ -61,8 +61,6 @@ C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.csproj.CoreCompileInputs.cache
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.csproj.CopyComplete
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.exe
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.pdb
-C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.g.cs
-C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\addScoreWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.g.cs
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.g.cs
@@ -79,3 +77,11 @@ C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\LoginWindow.g.cs
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.g.cs
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\LoginWindow.baml
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.baml
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\LoginWindow.g.cs
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.g.cs
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.g.cs
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.g.cs
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\LoginWindow.baml
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.baml
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.baml
+C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.baml
