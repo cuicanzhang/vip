@@ -17,16 +17,15 @@
             </Setter>
         </Style>
         <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#8C8E94"/>
-        <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
-
-        </LinearGradientBrush>
+        <SolidColorBrush x:Key="ButtonNormalBackground" Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+        
         <LinearGradientBrush x:Key="TabItemHotBackground" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="#EAF6FD" Offset="0.15"/>
             <GradientStop Color="#D9F0FC" Offset=".5"/>
             <GradientStop Color="#BEE6FD" Offset=".5"/>
             <GradientStop Color="#A7D9F5" Offset="1"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="TabItemSelectedBackground" Color="#F9F9F9"/>
+        <SolidColorBrush x:Key="TabItemSelectedBackground" Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
         <SolidColorBrush x:Key="TabItemHotBorderBrush" Color="#3C7FB1"/>
         <SolidColorBrush x:Key="TabItemDisabledBackground" Color="#F4F4F4"/>
         <SolidColorBrush x:Key="TabItemDisabledBorderBrush" Color="#FFC9C7BA"/>

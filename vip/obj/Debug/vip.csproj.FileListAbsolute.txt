@@ -75,3 +75,7 @@ C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\LoginWindow.g.cs
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\LoginWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.g.cs
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.baml
+C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\LoginWindow.g.cs
+C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.g.cs
+C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\LoginWindow.baml
+C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.baml
