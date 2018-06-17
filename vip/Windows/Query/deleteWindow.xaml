@@ -5,51 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows.Query"
         mc:Ignorable="d"
-        Title="" Height="275" Width="460" AllowsTransparency="True" WindowStyle="None">
+        Title="" Height="270" Width="425" AllowsTransparency="True" WindowStyle="None">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+    </Window.Background>
     <Grid>
-        <Grid.Background>
-            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
-        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="删 除 会 员" HorizontalAlignment="Center"  VerticalAlignment="Bottom"  FontSize="16" Height="31" FontWeight="Bold"   Grid.Row="0" />
+        <Button Content="取消" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="75" FontSize="14" BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click_1" Grid.Column="0" />
 
-        <Label Name="NameLB_Copy" Content="删除会员" HorizontalAlignment="Left" Margin="183,6,-6,0" VerticalAlignment="Top" FontSize="18" Height="36" Width="142" Foreground="Red"/>
-        <Label Name="NameLB" Content="姓名：" HorizontalAlignment="Left" Margin="18,46,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" Foreground="Red"/>
-        <Label Name="SexLB" Content="性别：" HorizontalAlignment="Left" Margin="18,76,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" Foreground="Red"/>
-        <Label Name="PhoneLB" Content="电话：" HorizontalAlignment="Left" Margin="18,106,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52"  Foreground="Red"/>
-        <Label Name="RemarksLB" Content="备注：" HorizontalAlignment="Left" Margin="18,166,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" Foreground="Red"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="214" VerticalAlignment="Top" Width="404" Margin="10,10,10,10" Grid.Row="1">
+            <StackPanel Margin="10,10,10,10" HorizontalAlignment="Left"  Height="auto"  Width="auto">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="52"></ColumnDefinition>
+                        <ColumnDefinition Width="135"></ColumnDefinition>
+                        <ColumnDefinition Width="95"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Name="NameLB" Content="姓名："  FontSize="14" Height="28" Width="52" Grid.Column="0" Grid.Row="0"/>
+                    <Label Name="SexLB" Content="性别："    FontSize="14" Height="28" Width="52" Grid.Column="0" Grid.Row="1"/>
+                    <Label Name="PhoneLB" Content="电话："    FontSize="14" Height="28" Width="52"  Grid.Column="0" Grid.Row="2"/>
+                    <Label Name="BirthdayLB" Content="生日："   FontSize="14" Height="28" Width="52" Grid.Column="0" Grid.Row="3"/>
+                    <Label Name="RemarksLB" Content="备注："   FontSize="14" Height="28" Width="52" Grid.Column="0" Grid.Row="4"/>
 
-        <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23" Margin="73,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="Red"/>
-        <ComboBox Name="SexCB" HorizontalAlignment="Left" Margin="73,79,0,0" VerticalAlignment="Top" Width="40" Height="22" IsEnabled="False" Foreground="Red"  BorderBrush="{x:Null}" Background="{x:Null}"/>
-        <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23" Margin="73,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLength="11" 
-                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red"/>
-        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="80" Margin="73,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="Red"/>
+                    <TextBox Name="NameTB" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="Red" Grid.Column="1" Grid.Row="0"/>
+                    <ComboBox Name="SexCB" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="40" Height="22" IsEnabled="False" Foreground="Red"  BorderBrush="{x:Null}" Background="{x:Null}" Grid.Column="1" Grid.Row="1"/>
+                    <TextBox Name="PhoneTB" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLength="11" 
+                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red" Grid.Column="1" Grid.Row="2"/>
+                    <DatePicker Name="BirthdayDP"  HorizontalAlignment="Left"  VerticalAlignment="Top" IsEnabled="False" Foreground="Red"  Grid.Column="1" Grid.Row="3"/>
+                    <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="80"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="Red"  Grid.Column="1" Grid.Row="4"/>
 
+                    <Label Name="ScoresLB" Content="当 前 积 分："  FontSize="14" Height="28" Width="95"  Grid.Column="2" Grid.Row="0"/>
+                    <Label Name="tpnManScoresLB" Content="太 男 消 费：" FontSize="14" Height="28" Width="95"  Grid.Column="2" Grid.Row="1"/>
+                    <Label Name="tpnWomanScoresLB" Content="太 女 消 费："  FontSize="14" Height="28" Width="95"  Grid.Column="2" Grid.Row="2"/>
+                    <Label Name="xyScoresLB" Content="香 影 消 费：" FontSize="14" Height="28" Width="95"  Grid.Column="2" Grid.Row="3"/>
+                    <Label Name="cmScoresLB" Content="C  M 消 费："  FontSize="14" Height="28" Width="95"  Grid.Column="2" Grid.Row="4" VerticalAlignment="Top"/>
 
-        <Label Name="ScoresLB" Content="当   前    积   分：" HorizontalAlignment="Left" Margin="208,46,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120" Foreground="Red"/>
-        <Label x:Name="tpnManScoresLB" Content="太平鸟男装消费：" HorizontalAlignment="Left" Margin="208,76,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120" Foreground="Red"/>
-        <Label Name="tpnWomanScoresLB" Content="太平鸟女装消费：" HorizontalAlignment="Left" Margin="208,106,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120" Foreground="Red"/>
-        <Label Name="xyScoresLB" Content="香   影    消   费：" HorizontalAlignment="Left" Margin="208,136,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120" Foreground="Red"/>
-        <Label Name="cmScoresLB" Content="C    M    消   费：" HorizontalAlignment="Left" Margin="208,166,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="120" Foreground="Red"/>
-
-        <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
-            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red"/>
-        <TextBox Name="tpnManScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
-                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red"/>
-        <TextBox Name="tpnWomanScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" MaxLength="7" 
-            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red"/>
-        <TextBox Name="xyScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
-            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red"/>
-        <TextBox Name="cmScoresTB" HorizontalAlignment="Left" Height="23" Margin="333,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
-            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red"/>
-
-        <Button Content="删除" HorizontalAlignment="Left" Margin="240,225,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click" Foreground="Red" BorderBrush="{x:Null}" Background="{x:Null}"/>
-        <Label Name="BirthdayLB" Content="生日：" HorizontalAlignment="Left" Margin="18,136,0,0" VerticalAlignment="Top" FontSize="14" Height="28" Width="52" Foreground="Red"/>
-        <DatePicker Name="BirthdayDP"  HorizontalAlignment="Left" Margin="73,139,0,0" VerticalAlignment="Top" IsEnabled="False" Foreground="Red"/>
-        <Border BorderBrush="Red" BorderThickness="1" HorizontalAlignment="Left" Height="230" Margin="8,36,0,0" VerticalAlignment="Top" Width="440"/>
-        <Button Content="取消" HorizontalAlignment="Left" Margin="358,225,0,0" VerticalAlignment="Top" Width="75" FontSize="14" BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click_1"/>
-
-
-
-
+                    <TextBox Name="ScoresTB" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red" Grid.Column="3" Grid.Row="0"/>
+                    <TextBox Name="tpnManScoresTB" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+                 InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red" Grid.Column="3" Grid.Row="1"/>
+                    <TextBox Name="tpnWomanScoresTB" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red" Grid.Column="3" Grid.Row="2"/>
+                    <TextBox Name="xyScoresTB" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red" Grid.Column="3" Grid.Row="3"/>
+                    <TextBox Name="cmScoresTB" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
+            InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsReadOnly="True" Foreground="Red" Grid.Column="3" Grid.Row="4"/>
+                    <Button Content="删除"  HorizontalAlignment="Right"  VerticalAlignment="Bottom"   Width="75" FontSize="14" Click="Button_Click" Foreground="Red" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Column="3" Grid.Row="4"/>
+                </Grid>
+            </StackPanel>
+        </Border>
 
     </Grid>
 </Window>

@@ -20,6 +20,15 @@ namespace vip
             InitializeComponent();
             //数据库初始化
             conn.Init();
+            /*
+            StackPanel pannel = new StackPanel();
+            Button button=new Button() { Content="button1"};
+            TextBlock textblock = new TextBlock() { Text = "TextBlock1" };
+            pannel.Children.Add(button);
+            pannel.Children.Add(textblock);
+            TabItem item = as TabItem;
+            */
+
             LoginWindow login = new LoginWindow();
             login.ShowDialog();
             if(login.DialogResult!=Convert.ToBoolean(1))
@@ -185,6 +194,21 @@ namespace vip
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
