@@ -26,9 +26,14 @@ namespace vip.Core
                 DataTable dt = sh.Select(sql);
                 if (dt.Rows.Count != 0)
                 {
+                    config.adminID = dt.Rows[0]["ID"].ToString();
+
                     var dic = new Dictionary<string, object>();
                     dic["LastLoginTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                    sh.Update("admin", dic, "adminName", adminName);
+                    sh.Update("admin", dic, "adminName", config.adminID);
+                    
+                    config.vipCount = sh.ExecuteScalar<int>("select count(*) from admin").ToString();
+
                     return true;
                 }
                 else
@@ -79,7 +84,7 @@ namespace vip.Core
         public static bool DeleteAdmin(string id)
         {
             try
-            {
+            {            
                 conn.Open();
                 cmd.Connection = conn;
                 SQLiteHelper sh = new SQLiteHelper(cmd);
@@ -118,6 +123,37 @@ namespace vip.Core
             {
                 conn.Close();
             }
+        }
+        public static DataTable SelectAdmin(string searchStr)
+        {
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                SQLiteHelper sh = new SQLiteHelper(cmd);
+                string sql = "";
+                if (searchStr.Length != 0)
+                {
+                    sql = "select * from admin where(adminName='" + searchStr + "')";
+                }
+                else
+                {
+                    sql = "select * from admin";
+                }
+                DataTable dt = sh.Select(sql);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DataTable dt = new DataTable();
+                return dt;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
         }
         public static bool AddVip(Dictionary<string,object > dic)
         {
@@ -270,37 +306,7 @@ namespace vip.Core
             }
 
         }
-        public static DataTable SelectAdmin(string searchStr)
-        {
-            try
-            {
-                conn.Open();
-                cmd.Connection = conn;
-                SQLiteHelper sh = new SQLiteHelper(cmd);
-                string sql = "";
-                if (searchStr.Length != 0)
-                {
-                    sql = "select * from admin where(adminName='" + searchStr + "')";
-                }
-                else
-                {
-                    sql = "select * from admin";
-                }
-                DataTable dt = sh.Select(sql);
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                DataTable dt = new DataTable();
-                return dt;
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-        }
+        
     }
 
 }

@@ -16,5 +16,8 @@ namespace vip
                 return string.Format("data source={0}", DatabaseFile);
             }
         }
+
+        public static string vipCount { set; get; }
+        public static string adminID { set; get; }
     }
 }

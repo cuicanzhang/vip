@@ -35,10 +35,12 @@ namespace vip
             {
                 this.Close();
             }
-
-
-
-
+            dataLoad();
+        }
+        public void dataLoad()
+        {
+            
+            vipCountLB.Content = config.vipCount;
         }
         public void reload(string str)
         {

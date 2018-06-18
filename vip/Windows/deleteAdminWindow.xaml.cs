@@ -39,13 +39,21 @@ namespace vip.Windows
         private void Button_Click(object sender, RoutedEventArgs e)
         {          
             //此处加删除的操作
-            if (Core.SqlAction.DeleteAdmin(admin.ID))
+            if (admin.ID!= config.adminID)
             {
-                var mainWindow = (MainWindow)Owner;
-                mainWindow.reloadAdmin("");
-                this.Close();
-                //MessageBox.Show("添加成功");
-            }          
+                if (Core.SqlAction.DeleteAdmin(admin.ID))
+                {
+                    var mainWindow = (MainWindow)Owner;
+                    mainWindow.reloadAdmin("");
+                    this.Close();
+                    //MessageBox.Show("添加成功");
+                }
+            }
+            else
+            {
+                MessageBox.Show("不能删除当前用户");
+            }
+                 
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {

@@ -305,6 +305,22 @@
                                 </Grid>
                             </StackPanel>
                         </Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="1" Grid.Column="2">
+                            <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="10,10,10,10"  Width="auto" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="会员总数：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="0"/>
+                                    <Label Name="vipCountLB" Content="位" HorizontalAlignment="Left" FontSize="16" Grid.Column="1" Grid.Row="0"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
                     </Grid>
 
                     <Grid Grid.Row="2">
