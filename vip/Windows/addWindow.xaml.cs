@@ -41,14 +41,9 @@ namespace vip.Windows
         }
         private void loadBirthdayDate()
         {
-            for (int i = 0;i< 12;i++)
-            {
-                birthdayMonthCB.Items.Add((i+1).ToString());
-            }
-            for (int i = 0; i < 32; i++)
-            {
-                birthdayDayCB.Items.Add((i+1).ToString());
-            }
+            birthdayMonthCB.ItemsSource=Tools.birthdayDic()["month"];
+            birthdayDayCB.ItemsSource=Tools.birthdayDic()["day"];
+           
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

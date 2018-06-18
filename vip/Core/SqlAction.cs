@@ -32,8 +32,9 @@ namespace vip.Core
                     dic["LastLoginTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     sh.Update("admin", dic, "ID", config.adminID);
                     
-                    config.vipCount = sh.ExecuteScalar<int>("select count(*) from admin").ToString();
-
+                    config.vipCount = sh.ExecuteScalar<int>("select count(*) from vip").ToString();
+                    sql = string.Format("select count(*) from vip where (Birthday='{0}')", DateTime.Now.ToString("MM月dd日"));
+                    config.vipBirthdayCount = sh.ExecuteScalar<int>(sql).ToString();
                     return true;
                 }
                 else

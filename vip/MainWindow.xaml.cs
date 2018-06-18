@@ -35,12 +35,14 @@ namespace vip
             {
                 this.Close();
             }
+            Tools.birthdayDic();
             dataLoad();
         }
         public void dataLoad()
         {
             
             vipCountLB.Content = config.vipCount;
+            vipBirthdayCountLB.Content = config.vipBirthdayCount;
         }
         public void reload(string str)
         {

@@ -55,5 +55,23 @@ namespace vip.Windows
             }
             return sb.ToString();
         }
+        public static Dictionary<string, List<string>> birthdayDic()
+        {
+            Dictionary<string, List<string>> birthdayDic = new Dictionary<string, List<string>>();
+
+            List<string> monthList = new List<string>();
+            List<string> dayList = new List<string>();
+            for (int i = 0; i < 12; i++)
+            {
+                monthList.Add((i + 1).ToString().PadLeft(2,'0'));
+            }
+            for (int i = 0; i < 31; i++)
+            {
+                dayList.Add((i + 1).ToString().PadLeft(2, '0'));
+            }
+            birthdayDic["month"] = monthList;
+            birthdayDic["day"] = dayList;
+            return birthdayDic;
+        }
     }
 }
