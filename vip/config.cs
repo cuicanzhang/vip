@@ -17,7 +17,9 @@ namespace vip
             }
         }
 
-        public static string vipCount { set; get; }
         public static string adminID { set; get; }
+        public static string vipCount { set; get; }
+        public static string vipBirthdayCount { set; get; }
+
     }
 }

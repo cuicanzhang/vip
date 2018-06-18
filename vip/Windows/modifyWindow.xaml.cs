@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,6 +34,17 @@ namespace vip.Windows
             SexCB.Items.Add("男");
             SexCB.Items.Add("女");            
         }
+        private void loadBirthdayDate()
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                birthdayMonthCB.Items.Add((i + 1).ToString());
+            }
+            for (int i = 0; i < 32; i++)
+            {
+                birthdayDayCB.Items.Add((i + 1).ToString());
+            }
+        }
         public modifyWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();
@@ -47,9 +59,15 @@ namespace vip.Windows
             //加载控件数据
             NameTB.Text = vip.Name;
             loadSex();
+            loadBirthdayDate();
             SexCB.SelectedIndex=SexCB.Items.IndexOf(vip.Sex);
             PhoneTB.Text = vip.Phone;
-            BirthdayDP.SelectedDate =Convert.ToDateTime(vip.Birthday);
+
+            Regex reg = new Regex(@"(.*)月(.*)日");
+            Match match = reg.Match(vip.Birthday);
+            birthdayMonthCB.SelectedValue = match.Groups[1].Value;
+            birthdayDayCB.SelectedValue = match.Groups[2].Value;
+            //BirthdayDP.SelectedDate =Convert.ToDateTime(vip.Birthday);
             RemarksTB.Text = vip.Remarks;
             ScoresTB.Text = dic["Scores"];
             tpnManScoresTB.Text= dic["TpnManScore"];
@@ -72,7 +90,7 @@ namespace vip.Windows
             if (vip.Name != NameTB.Text
                 || vip.Sex != sexTemp
                 || vip.Phone!= PhoneTB.Text
-                || vip.Birthday!= BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd")
+                || vip.Birthday!= birthdayMonthCB.SelectedValue + "月" + birthdayDayCB.SelectedValue + "日"
                 || vip.Remarks!= RemarksTB.Text)
             {
                 var dic = new Dictionary<string, object>();
@@ -93,9 +111,9 @@ namespace vip.Windows
                 {
                     dic["Sex"] = SexCB.SelectedValue;
                 }
-                if (vip.Birthday != BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd"))
+                if (vip.Birthday != birthdayMonthCB.SelectedValue + "月" + birthdayDayCB.SelectedValue + "日")
                 {
-                    dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
+                    dic["Birthday"] = birthdayMonthCB.SelectedValue + "月" + birthdayDayCB.SelectedValue + "日";
                 }
                 if (Core.SqlAction.VipModify(dic))
                 {

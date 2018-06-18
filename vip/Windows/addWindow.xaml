@@ -35,13 +35,32 @@
                     </Grid.ColumnDefinitions>
                     <Label Name="NameLB" Content="姓名："  FontSize="14" Height="28" Width="52" Grid.Column="0" Grid.Row="0"/>
                     <Label Name="SexLB" Content="性别："    FontSize="14" Height="28" Width="52" Grid.Column="0" Grid.Row="1"/>
-                    <Label Name="PhoneLB" Content="电话："    FontSize="14" Height="28" Width="52"  Grid.Column="0" Grid.Row="2"/>
-                    <Label Name="BirthdayLB" Content="生日："   FontSize="14" Height="28" Width="52" Grid.Column="0" Grid.Row="3"/>
+                    <Label Name="PhoneLB" Content="电话："    FontSize="14" Height="28" Width="52"  Grid.Column="0" Grid.Row="3"/>
+                    <Label Name="BirthdayLB" Content="生日："   FontSize="14" Height="28" Width="52" Grid.Column="0" Grid.Row="2"/>
                     <Label Name="RemarksLB" Content="备注："   FontSize="14" Height="28" Width="52" Grid.Column="0" Grid.Row="4"/>
 
                     <TextBox Name="NameTB" Height="23"  TextWrapping="Wrap"  Width="135"  Grid.Column="1" Grid.Row="0"/>
                     <ComboBox Name="SexCB"  HorizontalAlignment="Left" Width="40" SelectionChanged="SexCB_SelectionChanged" Height="22"  BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Column="1" Grid.Row="1"/>
+                    <!--
                     <DatePicker Name="BirthdayDP" Width="135"  Grid.Column="1" Grid.Row="2"/>
+                    -->
+                    <StackPanel Width="135" Grid.Column="1" Grid.Row="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ComboBox Name="birthdayMonthCB" HorizontalAlignment="Left" Width="42"  Height="22"  BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Column="0" />
+                            <Label Content="月" FontSize="14"  Height="28"  Grid.Column="1" />
+                            <ComboBox Name="birthdayDayCB"  HorizontalAlignment="Left" Width="42"  Height="22"  BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Column="2" />
+                            <Label Content="日" FontSize="14"  Height="28"  Grid.Column="3" />
+                        </Grid>
+                    </StackPanel>
                     <TextBox Name="PhoneTB"  Height="23" TextWrapping="Wrap"  Width="135" MaxLength="11" InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown"  Grid.Column="1" Grid.Row="3"/>
                     <TextBox Name="RemarksTB"  Height="80" TextWrapping="Wrap"  Width="135"  Grid.Column="1" Grid.Row="4"/>
 

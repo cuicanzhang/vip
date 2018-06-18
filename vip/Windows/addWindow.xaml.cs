@@ -26,7 +26,8 @@ namespace vip.Windows
             InitializeComponent();
             //加载控件数据
             loadSex();
-            BirthdayDP.SelectedDate = DateTime.Now.Date;
+            loadBirthdayDate();
+            //BirthdayDP.SelectedDate = DateTime.Now.Date;
             // scoresTB.Text = "0";
             //tpnManScoreTB.Text = "0";
             //tpnWomanScoreTB.Text = "0";
@@ -37,6 +38,17 @@ namespace vip.Windows
         {
             SexCB.Items.Add("男");
             SexCB.Items.Add("女");
+        }
+        private void loadBirthdayDate()
+        {
+            for (int i = 0;i< 12;i++)
+            {
+                birthdayMonthCB.Items.Add((i+1).ToString());
+            }
+            for (int i = 0; i < 32; i++)
+            {
+                birthdayDayCB.Items.Add((i+1).ToString());
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +71,8 @@ namespace vip.Windows
                 dic["Name"] = NameTB.Text.Replace(" ", "");
                 dic["Sex"] = SexCB.SelectedValue;
                 dic["Phone"] = PhoneTB.Text.Replace(" ", "");
-                dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
+                dic["Birthday"] = birthdayMonthCB.SelectedValue+"月"+birthdayDayCB.SelectedValue+"日";
+                //dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
                 dic["Remarks"] = RemarksTB.Text;
 
                 dic["Scores"] = scoresTB.Text.Replace(" ", "");

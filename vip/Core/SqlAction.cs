@@ -30,7 +30,7 @@ namespace vip.Core
 
                     var dic = new Dictionary<string, object>();
                     dic["LastLoginTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                    sh.Update("admin", dic, "adminName", config.adminID);
+                    sh.Update("admin", dic, "ID", config.adminID);
                     
                     config.vipCount = sh.ExecuteScalar<int>("select count(*) from admin").ToString();
 

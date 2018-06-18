@@ -318,6 +318,8 @@
                                     </Grid.ColumnDefinitions>
                                     <Label Content="会员总数：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="0"/>
                                     <Label Name="vipCountLB" Content="位" HorizontalAlignment="Left" FontSize="16" Grid.Column="1" Grid.Row="0"/>
+                                    <Label Content="今天生日：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="1"/>
+                                    <Label Name="vipBirthdayCountLB" Content="位" HorizontalAlignment="Left" FontSize="16" Grid.Column="1" Grid.Row="1"/>
                                 </Grid>
                             </StackPanel>
                         </Border>
