@@ -62,7 +62,7 @@ namespace vip.Windows
 
             if (dic.Count > 1)
             {
-                if (Core.SqlAction.AdminModify(dic))
+                if (Core.SqlAction.ModifyAdmin(dic))
                 {
                     var mainWindow = (MainWindow)Owner;
                     mainWindow.reloadAdmin(adminNameTB.Text.Replace(" ", ""));

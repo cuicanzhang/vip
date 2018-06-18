@@ -15,17 +15,20 @@ namespace vip.Core
         private static SQLiteConnection conn = new SQLiteConnection(config.DataSource);
         private static SQLiteCommand cmd = new SQLiteCommand();
 
-        public static bool CheckLogin(string name, string pass)
+        public static bool CheckLogin(string adminName, string pass)
         {
             try
             {
                 conn.Open();
                 cmd.Connection = conn;
                 SQLiteHelper sh = new SQLiteHelper(cmd);
-                var sql = string.Format("select * from admin where (adminName='{0}'and adminPass='{1}')", name, Tools.StringToMD5Hash(pass));
+                var sql = string.Format("select * from admin where (adminName='{0}'and adminPass='{1}')", adminName, Tools.StringToMD5Hash(pass));
                 DataTable dt = sh.Select(sql);
                 if (dt.Rows.Count != 0)
                 {
+                    var dic = new Dictionary<string, object>();
+                    dic["LastLoginTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    sh.Update("admin", dic, "adminName", adminName);
                     return true;
                 }
                 else
@@ -95,7 +98,7 @@ namespace vip.Core
                 conn.Close();
             }
         }
-        public static bool AdminModify(Dictionary<string, object> dic)
+        public static bool ModifyAdmin(Dictionary<string, object> dic)
         {
             try
             {
