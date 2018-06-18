@@ -233,8 +233,8 @@
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="姓名或电话：" HorizontalAlignment="Left"   FontSize="16" Grid.Row="0" Grid.Column="0"/>
-                                    <TextBox x:Name="serarchTB" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1"/>
-                                    <Button x:Name="findAllBtn" Content="查询" HorizontalAlignment="Left"  Width="75" Click="findAllBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
+                                    <TextBox x:Name="serarchTB" FontSize="16" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1" />
+                                    <Button x:Name="findAllBtn"  Content="查询会员" HorizontalAlignment="Left"  Width="75" Click="findAllBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
                                     <Button x:Name="addBtn" Content="新建" HorizontalAlignment="Left"  Width="75" Click="addBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Row="0" Grid.Column="3"/>
                                 </Grid>
                             </StackPanel>
@@ -319,7 +319,7 @@
                         </Grid.ColumnDefinitions>
                         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
                             <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto" Margin="2,2,2,2">
-                                <DataGrid x:Name="dispDataGrid" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390"  Width="985" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" BorderBrush="Black" Foreground="Black" OpacityMask="#FFF90D0D" Grid.Row="1"  Grid.RowSpan="2"  >
+                                <DataGrid x:Name="dispDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390"  Width="985" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" BorderBrush="Black" Foreground="Black" OpacityMask="#FFF90D0D" Grid.Row="1"  Grid.RowSpan="2"  >
                                     <DataGrid.Background>
                                         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
                                     </DataGrid.Background>
@@ -380,12 +380,50 @@
                         <RowDefinition Height="10"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                     </Grid.RowDefinitions>
-                    
-                    <DataGrid HorizontalAlignment="Left" Height="280" Grid.Row="0" VerticalAlignment="Top" Width="485"/>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto"  Width="auto" Grid.Row="0" Grid.Column="0">
+                        <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="5,5,5,5"  Width="auto">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="管理员用户名：" HorizontalAlignment="Left"   FontSize="16" Grid.Row="0" Grid.Column="0"/>
+                                <TextBox x:Name="adminSearchTB" FontSize="16" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1"/>
+                                <Button x:Name="findadminAllBtn" Content="查询" HorizontalAlignment="Left"  Width="75" Click="Button_Click_3" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
+                                <Button x:Name="addAdminBtn" Content="新建" HorizontalAlignment="Left"  Width="75" Click="addAdminBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Row="0" Grid.Column="3"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <Border BorderBrush="Black" Margin="10,5,0,5" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
+                        <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto" Margin="2,2,2,2">
+                            <DataGrid Name="dispAdminDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow"  AutoGenerateColumns="False" FontSize="16" HorizontalAlignment="Left" Height="280" VerticalAlignment="Top" Width="485">
+                                <DataGrid.Background>
+                                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                                </DataGrid.Background>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="用户名" Binding="{Binding adminName}" Width="auto"  />
+                                    <DataGridTextColumn Header="最近登录" Binding="{Binding LastLoginTime}" Width="auto"  />
+                                    <DataGridTextColumn Header="添加时间" Binding="{Binding CreateTime}" Width="auto"  />
+                                </DataGrid.Columns>
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu x:Name="adminRightMenu" StaysOpen="true" >
+                                        <MenuItem Header="管理员修改" Click="modifyAdminAction_Click" FontSize="14"/>
+                                        <MenuItem Header=""/>
+                                        <MenuItem Header=""/>
+                                        <MenuItem Header=""/>
+                                        <MenuItem Header="管理员删除" Click="deleteAdminAction_Click" FontSize="14" Foreground="Red"/>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
+                            </DataGrid>
+                        </StackPanel>
+                    </Border>
                 </Grid>
             </TabItem>
-
         </TabControl>
-        
     </Grid>
 </Window>

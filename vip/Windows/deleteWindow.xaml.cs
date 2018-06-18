@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace vip.Windows.Query
+namespace vip.Windows
 {
     /// <summary>
     /// deleteWindow.xaml 的交互逻辑
@@ -57,31 +57,21 @@ namespace vip.Windows.Query
             tpnManScoresTB.Text= dic["TpnManScore"];
             tpnWomanScoresTB.Text = dic["TpnWomanScore"];
             xyScoresTB.Text = dic["XyScore"];
-            cmScoresTB.Text = dic["CmScore"];
-
-            
+            cmScoresTB.Text = dic["CmScore"];   
 
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult  =MsgBoxWindow.Show("删除确认！", "姓名：" + vip.Name + "\n性别：" + vip.Sex + "\n电话：" + vip.Phone);
-            //MessageBoxResult confirmToDel = MessageBox.Show("确认要删除:\n\n姓名："+vip.Name+"\n性别："+vip.Sex+"\n电话："+vip.Phone, "提示", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            //if (confirmToDel == MessageBoxResult.Yes)
-            if (DialogResult == true)
+            
+            //此处加删除的操作
+            if (Core.SqlAction.DeleteVip(vip.ID))
             {
-                //此处加删除的操作
-                if (Core.SqlAction.DeleteVip(vip.ID))
-                {
-                    var mainWindow = (MainWindow)Owner;
-                    mainWindow.reload("");
-                    this.Close();
-                    //MessageBox.Show("添加成功");
-                }
+                var mainWindow = (MainWindow)Owner;
+                mainWindow.reload("");
+                this.Close();
+                //MessageBox.Show("添加成功");
             }
-            else
-            {
-                //此处加不删除的操作
-            }
+  
 
             
 

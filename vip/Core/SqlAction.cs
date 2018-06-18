@@ -43,6 +43,79 @@ namespace vip.Core
                 conn.Close();
             }
         }
+        public static bool AddAdmin(Dictionary<string, object> dic)
+        {
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                SQLiteHelper sh = new SQLiteHelper(cmd);
+                var sql = string.Format("select * from admin where (adminName='{0}')", dic["adminName"]);
+                DataTable dt = sh.Select(sql);
+                if (dt.Rows.Count == 0)
+                {
+                    sh.Insert("admin", dic);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("管理员已存在");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public static bool DeleteAdmin(string id)
+        {
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                SQLiteHelper sh = new SQLiteHelper(cmd);
+                var sql = string.Format("DELETE FROM admin WHERE (ID='{0}')", id);
+                DataTable dt = sh.Select(sql);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public static bool AdminModify(Dictionary<string, object> dic)
+        {
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                SQLiteHelper sh = new SQLiteHelper(cmd);              
+                    sh.Update("admin", dic, "ID", dic["ID"]);
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
         public static bool AddVip(Dictionary<string,object > dic)
         {
             try
@@ -178,6 +251,37 @@ namespace vip.Core
                 else
                 {
                     sql = "select * from vip";
+                }
+                DataTable dt = sh.Select(sql);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DataTable dt = new DataTable();
+                return dt;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+        public static DataTable SelectAdmin(string searchStr)
+        {
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                SQLiteHelper sh = new SQLiteHelper(cmd);
+                string sql = "";
+                if (searchStr.Length != 0)
+                {
+                    sql = "select * from admin where(adminName='" + searchStr + "')";
+                }
+                else
+                {
+                    sql = "select * from admin";
                 }
                 DataTable dt = sh.Select(sql);
                 return dt;

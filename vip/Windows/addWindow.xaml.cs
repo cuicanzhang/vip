@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace vip.Windows.Query
+namespace vip.Windows
 {
     /// <summary>
     /// addWindow.xaml 的交互逻辑

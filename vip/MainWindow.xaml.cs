@@ -46,22 +46,71 @@ namespace vip
             //dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
             dispDataGrid.SelectedIndex = 0;
             //dispDataGrid.Focus();
-
+        }
+        public void reloadAdmin(string str)
+        {
+            dispAdminDataGrid.ItemsSource = Core.SqlAction.SelectAdmin(str).DefaultView;
+            //dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
+            dispDataGrid.SelectedIndex = 0;
+            //dispDataGrid.Focus();
         }
         private void findAllBtn_Click(object sender, RoutedEventArgs e)
         {
             dispDataGrid.ItemsSource = Core.SqlAction.Select(serarchTB.Text).DefaultView;
             dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
         }
-        
-        
+
+        private void menuAdminAction(string action)
+        {
+            try
+            {
+                if (action == "addAdmin")
+                {
+                    Windows.addAdminWindow w = new Windows.addAdminWindow();
+                    w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                    w.Owner = this;
+                    w.ShowDialog();
+                }
+                else
+                {
+                    DataRowView mySelectedElement = (DataRowView)dispAdminDataGrid.SelectedItem;
+                    if (mySelectedElement != null)
+                    {
+
+                        if (action == "modifyAdmin")
+                        {
+                            Windows.modifyAdminWindow w = new Windows.modifyAdminWindow(initAdminDic(mySelectedElement));
+                            w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                            w.Owner = this;
+                            w.ShowDialog();
+                        }
+                        if (action == "deleteAdmin")
+                        {
+                            Windows.deleteAdminWindow w = new Windows.deleteAdminWindow(initAdminDic(mySelectedElement));
+                            w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                            w.Owner = this;
+                            w.ShowDialog();
+                        }                        
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                dispAdminDataGrid.SelectedItem = null;
+            }
+        }
         private void menuAction(string action)
         {
             try
             {
                 if (action == "add")
                     {
-                        Windows.Query.addWindow w = new Windows.Query.addWindow();
+                        Windows.addWindow w = new Windows.addWindow();
                         w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                         w.Owner = this;
                         w.ShowDialog();
@@ -71,29 +120,27 @@ namespace vip
                     DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
                     if (mySelectedElement != null)
                     {
-
-
                         if (action == "modify")
                         {
-                            Windows.Query.modifyWindow w = new Windows.Query.modifyWindow(initDic(mySelectedElement));
+                            Windows.modifyWindow w = new Windows.modifyWindow(initDic(mySelectedElement));
                             w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                             w.Owner = this;
                             w.ShowDialog();
                         }
                         if (action == "changeScore")
                         {
-                            Windows.Query.changeScoreWindow w = new Windows.Query.changeScoreWindow(initDic(mySelectedElement));
+                            Windows.changeScoreWindow w = new Windows.changeScoreWindow(initDic(mySelectedElement));
                             w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                             w.Owner = this;
                             w.ShowDialog();
                         }
                         if (action == "delete")
                         {
-                            Windows.Query.deleteWindow w = new Windows.Query.deleteWindow(initDic(mySelectedElement));
+                            Windows.deleteWindow w = new Windows.deleteWindow(initDic(mySelectedElement));
                             w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                             w.Owner = this;
                             w.ShowDialog();
-                        }
+                        }      
                     }
                 }
                 
@@ -106,6 +153,18 @@ namespace vip
             {
                 dispDataGrid.SelectedItem = null;
             }
+        }
+        private void addAdminBtn_Click(object sender, RoutedEventArgs e)
+        {
+            menuAdminAction("addAdmin");
+        }
+        private void modifyAdminAction_Click(object sender, RoutedEventArgs e)
+        {
+            menuAdminAction("modifyAdmin");
+        }
+        private void deleteAdminAction_Click(object sender, RoutedEventArgs e)
+        {
+            menuAdminAction("deleteAdmin");
         }
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -149,8 +208,26 @@ namespace vip
             dic["CreateTime"] = mySelectedElement[12].ToString();
             return dic;
         }
-
-
+        private Dictionary<string, string> initAdminDic(DataRowView mySelectedElement)
+        {
+            var dic = new Dictionary<string, string>();
+            dic["ID"] = mySelectedElement[0].ToString();
+            dic["adminName"] = mySelectedElement[1].ToString();
+            dic["LastLoginTime"] = mySelectedElement[4].ToString();
+            dic["CreateTime"] = mySelectedElement[5].ToString();
+            return dic;
+        }
+        private void dispAdminDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
+            if (mySelectedElement != null)
+            {
+                var dic = initDic(mySelectedElement);
+                NameTB.Text = dic["adminName"];
+                LastModiTime.Text = dic["LastLoginTime"];
+                CreateTime.Text = dic["CreateTime"];
+            }
+        }
         private void dispDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataRowView mySelectedElement = (DataRowView)dispDataGrid.SelectedItem;
@@ -208,6 +285,14 @@ namespace vip
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+                dispAdminDataGrid.ItemsSource = Core.SqlAction.SelectAdmin(adminSearchTB.Text).DefaultView;
+                dispAdminDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
 
         }
     }

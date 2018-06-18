@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminInfo.cs" />
     <Compile Include="config.cs" />
     <Compile Include="conn.cs" />
     <Compile Include="Core\SqlAction.cs" />
@@ -73,19 +74,28 @@
     <Compile Include="SQLiteHelper\SQLiteHelper.cs" />
     <Compile Include="SQLiteHelper\SQLiteTable.cs" />
     <Compile Include="VipInfo.cs" />
-    <Compile Include="Windows\Query\changeScoreWindow.xaml.cs">
+    <Compile Include="Windows\deleteAdminWindow.xaml.cs">
+      <DependentUpon>deleteAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\modifyAdminWindow.xaml.cs">
+      <DependentUpon>modifyAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\addAdminWindow.xaml.cs">
+      <DependentUpon>addAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\changeScoreWindow.xaml.cs">
       <DependentUpon>changeScoreWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Query\addWindow.xaml.cs">
+    <Compile Include="Windows\addWindow.xaml.cs">
       <DependentUpon>addWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Query\deleteWindow.xaml.cs">
+    <Compile Include="Windows\deleteWindow.xaml.cs">
       <DependentUpon>deleteWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Query\modifyWindow.xaml.cs">
+    <Compile Include="Windows\modifyWindow.xaml.cs">
       <DependentUpon>modifyWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Tools.cs" />
+    <Compile Include="Tools.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,19 +116,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Query\changeScoreWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Query\addWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Query\deleteWindow.xaml">
+    <Page Include="Windows\deleteAdminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\Query\modifyWindow.xaml">
+    <Page Include="Windows\modifyAdminWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\addAdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\changeScoreWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\addWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\deleteWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\modifyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

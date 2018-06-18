@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace vip.Windows.Query
+namespace vip.Windows
 {
     /// <summary>
     /// modifyWindow.xaml 的交互逻辑
@@ -31,10 +31,8 @@ namespace vip.Windows.Query
         private void loadSex()
         {
             SexCB.Items.Add("男");
-            SexCB.Items.Add("女");
-            
+            SexCB.Items.Add("女");            
         }
-
         public modifyWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();
@@ -58,9 +56,6 @@ namespace vip.Windows.Query
             tpnWomanScoresTB.Text = dic["TpnWomanScore"];
             xyScoresTB.Text = dic["XyScore"];
             cmScoresTB.Text = dic["CmScore"];
-
-            
-
         }
    
         private void Button_Click(object sender, RoutedEventArgs e)

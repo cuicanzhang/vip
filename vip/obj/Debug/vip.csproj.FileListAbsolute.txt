@@ -15,8 +15,6 @@ c:\users\canlan\source\repos\vip\vip\obj\Debug\vip.csproj.CopyComplete
 c:\users\canlan\source\repos\vip\vip\obj\Debug\vip.exe
 c:\users\canlan\source\repos\vip\vip\obj\Debug\vip.pdb
 c:\users\canlan\source\repos\vip\vip\bin\Debug\System.Data.SQLite.dll
-C:\Users\Canlan\source\repos\vip\vip\obj\Debug\Windows\Query\addWindow.g.cs
-C:\Users\Canlan\source\repos\vip\vip\obj\Debug\Windows\Query\addWindow.baml
 C:\Users\zhang\Source\Repos\vip\vip\bin\Debug\vip.exe.config
 C:\Users\zhang\Source\Repos\vip\vip\bin\Debug\vip.exe
 C:\Users\zhang\Source\Repos\vip\vip\bin\Debug\vip.pdb
@@ -38,8 +36,6 @@ C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\vip.exe
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\vip.pdb
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.g.cs
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.baml
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.g.cs
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\modifyWindow.baml
 C:\Users\Ming\Source\Repos\vip\vip\bin\Debug\vip.exe.config
 C:\Users\Ming\Source\Repos\vip\vip\bin\Debug\vip.exe
 C:\Users\Ming\Source\Repos\vip\vip\bin\Debug\vip.pdb
@@ -61,10 +57,6 @@ C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.csproj.CoreCompileInputs.cache
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.csproj.CopyComplete
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.exe
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\vip.pdb
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.g.cs
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.baml
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.g.cs
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.baml
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.g.cs
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.g.cs
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.baml
@@ -85,3 +77,17 @@ C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\LoginWindow.baml
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\MsgBoxWindow.baml
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\changeScoreWindow.baml
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\Query\deleteWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\changeScoreWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\addWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\deleteWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\changeScoreWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\addWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\deleteWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\addAdminWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\addAdminWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyAdminWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyAdminWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\deleteAdminWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\deleteAdminWindow.baml
