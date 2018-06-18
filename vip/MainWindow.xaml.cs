@@ -36,13 +36,14 @@ namespace vip
                 this.Close();
             }
             Tools.birthdayDic();
-            dataLoad();
+            dataReLoad();
         }
-        public void dataLoad()
+        public void dataReLoad()
         {
-            
+            Core.SqlAction.SelectBirthday();
             vipCountLB.Content = config.vipCount;
             vipBirthdayCountLB.Content = config.vipBirthdayCount;
+
         }
         public void reload(string str)
         {
@@ -50,6 +51,7 @@ namespace vip
             //dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
             dispDataGrid.SelectedIndex = 0;
             //dispDataGrid.Focus();
+            dataReLoad();
         }
         public void reloadAdmin(string str)
         {
@@ -63,7 +65,11 @@ namespace vip
             dispDataGrid.ItemsSource = Core.SqlAction.Select(serarchTB.Text).DefaultView;
             dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
         }
-
+        private void DispBirthday_Click(object sender, RoutedEventArgs e)
+        {
+            dispDataGrid.ItemsSource = Core.SqlAction.SelectBirthday().DefaultView;
+            dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
+        }
         private void menuAdminAction(string action)
         {
             try

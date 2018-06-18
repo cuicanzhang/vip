@@ -307,7 +307,34 @@ namespace vip.Core
             }
 
         }
-        
+        public static DataTable SelectBirthday()
+        {
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+
+                SQLiteHelper sh = new SQLiteHelper(cmd);
+                config.vipCount = sh.ExecuteScalar<int>("select count(*) from vip").ToString();
+                string sql = string.Format("SELECT * FROM vip WHERE (Birthday='{0}')", DateTime.Now.ToString("MM月dd日"));
+                
+
+                DataTable dt = sh.Select(sql);
+                config.vipBirthdayCount = dt.Rows.Count.ToString();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DataTable dt = new DataTable();
+                return dt;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
     }
 
 }

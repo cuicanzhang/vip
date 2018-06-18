@@ -49,6 +49,7 @@ namespace vip.Windows
                     {
                         var mainWindow = (MainWindow)Owner;
                         mainWindow.reloadAdmin(adminNameTB.Text.Replace(" ", ""));
+                        
                         this.Close();
                         //MessageBox.Show("添加成功");
                     }
