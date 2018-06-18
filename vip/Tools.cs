@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -72,6 +73,34 @@ namespace vip.Windows
             birthdayDic["month"] = monthList;
             birthdayDic["day"] = dayList;
             return birthdayDic;
+        }
+        public void CopyDirectory(string sourceDirPath, string saveDirPath)
+        {
+            try
+            {
+                if (!Directory.Exists(saveDirPath))
+                {
+                    Directory.CreateDirectory(saveDirPath);
+                }
+                string[] files = Directory.GetFiles(sourceDirPath);
+                foreach (string file in files)
+                {
+                    string pFilePath = saveDirPath + "\\" + Path.GetFileName(file);
+                    if (File.Exists(pFilePath))
+                        continue;
+                    File.Copy(file, pFilePath, true);
+                }
+
+                string[] dirs = Directory.GetDirectories(sourceDirPath);
+                foreach (string dir in dirs)
+                {
+                    CopyDirectory(dir, saveDirPath + "\\" + Path.GetFileName(dir));
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

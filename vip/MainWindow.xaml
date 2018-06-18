@@ -314,11 +314,12 @@
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="70"></ColumnDefinition>
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="会员总数：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="0"/>
                                     <Label Name="vipCountLB" Content="位" HorizontalAlignment="Left" FontSize="16" Grid.Column="1" Grid.Row="0"/>
+                                    <Button Content="查看" HorizontalAlignment="Left"  Width="75" Click="dispAllBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
                                     <Label Content="今天生日：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="1"/>
                                     <Label Name="vipBirthdayCountLB" Content="位" HorizontalAlignment="Left" FontSize="16" Grid.Column="1" Grid.Row="1"/>
                                     <Button Content="查看"  Width="50" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Click="DispBirthday_Click"  Grid.Column="2" Grid.Row="1"/>
@@ -390,7 +391,44 @@
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Header="系统设置" FontSize="25" Style="{DynamicResource TabItemStyle1}">
+            <TabItem Header="报表管理" FontSize="25" Style="{DynamicResource TabItemStyle1}">
+                <Grid>
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="10"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto"  Width="auto" Grid.Row="0" Grid.Column="0">
+                        <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="5,5,5,5"  Width="auto">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="管理员用户名：" HorizontalAlignment="Left"   FontSize="16" Grid.Row="0" Grid.Column="0"/>
+                                <TextBox  FontSize="16" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1"/>
+                                <Button  Content="查询" HorizontalAlignment="Left"  Width="75" Click="Button_Click_3" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
+                                <Button  Content="新建" HorizontalAlignment="Left"  Width="75" Click="addAdminBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Row="0" Grid.Column="3"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <Border BorderBrush="Black" Margin="10,5,0,5" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
+                        <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto" Margin="2,2,2,2">
+
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="系统管理" FontSize="25" Style="{DynamicResource TabItemStyle1}">
                 <Grid>
                     <Grid.Background>
                         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
