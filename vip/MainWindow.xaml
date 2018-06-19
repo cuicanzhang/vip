@@ -194,32 +194,215 @@
             <GradientStop Color="White" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
-    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Grid.Background>
-            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
-        </Grid.Background>
-        <Label Content="积分管理系统" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="25" Height="40" FontWeight="Bold"   Grid.Row="0" />
-        <Button Content="退出" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click" Margin="940,10,0,0"/>
-        <TabControl Name="TC" HorizontalAlignment="Left" Height="auto" Margin="10,5,0,0" Grid.Row="1" Width="1004" Style="{DynamicResource TabControlStyle1}" SelectionChanged="TabControl_SelectionChanged">
-            <TabItem Header="会员管理" FontSize="25" Style="{DynamicResource TabItemStyle1}">
-                <Grid>
-                    <Grid.Background>
-                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
-                    </Grid.Background>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="10"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
+    <Border  BorderBrush="Black" BorderThickness="2">
+        <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+            </Grid.Background>
+            <Label Content="积分管理系统" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="25" Height="40" FontWeight="Bold"   Grid.Row="0" />
+            <Button Content="X" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="40" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click" Margin="940,10,0,0"/>
+            <TabControl Name="TC" HorizontalAlignment="Left" Height="auto" Margin="5,5,5,5" Grid.Row="1" Width="1010" Style="{DynamicResource TabControlStyle1}" SelectionChanged="TabControl_SelectionChanged">
+                <TabItem Header="会员管理" FontSize="25" Style="{DynamicResource TabItemStyle1}">
+                    <Grid>
+                        <Grid.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto"  Width="auto" Grid.Row="0" Grid.Column="0">
+                                <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="5,5,5,5"  Width="auto">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="姓名或电话：" HorizontalAlignment="Left"   FontSize="16" Grid.Row="0" Grid.Column="0"/>
+                                        <TextBox x:Name="serarchTB" FontSize="16" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1" />
+                                        <Button x:Name="findAllBtn"  Content="查询会员" HorizontalAlignment="Left"  Width="75" Click="findAllBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
+                                        <Button x:Name="addBtn" Content="新建" HorizontalAlignment="Left"  Width="75" Click="addBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Row="0" Grid.Column="3"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="1" Grid.Column="0">
+                                <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="10,10,10,10" Width="auto">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="55"></ColumnDefinition>
+                                            <ColumnDefinition Width="120"></ColumnDefinition>
+                                            <ColumnDefinition Width="90"></ColumnDefinition>
+                                            <ColumnDefinition Width="120"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="姓名：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="0" Grid.Row="0" Width="58"  />
+                                        <Label Content="性别：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="0" Grid.Row="1" Width="58"  />
+                                        <Label Content="生日：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="0" Grid.Row="2" Width="58"  />
+                                        <Label Content="备注：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="0" Grid.Row="3" Width="58"  />
+                                        <TextBox Name="NameTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text="" Width="120" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="0"  />
+                                        <TextBox Name="SexTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text="" Width="120" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="1"  />
+                                        <TextBox Name="BirthdayTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="2"  />
+                                        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="79" TextWrapping="Wrap" Text="" Width="332" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" />
+                                        <Label Content="手机号码：" HorizontalAlignment="Left"  FontSize="16" Grid.Column="2" Grid.Row="0"/>
+                                        <Label Content="现有积分：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="2" Grid.Row="1"/>
+                                        <Label Content="首次消费：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="2" Grid.Row="2"/>
+                                        <TextBox x:Name="PhoneTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True"  Grid.Column="3" Grid.Row="0"/>
+                                        <TextBox x:Name="ScoresTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True"  Grid.Column="3" Grid.Row="1"/>
+                                        <TextBox x:Name="CreateTime" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True"  Grid.Column="3" Grid.Row="2"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="1" Grid.Column="1">
+                                <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="10,10,10,10"  Width="auto" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"></ColumnDefinition>
+                                            <ColumnDefinition Width="100"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="太男消费：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Content="太女消费：" HorizontalAlignment="Left"  FontSize="16" Grid.Column="0" Grid.Row="1"/>
+                                        <Label Content="香影消费：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="2"/>
+                                        <Label Content="CM 消费：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="0" Grid.Row="3"/>
+                                        <Label Content="最近消费：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="4"/>
+                                        <TextBox x:Name="TpnManScoreTB" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="0"/>
+                                        <TextBox x:Name="TpnWomanScoreTB" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="1"/>
+                                        <TextBox x:Name="XyScoreTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="2"/>
+                                        <TextBox x:Name="CmScoreTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="3"/>
+                                        <TextBox x:Name="LastModiTime" HorizontalAlignment="Left" Height="51"  TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="4"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="1" Grid.Column="2">
+                                <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="10,10,10,10"  Width="auto" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="70"></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="会员总数：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Name="vipCountLB" Content="位" HorizontalAlignment="Left" FontSize="16" Grid.Column="1" Grid.Row="0"/>
+                                        <Button Content="查看" HorizontalAlignment="Left"  Width="50" Click="dispAllBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
+                                        <Label Content="今天生日：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="1"/>
+                                        <Label Name="vipBirthdayCountLB" Content="位" HorizontalAlignment="Left" FontSize="16" Grid.Column="1" Grid.Row="1"/>
+                                        <Button Content="查看"  Width="50" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Click="DispBirthday_Click"  Grid.Column="2" Grid.Row="1"/>
+
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
+                                <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto" Margin="2,2,2,2">
+                                    <DataGrid x:Name="dispDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="380"  Width="1000" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" BorderBrush="Black" Foreground="Black" OpacityMask="#FFF90D0D" Grid.Row="1"  Grid.RowSpan="2"  >
+                                        <DataGrid.Background>
+                                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                                        </DataGrid.Background>
+                                        <DataGrid.Columns>
+
+                                            <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="80"  />
+                                            <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="45" />
+                                            <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="120" />
+                                            <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="100" />
+                                            <DataGridTextColumn Header="备注" Binding="{Binding Remarks}" Width="*" />
+
+                                            <DataGridTextColumn Header="现有积分" Binding="{Binding Scores}" Width="80" />
+                                            <DataGridTextColumn Header="太男消费" Binding="{Binding TpnManScore}" Width="80" />
+                                            <DataGridTextColumn Header="太女消费" Binding="{Binding TpnWomanScore}" Width="80" />
+                                            <DataGridTextColumn Header="香影消费" Binding="{Binding XyScore}" Width="80" />
+                                            <DataGridTextColumn Header="CM  消费" Binding="{Binding CmScore}" Width="80" />
+
+                                            <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}" Width="100" />
+                                            <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}" Width="100" />
+                                        </DataGrid.Columns>
+                                        <DataGrid.ContextMenu>
+                                            <ContextMenu x:Name="rightMenu" StaysOpen="true" >
+                                                <MenuItem Header="积分变动" Click="changeAction_Click" FontSize="14"/>
+                                                <MenuItem Header="会员修改" Click="modifyAction_Click" FontSize="14"/>
+
+                                                <MenuItem Header=""/>
+                                                <MenuItem Header=""/>
+                                                <MenuItem Header=""/>
+                                                <MenuItem Header="会员删除" Click="deleteAction_Click" FontSize="14" Foreground="Red"/>
+                                            </ContextMenu>
+                                        </DataGrid.ContextMenu>
+                                        <DataGrid.CellStyle>
+                                            <Style TargetType="{x:Type DataGridCell}">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="MinWidth" Value="85"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="Background" Value="LightBlue"/>
+                                                        <Setter Property="Foreground" Value="White"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </DataGrid.CellStyle>
+                                    </DataGrid>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="报表管理" FontSize="25" Style="{DynamicResource TabItemStyle1}">
+                    <Grid>
+                        <Grid.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
                         <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto"  Width="auto" Grid.Row="0" Grid.Column="0">
                             <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="5,5,5,5"  Width="auto">
                                 <Grid>
@@ -232,257 +415,76 @@
                                         <ColumnDefinition></ColumnDefinition>
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <Label Content="姓名或电话：" HorizontalAlignment="Left"   FontSize="16" Grid.Row="0" Grid.Column="0"/>
-                                    <TextBox x:Name="serarchTB" FontSize="16" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1" />
-                                    <Button x:Name="findAllBtn"  Content="查询会员" HorizontalAlignment="Left"  Width="75" Click="findAllBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
-                                    <Button x:Name="addBtn" Content="新建" HorizontalAlignment="Left"  Width="75" Click="addBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Row="0" Grid.Column="3"/>
+                                    <Label Content="管理员用户名：" HorizontalAlignment="Left"   FontSize="16" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox  FontSize="16" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1"/>
+                                    <Button  Content="查询" HorizontalAlignment="Left"  Width="75" Click="Button_Click_3" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
+                                    <Button  Content="新建" HorizontalAlignment="Left"  Width="75" Click="addAdminBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Row="0" Grid.Column="3"/>
                                 </Grid>
                             </StackPanel>
                         </Border>
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="1" Grid.Column="0">
-                            <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="10,10,10,10" Width="auto">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="55"></ColumnDefinition>
-                                        <ColumnDefinition Width="120"></ColumnDefinition>
-                                        <ColumnDefinition Width="90"></ColumnDefinition>
-                                        <ColumnDefinition Width="120"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="姓名：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="0" Grid.Row="0" Width="58"  />
-                                    <Label Content="性别：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="0" Grid.Row="1" Width="58"  />
-                                    <Label Content="生日：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="0" Grid.Row="2" Width="58"  />
-                                    <Label Content="备注：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="0" Grid.Row="3" Width="58"  />
-                                    <TextBox Name="NameTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text="" Width="120" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="0"  />
-                                    <TextBox Name="SexTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text="" Width="120" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="1"  />
-                                    <TextBox Name="BirthdayTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="2"  />
-                                    <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="79" TextWrapping="Wrap" Text="" Width="332" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" />
-                                    <Label Content="手机号码：" HorizontalAlignment="Left"  FontSize="16" Grid.Column="2" Grid.Row="0"/>
-                                    <Label Content="现有积分：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="2" Grid.Row="1"/>
-                                    <Label Content="首次消费：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="2" Grid.Row="2"/>
-                                    <TextBox x:Name="PhoneTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True"  Grid.Column="3" Grid.Row="0"/>
-                                    <TextBox x:Name="ScoresTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True"  Grid.Column="3" Grid.Row="1"/>
-                                    <TextBox x:Name="CreateTime" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True"  Grid.Column="3" Grid.Row="2"/>
-                                </Grid>
-                            </StackPanel>
-                        </Border>
-                        <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="1" Grid.Column="1">
-                            <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="10,10,10,10"  Width="auto" >
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="90"></ColumnDefinition>
-                                        <ColumnDefinition Width="100"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="太男消费：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="0"/>
-                                    <Label Content="太女消费：" HorizontalAlignment="Left"  FontSize="16" Grid.Column="0" Grid.Row="1"/>
-                                    <Label Content="香影消费：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="2"/>
-                                    <Label Content="CM 消费：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="0" Grid.Row="3"/>
-                                    <Label Content="最近消费：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="4"/>
-                                    <TextBox x:Name="TpnManScoreTB" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="0"/>
-                                    <TextBox x:Name="TpnWomanScoreTB" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="1"/>
-                                    <TextBox x:Name="XyScoreTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="2"/>
-                                    <TextBox x:Name="CmScoreTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="3"/>
-                                    <TextBox x:Name="LastModiTime" HorizontalAlignment="Left" Height="51"  TextWrapping="Wrap" Text=""  Width="100" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="4"/>
-                                </Grid>
-                            </StackPanel>
-                        </Border>
-                        <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="1" Grid.Column="2">
-                            <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="10,10,10,10"  Width="auto" >
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition Width="70"></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="会员总数：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="0"/>
-                                    <Label Name="vipCountLB" Content="位" HorizontalAlignment="Left" FontSize="16" Grid.Column="1" Grid.Row="0"/>
-                                    <Button Content="查看" HorizontalAlignment="Left"  Width="75" Click="dispAllBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
-                                    <Label Content="今天生日：" HorizontalAlignment="Left" FontSize="16" Grid.Column="0" Grid.Row="1"/>
-                                    <Label Name="vipBirthdayCountLB" Content="位" HorizontalAlignment="Left" FontSize="16" Grid.Column="1" Grid.Row="1"/>
-                                    <Button Content="查看"  Width="50" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Click="DispBirthday_Click"  Grid.Column="2" Grid.Row="1"/>
-
-                                </Grid>
-                            </StackPanel>
-                        </Border>
-                    </Grid>
-
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
+                        <Border BorderBrush="Black" Margin="10,5,0,5" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
                             <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto" Margin="2,2,2,2">
-                                <DataGrid x:Name="dispDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="390"  Width="985" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" BorderBrush="Black" Foreground="Black" OpacityMask="#FFF90D0D" Grid.Row="1"  Grid.RowSpan="2"  >
+
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="系统管理" FontSize="25" Style="{DynamicResource TabItemStyle1}">
+                    <Grid>
+                        <Grid.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto"  Width="auto" Grid.Row="0" Grid.Column="0">
+                            <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="5,5,5,5"  Width="auto">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="管理员用户名：" HorizontalAlignment="Left"   FontSize="16" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox x:Name="adminSearchTB" FontSize="16" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1"/>
+                                    <Button x:Name="findadminAllBtn" Content="查询" HorizontalAlignment="Left"  Width="75" Click="Button_Click_3" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
+                                    <Button x:Name="addAdminBtn" Content="新建" HorizontalAlignment="Left"  Width="75" Click="addAdminBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Row="0" Grid.Column="3"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="Black" Margin="10,5,0,5" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
+                            <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto" Margin="2,2,2,2">
+                                <DataGrid Name="dispAdminDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow"  AutoGenerateColumns="False" FontSize="16" HorizontalAlignment="Left" Height="280" VerticalAlignment="Top" Width="485">
                                     <DataGrid.Background>
                                         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
                                     </DataGrid.Background>
                                     <DataGrid.Columns>
-
-                                        <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="80"  />
-                                        <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="45" />
-                                        <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="120" />
-                                        <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="100" />
-                                        <DataGridTextColumn Header="备注" Binding="{Binding Remarks}" Width="*" />
-
-                                        <DataGridTextColumn Header="现有积分" Binding="{Binding Scores}" Width="80" />
-                                        <DataGridTextColumn Header="太男消费" Binding="{Binding TpnManScore}" Width="80" />
-                                        <DataGridTextColumn Header="太女消费" Binding="{Binding TpnWomanScore}" Width="80" />
-                                        <DataGridTextColumn Header="香影消费" Binding="{Binding XyScore}" Width="80" />
-                                        <DataGridTextColumn Header="CM  消费" Binding="{Binding CmScore}" Width="80" />
-
-                                        <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}" Width="100" />
-                                        <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}" Width="100" />
+                                        <DataGridTextColumn Header="用户名" Binding="{Binding adminName}" Width="auto"  />
+                                        <DataGridTextColumn Header="最近登录" Binding="{Binding LastLoginTime}" Width="auto"  />
+                                        <DataGridTextColumn Header="添加时间" Binding="{Binding CreateTime}" Width="auto"  />
                                     </DataGrid.Columns>
                                     <DataGrid.ContextMenu>
-                                        <ContextMenu x:Name="rightMenu" StaysOpen="true" >
-                                            <MenuItem Header="积分变动" Click="changeAction_Click" FontSize="14"/>
-                                            <MenuItem Header="会员修改" Click="modifyAction_Click" FontSize="14"/>
-
+                                        <ContextMenu x:Name="adminRightMenu" StaysOpen="true" >
+                                            <MenuItem Header="管理员修改" Click="modifyAdminAction_Click" FontSize="14"/>
                                             <MenuItem Header=""/>
                                             <MenuItem Header=""/>
                                             <MenuItem Header=""/>
-                                            <MenuItem Header="会员删除" Click="deleteAction_Click" FontSize="14" Foreground="Red"/>
+                                            <MenuItem Header="管理员删除" Click="deleteAdminAction_Click" FontSize="14" Foreground="Red"/>
                                         </ContextMenu>
                                     </DataGrid.ContextMenu>
-                                    <DataGrid.CellStyle>
-                                        <Style TargetType="{x:Type DataGridCell}">
-                                            <Setter Property="BorderThickness" Value="0"/>
-                                            <Setter Property="MinWidth" Value="85"/>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsSelected" Value="True">
-                                                    <Setter Property="Background" Value="LightBlue"/>
-                                                    <Setter Property="Foreground" Value="White"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </DataGrid.CellStyle>
                                 </DataGrid>
                             </StackPanel>
                         </Border>
                     </Grid>
-                </Grid>
-            </TabItem>
-            <TabItem Header="报表管理" FontSize="25" Style="{DynamicResource TabItemStyle1}">
-                <Grid>
-                    <Grid.Background>
-                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
-                    </Grid.Background>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="10"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto"  Width="auto" Grid.Row="0" Grid.Column="0">
-                        <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="5,5,5,5"  Width="auto">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Label Content="管理员用户名：" HorizontalAlignment="Left"   FontSize="16" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox  FontSize="16" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1"/>
-                                <Button  Content="查询" HorizontalAlignment="Left"  Width="75" Click="Button_Click_3" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
-                                <Button  Content="新建" HorizontalAlignment="Left"  Width="75" Click="addAdminBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Row="0" Grid.Column="3"/>
-                            </Grid>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderBrush="Black" Margin="10,5,0,5" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
-                        <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto" Margin="2,2,2,2">
-
-                        </StackPanel>
-                    </Border>
-                </Grid>
-            </TabItem>
-            <TabItem Header="系统管理" FontSize="25" Style="{DynamicResource TabItemStyle1}">
-                <Grid>
-                    <Grid.Background>
-                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
-                    </Grid.Background>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="10"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto"  Width="auto" Grid.Row="0" Grid.Column="0">
-                        <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="5,5,5,5"  Width="auto">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Label Content="管理员用户名：" HorizontalAlignment="Left"   FontSize="16" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox x:Name="adminSearchTB" FontSize="16" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" Width="120" MaxLength="11" Grid.Row="0" Grid.Column="1"/>
-                                <Button x:Name="findadminAllBtn" Content="查询" HorizontalAlignment="Left"  Width="75" Click="Button_Click_3" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="0" Grid.Column="2"/>
-                                <Button x:Name="addAdminBtn" Content="新建" HorizontalAlignment="Left"  Width="75" Click="addAdminBtn_Click" FontSize="15" BorderBrush="{x:Null}" Background="{x:Null}"  Grid.Row="0" Grid.Column="3"/>
-                            </Grid>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderBrush="Black" Margin="10,5,0,5" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
-                        <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto" Margin="2,2,2,2">
-                            <DataGrid Name="dispAdminDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow"  AutoGenerateColumns="False" FontSize="16" HorizontalAlignment="Left" Height="280" VerticalAlignment="Top" Width="485">
-                                <DataGrid.Background>
-                                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
-                                </DataGrid.Background>
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="用户名" Binding="{Binding adminName}" Width="auto"  />
-                                    <DataGridTextColumn Header="最近登录" Binding="{Binding LastLoginTime}" Width="auto"  />
-                                    <DataGridTextColumn Header="添加时间" Binding="{Binding CreateTime}" Width="auto"  />
-                                </DataGrid.Columns>
-                                <DataGrid.ContextMenu>
-                                    <ContextMenu x:Name="adminRightMenu" StaysOpen="true" >
-                                        <MenuItem Header="管理员修改" Click="modifyAdminAction_Click" FontSize="14"/>
-                                        <MenuItem Header=""/>
-                                        <MenuItem Header=""/>
-                                        <MenuItem Header=""/>
-                                        <MenuItem Header="管理员删除" Click="deleteAdminAction_Click" FontSize="14" Foreground="Red"/>
-                                    </ContextMenu>
-                                </DataGrid.ContextMenu>
-                            </DataGrid>
-                        </StackPanel>
-                    </Border>
-                </Grid>
-            </TabItem>
-        </TabControl>
-    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Border>
 </Window>

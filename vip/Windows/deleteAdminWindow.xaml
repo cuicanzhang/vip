@@ -9,37 +9,39 @@
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
     </Window.Background>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Label Content="删 除 管 理 员" HorizontalAlignment="Center"  VerticalAlignment="Bottom"  FontSize="16" Height="31" FontWeight="Bold"   Grid.Row="0" />
-
-        <Grid Grid.Row="1">
+    <Border  BorderBrush="Black" BorderThickness="1">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"></ColumnDefinition>
-                <ColumnDefinition Width="auto"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Label Name="adminNameLB" Content="用 户 名 ："  FontSize="14" Height="28" Width="auto" Grid.Column="0" Grid.Row="0"/>
-            <TextBox Name="adminNameTB" Height="23"  TextWrapping="Wrap"  Width="135"  Grid.Column="1" Grid.Row="0" IsEnabled="False"/>
-        </Grid>
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="30"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Content="删 除" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="55"  BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click"  Grid.Column="0" Foreground="Red" Margin="0,1,0,0" />
-            <Button Content="取 消" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="55"  BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click_1" Grid.Column="2" />
-        </Grid>
+            <Label Content="删 除 管 理 员" HorizontalAlignment="Center"  VerticalAlignment="Bottom"  FontSize="16" Height="31" FontWeight="Bold"   Grid.Row="0" />
 
-    </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Name="adminNameLB" Content="用 户 名 ："  FontSize="14" Height="28" Width="auto" Grid.Column="0" Grid.Row="0"/>
+                <TextBox Name="adminNameTB" Height="23"  TextWrapping="Wrap"  Width="135"  Grid.Column="1" Grid.Row="0" IsEnabled="False"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Content="删 除" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="55"  BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click"  Grid.Column="0" Foreground="Red" Margin="0,1,0,0" />
+                <Button Content="取 消" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="55"  BorderBrush="{x:Null}" Background="{x:Null}" Click="Button_Click_1" Grid.Column="2" />
+            </Grid>
+
+        </Grid>
+    </Border>
 </Window>
