@@ -374,5 +374,10 @@ namespace vip
                 dispAdminDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
 
         }
+
+        private void ButtonMinimized_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }
