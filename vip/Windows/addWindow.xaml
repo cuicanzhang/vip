@@ -10,7 +10,7 @@
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
     </Window.Background>
     <Border  BorderBrush="Black" BorderThickness="1">
-        <Grid>
+        <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>

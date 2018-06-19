@@ -24,6 +24,14 @@ namespace vip.Windows
         {
             InitializeComponent();
         }
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.DragMove();
+            }
+            catch { }
+        }
         public deleteAdminWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();

@@ -335,6 +335,46 @@ namespace vip.Core
             }
 
         }
+        public static DataTable SelectSale(string today)
+        {
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                SQLiteHelper sh = new SQLiteHelper(cmd);
+                string sql =string.Format("select TpnManScore,TpnWomanScore,XyScore,CmScore from vip where(LastModiTime='{0}')", today);
+                DataTable dt = sh.Select(sql);
+                if (dt.Rows.Count != 0)
+                {
+                    int TpnManScores = 0;
+                    int TpnWomanScores = 0;
+                    int XyScores = 0;
+                    int CmScores = 0;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        TpnManScores = TpnManScores+ int.Parse(dr["TpnManScore"].ToString());
+                        TpnWomanScores = TpnWomanScores + int.Parse(dr["TpnWomanScore"].ToString());
+                        XyScores = XyScores + int.Parse(dr["XyScore"].ToString());
+                        CmScores = CmScores + int.Parse(dr["CmScore"].ToString());
+                    }
+                    
+
+
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                DataTable dt = new DataTable();
+                return dt;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
     }
 
 }

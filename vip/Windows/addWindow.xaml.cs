@@ -34,6 +34,14 @@ namespace vip.Windows
             //xyScoreTB.Text = "0";
             //cmScoreTB.Text = "0";
         }
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.DragMove();
+            }
+            catch { }
+        }
         private void loadSex()
         {
             SexCB.Items.Add("男");
@@ -76,7 +84,7 @@ namespace vip.Windows
                 dic["XyScore"] = xyScoreTB.Text.Replace(" ", "");
                 dic["CmScore"] = cmScoreTB.Text.Replace(" ", "");
 
-                dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd");
                 dic["CreateTime"] = dic["LastModiTime"];
 
                 if (Core.SqlAction.AddVip(dic))

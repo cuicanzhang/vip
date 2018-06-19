@@ -62,6 +62,7 @@ namespace vip
             ShowWindowAsync(instance.MainWindowHandle, WS_SHOWNORMAL); //显示，可以注释掉
             SetForegroundWindow(instance.MainWindowHandle);            //放到前端
         }
+
         public MainWindow()
         {
             Process process = RuningInstance();
@@ -378,6 +379,13 @@ namespace vip
         private void ButtonMinimized_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void dispSaleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Core.SqlAction.SelectSale(DateTime.Now.ToString("yyyy-MM-dd"));
+            dodayLB.Content = DateTime.Now.ToString("yyyy-MM-dd");
+            tpnManSale.Content = "100";
         }
     }
 }

@@ -23,7 +23,14 @@ namespace vip.Windows
         {
             InitializeComponent();
         }
-
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.DragMove();
+            }
+            catch { }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             

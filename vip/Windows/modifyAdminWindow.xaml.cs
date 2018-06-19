@@ -37,6 +37,14 @@ namespace vip.Windows
             adminNameTB.Text = admin.adminName;
 
         }
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.DragMove();
+            }
+            catch { }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var dic = new Dictionary<string, object>();

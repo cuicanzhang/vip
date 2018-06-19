@@ -28,6 +28,15 @@ namespace vip.Windows
             
 
         }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.DragMove();
+            }
+            catch { }
+        }
         private void loadSex()
         {
             SexCB.Items.Add("男");
