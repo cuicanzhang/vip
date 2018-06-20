@@ -57,15 +57,23 @@ namespace vip.Windows
         {
             if (NameTB.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("[姓名] 必须填写");
+                MsgBoxWindow.Show("提示：", "[姓名] 必须填写");
+                //MessageBox.Show("[姓名] 必须填写");
             }
             else if (SexCB.SelectedValue == null)
             {
-                MessageBox.Show("[性别] 必须填写");
+                MsgBoxWindow.Show("提示：", "[性别] 必须填写");
+                //MessageBox.Show("[性别] 必须填写");
             }
             else if (PhoneTB.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("[电话] 必须填写");
+                MsgBoxWindow.Show("提示：", "[电话] 必须填写");
+                //MessageBox.Show("[电话] 必须填写");
+            }
+            else if (PhoneTB.Text.Replace(" ", "").Length != 11)
+            {
+                MsgBoxWindow.Show("提示：", "[电话] 需要11位");
+                //MessageBox.Show("[电话] 需要11位");
             }
 
             else
@@ -84,7 +92,7 @@ namespace vip.Windows
                 dic["XyScore"] = xyScoreTB.Text.Replace(" ", "");
                 dic["CmScore"] = cmScoreTB.Text.Replace(" ", "");
 
-                dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd");
+                dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 dic["CreateTime"] = dic["LastModiTime"];
 
                 if (Core.SqlAction.AddVip(dic))

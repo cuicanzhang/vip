@@ -36,15 +36,18 @@ namespace vip.Windows
             
                 if (adminNameTB.Text.Replace(" ", "") == "")
                 {
-                    MessageBox.Show("[用户名] 必须填写");
+                    MsgBoxWindow.Show("提示：", "[用户名] 必须填写");
+                    //MessageBox.Show("[用户名] 必须填写");
                 }
                 else if (adminPassPB.Password == "")
                 {
-                    MessageBox.Show("[用户密码] 必须填写");
+                    MsgBoxWindow.Show("提示：", "[用户密码] 必须填写");
+                    //MessageBox.Show("[用户密码] 必须填写");
                 }
                 else if (adminRePassPB.Password != adminPassPB.Password)
                 {
-                    MessageBox.Show("两次输入的密码不一致！");
+                    MsgBoxWindow.Show("提示：", "两次输入的密码不一致！");
+                    //MessageBox.Show("两次输入的密码不一致！");
                 }
                 else
                 {

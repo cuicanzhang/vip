@@ -50,6 +50,7 @@ namespace vip
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
+            
             if(adminNameLB.Text.Trim()!=""&& adminPassPB.Password != "")
             {
                 if (Core.SqlAction.CheckLogin(adminNameLB.Text.Trim(), adminPassPB.Password))
@@ -59,12 +60,14 @@ namespace vip
                 }
                 else
                 {
-                    MessageBox.Show("账号或密码错误！");
+                    WarningLB.Visibility = Visibility.Visible;
+                    WarningLB.Content = "提 示：账号或密码错误！";
                 }
             }
             else
             {
-                MessageBox.Show("请填写用户名和密码！");
+                WarningLB.Visibility = Visibility.Visible;
+                WarningLB.Content = "提 示：请填写用户名和密码！";
             }
         }
 

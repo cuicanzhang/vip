@@ -381,11 +381,5 @@ namespace vip
             this.WindowState = WindowState.Minimized;
         }
 
-        private void dispSaleBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Core.SqlAction.SelectSale(DateTime.Now.ToString("yyyy-MM-dd"));
-            dodayLB.Content = DateTime.Now.ToString("yyyy-MM-dd");
-            tpnManSale.Content = "100";
-        }
     }
 }

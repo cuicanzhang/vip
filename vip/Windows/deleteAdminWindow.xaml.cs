@@ -59,7 +59,8 @@ namespace vip.Windows
             }
             else
             {
-                MessageBox.Show("不能删除当前用户");
+                MsgBoxWindow.Show("提示：", "不能删除当前登录用户！");
+                //MessageBox.Show("不能删除当前用户");
             }
                  
         }

@@ -143,7 +143,7 @@ namespace vip.Windows
                     }
 
 
-                    dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd");
+                    dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                     Core.SqlAction.ChangeScores(dic);
                     return true;
@@ -236,25 +236,34 @@ namespace vip.Windows
             var subxyScore = subxyScoreTB.Text.Replace(" ", "");
             var subcmScore = subcmScoreTB.Text.Replace(" ", "");
 
+            var subtpnManScore1 = subtpnManScoreTB.Text.Replace(" ", "");
+            var subtpnWomanScore1 = subtpnWomanScoreTB.Text.Replace(" ", "");
+            var subxyScore1 = subxyScoreTB.Text.Replace(" ", "");
+            var subcmScore1 = subcmScoreTB.Text.Replace(" ", "");
+
             if (subtpnManScore == "")
             {
                 subtpnManScore = "0";
-                subtpnManScoreTB.Text = "0";
+                subtpnManScore1 = "0";
+            
             }
             if (subtpnWomanScore == "")
             {
                 subtpnWomanScore = "0";
-                subtpnWomanScoreTB.Text = "0";
+                subtpnWomanScore1 = "0";
+           
             }
             if (subxyScore == "")
             {
                 subxyScore = "0";
-                subxyScoreTB.Text = "0";
+                subxyScore1 = "0";
+          
             }
             if (subcmScore == "")
             {
                 subcmScore = "0";
-                subcmScoreTB.Text = "0";
+                subcmScore1 = "0";
+    
             }
 
             if (int.Parse(subtpnManScore) <= int.Parse(tpnManScoreTLB.Content.ToString()))
@@ -297,10 +306,11 @@ namespace vip.Windows
                 subcmScoreTB.Text = cmScoreTLB.Content.ToString();
             }
 
-            tempScoreDataLB.Content = (int.Parse(subtpnManScoreTB.Text)
-                                        + int.Parse(subtpnWomanScoreTB.Text)
-                                        + int.Parse(subxyScoreTB.Text)
-                                        + int.Parse(subcmScoreTB.Text)).ToString();
+
+            tempScoreDataLB.Content = (int.Parse(subtpnManScore1)
+                                        + int.Parse(subtpnWomanScore1)
+                                        + int.Parse(subxyScore1)
+                                        + int.Parse(subxyScore1)).ToString();
             var aa = ScoresLB.Content.ToString();
             var bb = tempScoreDataLB.Content.ToString();
             finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) - int.Parse(tempScoreDataLB.Content.ToString())).ToString();
@@ -439,7 +449,7 @@ namespace vip.Windows
                             dic["CmScore"] = cmFinalScoreLB.Content;
                         }
 
-                        dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd");
+                        dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                         Core.SqlAction.ChangeScores(dic);
                         return true;
@@ -459,8 +469,6 @@ namespace vip.Windows
                         }
                         if (tpnManFinalScoreTLB.Content.ToString() != tpnManScoreTLB.Content.ToString())
                         {
-                            var aa = tpnManFinalScoreTLB.Content.ToString();
-                            var bb = tpnManScoreTLB.Content.ToString();
                             dic["TpnManScore"] = tpnManFinalScoreTLB.Content;
                         }
                         if (tpnWomanFinalScoreTLB.Content.ToString() != tpnWomanScoreTLB.Content.ToString())
@@ -477,7 +485,7 @@ namespace vip.Windows
                         {
                             dic["CmScore"] = cmFinalScoreTLB.Content;
                         }
-                        dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd");
+                        //dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                         Core.SqlAction.ChangeScores(dic);
                         return true;
@@ -495,7 +503,7 @@ namespace vip.Windows
                         {
                             dic["Scores"] = finalScoreLB.Content;
                         }
-                        dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd");
+                        //dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                         Core.SqlAction.ChangeScores(dic);
                         return true;

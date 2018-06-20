@@ -96,35 +96,59 @@ namespace vip.Windows
                 || vip.Birthday!= birthdayMonthCB.SelectedValue + "月" + birthdayDayCB.SelectedValue + "日"
                 || vip.Remarks!= RemarksTB.Text)
             {
-                var dic = new Dictionary<string, object>();
-                dic["ID"] = vip.ID;
-                if (vip.Name != NameTB.Text)
+                if (NameTB.Text.Replace(" ", "") == "")
                 {
-                    dic["Name"] = NameTB.Text;
+                    MsgBoxWindow.Show("提示：", "[姓名] 必须填写");
+                    //MessageBox.Show("[姓名] 必须填写");
                 }
-                if (vip.Phone != PhoneTB.Text)
+                else if (SexCB.SelectedValue == null)
                 {
-                    dic["Phone"] = PhoneTB.Text;
+                    MsgBoxWindow.Show("提示：", "[性别] 必须填写");
+                    //MessageBox.Show("[性别] 必须填写");
                 }
-                if (vip.Remarks != RemarksTB.Text)
+                else if (PhoneTB.Text.Replace(" ", "") == "")
                 {
-                    dic["Remarks"] = RemarksTB.Text;
+                    MsgBoxWindow.Show("提示：", "[电话] 必须填写");
+                    //MessageBox.Show("[电话] 必须填写");
                 }
-                if (vip.Sex != SexCB.SelectedValue.ToString())
+                else if (PhoneTB.Text.Replace(" ", "").Length != 11)
                 {
-                    dic["Sex"] = SexCB.SelectedValue;
+                    MsgBoxWindow.Show("提示：", "[电话] 需要11位");
+                    //MessageBox.Show("[电话] 需要11位");
                 }
-                if (vip.Birthday != birthdayMonthCB.SelectedValue + "月" + birthdayDayCB.SelectedValue + "日")
+                else
                 {
-                    dic["Birthday"] = birthdayMonthCB.SelectedValue + "月" + birthdayDayCB.SelectedValue + "日";
+                    var dic = new Dictionary<string, object>();
+                    dic["ID"] = vip.ID;
+                    if (vip.Name != NameTB.Text)
+                    {
+                        dic["Name"] = NameTB.Text;
+                    }
+                    if (vip.Phone != PhoneTB.Text)
+                    {
+                        dic["Phone"] = PhoneTB.Text;
+                    }
+                    if (vip.Remarks != RemarksTB.Text)
+                    {
+                        dic["Remarks"] = RemarksTB.Text;
+                    }
+                    if (vip.Sex != SexCB.SelectedValue.ToString())
+                    {
+                        dic["Sex"] = SexCB.SelectedValue;
+                    }
+                    if (vip.Birthday != birthdayMonthCB.SelectedValue + "月" + birthdayDayCB.SelectedValue + "日")
+                    {
+                        dic["Birthday"] = birthdayMonthCB.SelectedValue + "月" + birthdayDayCB.SelectedValue + "日";
+                    }
+                    if (Core.SqlAction.VipModify(dic))
+                    {
+                        var mainWindow = (MainWindow)Owner;
+                        mainWindow.reload(PhoneTB.Text.Replace(" ", ""));
+                        this.Close();
+                        //MessageBox.Show("添加成功");
+                    }
                 }
-                if (Core.SqlAction.VipModify(dic))
-                {
-                    var mainWindow = (MainWindow)Owner;
-                    mainWindow.reload(PhoneTB.Text.Replace(" ", ""));
-                    this.Close();
-                    //MessageBox.Show("添加成功");
-                }
+                
             }
             else
             {

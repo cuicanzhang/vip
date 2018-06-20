@@ -63,7 +63,8 @@ namespace vip.Windows
                 }
                 else
                 {
-                    MessageBox.Show("两次输入的密码必须相同");
+                    MsgBoxWindow.Show("提示：", "两次输入的密码必须相同！");
+                    //MessageBox.Show("两次输入的密码必须相同");
                 }
             }
             

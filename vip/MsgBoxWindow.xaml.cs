@@ -49,17 +49,10 @@ namespace vip
             return msgBox.ShowDialog();
         }
 
-        private void Yes_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Ok_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.DialogResult = true;
             this.Close();
-        }
-
-
-        private void No_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DialogResult = false;
-            this.Close();
+            //this.DialogResult = true;
         }
     }
 }

@@ -18,8 +18,9 @@
         <Label Content="会员管理系统" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="339" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFFFFF1E"/>
         <Button Name="btn_login" Content="登 陆" HorizontalAlignment="Left" Margin="105,165,0,0" VerticalAlignment="Top" Width="60" Click="btn_login_Click" FontWeight="Bold" BorderBrush="{x:Null}" Background="{x:Null}"/>
         <Button Content="退 出" HorizontalAlignment="Left" Margin="195,165,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click" BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" />
+        <Label Name="WarningLB" Content="提 示：" HorizontalAlignment="Left" Margin="65,129,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="Red" Visibility="Hidden"/>
 
 
-    </Grid>
+        </Grid>
     </Border>
 </Window>

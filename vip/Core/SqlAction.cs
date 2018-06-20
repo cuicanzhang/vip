@@ -68,7 +68,8 @@ namespace vip.Core
                 }
                 else
                 {
-                    MessageBox.Show("管理员已存在");
+                    MsgBoxWindow.Show("提示：", "管理员已存在");
+                    //MessageBox.Show("管理员已存在");
                     return false;
                 }
             }
@@ -173,7 +174,8 @@ namespace vip.Core
                 }
                 else
                 {
-                    MessageBox.Show("会员已存在");
+                    MsgBoxWindow.Show("提示：", "会员已存在");
+                    //MessageBox.Show("会员已存在");
                     return false;
                 }
             }
@@ -228,7 +230,8 @@ namespace vip.Core
                     }
                     else
                     {
-                        MessageBox.Show("会员手机号码重复");
+                        MsgBoxWindow.Show("提示：", "会员手机号码重复");
+                        //MessageBox.Show("会员手机号码重复");
                         return false;
                     }
                 }

@@ -83,7 +83,7 @@
             InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsEnabled="False"  Grid.Column="3" Grid.Row="3"/>
                         <TextBox Name="cmScoresTB" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"  MaxLength="7" 
             InputMethod.IsInputMethodEnabled="False"  InputMethod.PreferredImeState="Off" PreviewKeyDown="checkNumber_PreviewKeyDown" IsEnabled="False"  Grid.Column="3" Grid.Row="4"/>
-                        <Button Content="修改"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="75" FontSize="14" Click="Button_Click" Height="24" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Column="3" Grid.Row="4"/>
+                        <Button Content="修改"  HorizontalAlignment="Right"  VerticalAlignment="Top" Width="75" FontSize="14" Click="Button_Click" Height="24" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Column="3" Grid.Row="4" Margin="0,56,0,0"/>
 
                     </Grid>
                 </StackPanel>
