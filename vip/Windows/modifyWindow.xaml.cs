@@ -72,11 +72,17 @@ namespace vip.Windows
             birthdayDayCB.SelectedValue = match.Groups[2].Value;
             //BirthdayDP.SelectedDate =Convert.ToDateTime(vip.Birthday);
             RemarksTB.Text = vip.Remarks;
-            ScoresTB.Text = dic["Scores"];
-            tpnManScoresTB.Text= dic["TpnManScore"];
-            tpnWomanScoresTB.Text = dic["TpnWomanScore"];
-            xyScoresTB.Text = dic["XyScore"];
-            cmScoresTB.Text = dic["CmScore"];
+            scoresLB.Content = dic["Scores"];
+            tpnManScoreTB.Text= dic["TpnManScore"];
+            tpnWomanScoreTB.Text = dic["TpnWomanScore"];
+            xyScoreTB.Text = dic["XyScore"];
+            cmScoreTB.Text = dic["CmScore"];
+
+            manShoeScoreTB.Text = dic["ManShoeScore"];
+            womanShoeScoreTB.Text = dic["WomanShoeScore"];
+            hatScoreTB.Text = dic["HatScore"];
+            beltScoreTB.Text = dic["BeltScore"];
+            bagScoreTB.Text = dic["BagScore"];
         }
    
         private void Button_Click(object sender, RoutedEventArgs e)

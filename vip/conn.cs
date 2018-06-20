@@ -123,6 +123,13 @@ namespace vip
                 tb.Columns.Add(new SQLiteColumn("XyScore", ColType.Integer, false, false, true, "0"));
                 tb.Columns.Add(new SQLiteColumn("CmScore", ColType.Integer, false, false, true, "0"));
 
+                
+                tb.Columns.Add(new SQLiteColumn("ManShoeScore", ColType.Integer, false, false, true, "0"));
+                tb.Columns.Add(new SQLiteColumn("WomanShoeScore", ColType.Integer, false, false, true, "0"));
+                tb.Columns.Add(new SQLiteColumn("HatScore", ColType.Integer, false, false, true, "0"));
+                tb.Columns.Add(new SQLiteColumn("BeltScore", ColType.Integer, false, false, true, "0"));
+                tb.Columns.Add(new SQLiteColumn("BagScore", ColType.Integer, false, false, true, "0"));
+
                 tb.Columns.Add(new SQLiteColumn("LastModiTime", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("CreateTime", ColType.Text));
 

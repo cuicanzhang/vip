@@ -271,8 +271,15 @@ namespace vip
             dic["XyScore"] = mySelectedElement[9].ToString();
             dic["CmScore"] = mySelectedElement[10].ToString();
 
-            dic["LastModiTime"] = mySelectedElement[11].ToString();
-            dic["CreateTime"] = mySelectedElement[12].ToString();
+            dic["ManShoeScore"] = mySelectedElement[11].ToString();
+            dic["WomanShoeScore"] = mySelectedElement[12].ToString();
+            dic["HatScore"] = mySelectedElement[13].ToString();
+            dic["BeltScore"] = mySelectedElement[14].ToString();
+            dic["BagScore"] = mySelectedElement[15].ToString();
+
+
+            dic["LastModiTime"] = mySelectedElement[16].ToString();
+            dic["CreateTime"] = mySelectedElement[17].ToString();
             return dic;
         }
         private Dictionary<string, string> initAdminDic(DataRowView mySelectedElement)

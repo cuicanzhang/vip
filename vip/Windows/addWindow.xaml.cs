@@ -86,11 +86,18 @@ namespace vip.Windows
                 //dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
                 dic["Remarks"] = RemarksTB.Text;
 
-                dic["Scores"] = scoresTB.Text.Replace(" ", "");
+                dic["Scores"] = scoresLB.Content;
                 dic["TpnManScore"] = tpnManScoreTB.Text.Replace(" ", "");
                 dic["TpnWomanScore"] = tpnWomanScoreTB.Text.Replace(" ", "");
                 dic["XyScore"] = xyScoreTB.Text.Replace(" ", "");
                 dic["CmScore"] = cmScoreTB.Text.Replace(" ", "");
+
+                dic["ManShoeScore"] = manShoeScoreTB.Text.Replace(" ", "");
+                dic["WomanShoeScore"] = womanShoeScoreTB.Text.Replace(" ", "");
+                dic["HatScore"] = hatScoreTB.Text.Replace(" ", "");
+                dic["BeltScore"] = beltScoreTB.Text.Replace(" ", "");
+                dic["BagScore"] = bagScoreTB.Text.Replace(" ", "");
+
 
                 dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 dic["CreateTime"] = dic["LastModiTime"];
@@ -124,6 +131,12 @@ namespace vip.Windows
             var xyScore = xyScoreTB.Text.Replace(" ", "");
             var cmScore = cmScoreTB.Text.Replace(" ", "");
 
+            var manShoeScore = manShoeScoreTB.Text.Replace(" ", "");
+            var womanShoeScore = womanShoeScoreTB.Text.Replace(" ", "");
+            var hatScore = hatScoreTB.Text.Replace(" ", "");
+            var beltScore = beltScoreTB.Text.Replace(" ", "");
+            var bagScore = bagScoreTB.Text.Replace(" ", "");
+
             if (tpnManScore == "")
             {
                 tpnManScore = "0";
@@ -140,10 +153,38 @@ namespace vip.Windows
             {
                 cmScore = "0";
             }
-            scoresTB.Text = (int.Parse(tpnManScore) 
-                            + int.Parse(tpnWomanScore) 
-                            + int.Parse(xyScore) 
-                            + int.Parse(cmScore)).ToString();
+
+            if (manShoeScore == "")
+            {
+                manShoeScore = "0";
+            }
+            if (womanShoeScore == "")
+            {
+                womanShoeScore = "0";
+            }
+            if (hatScore == "")
+            {
+                hatScore = "0";
+            }
+            if (beltScore == "")
+            {
+                beltScore = "0";
+            }
+            if (bagScore == "")
+            {
+                bagScore = "0";
+            }
+
+            scoresLB.Content = (int.Parse(tpnManScore) 
+                                + int.Parse(tpnWomanScore) 
+                                + int.Parse(xyScore) 
+                                + int.Parse(cmScore)
+                                + int.Parse(manShoeScore)
+                                + int.Parse(womanShoeScore)
+                                + int.Parse(hatScore)
+                                + int.Parse(beltScore)
+                                + int.Parse(bagScore)
+                                ).ToString();
         }
 
         private void SexCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
