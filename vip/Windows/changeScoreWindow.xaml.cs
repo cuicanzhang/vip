@@ -310,7 +310,7 @@ namespace vip.Windows
             tempScoreDataLB.Content = (int.Parse(subtpnManScore1)
                                         + int.Parse(subtpnWomanScore1)
                                         + int.Parse(subxyScore1)
-                                        + int.Parse(subxyScore1)).ToString();
+                                        + int.Parse(subcmScore1)).ToString();
             var aa = ScoresLB.Content.ToString();
             var bb = tempScoreDataLB.Content.ToString();
             finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) - int.Parse(tempScoreDataLB.Content.ToString())).ToString();
