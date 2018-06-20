@@ -338,13 +338,13 @@ namespace vip
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var sdir = Environment.CurrentDirectory+ "\\vip.sqlite";
-            var ddir = Environment.CurrentDirectory + "\\dbBack\\";
+            var ddir = Environment.CurrentDirectory + "\\dbBack\\" +  DateTime.Now.ToString("yyyyMM") +"\\"+ DateTime.Now.ToString("dd") + "\\";
                 if (!Directory.Exists(ddir))
             {
                 Directory.CreateDirectory(ddir);
             }
             string pLocalFilePath = sdir;//要复制的文件路径
-            string pSaveFilePath = ddir+ "vip["+ DateTime.Now.ToString("yyyyMMddHHmm") + "].sqlite";//指定存储的路径
+            string pSaveFilePath = ddir+ "vip["+ DateTime.Now.ToString("HHmm") + "].sqlite";//指定存储的路径
             if (File.Exists(pLocalFilePath))//必须判断要复制的文件是否存在
             {
                 File.Copy(pLocalFilePath, pSaveFilePath, true);//三个参数分别是源文件路径，存储路径，若存储路径有相同文件是否替换
