@@ -49,9 +49,13 @@ namespace vip.Windows
             vip.tpnWomanScore = dic["TpnWomanScore"];
             vip.xyScore = dic["XyScore"];
             vip.cmScore = dic["CmScore"];
-
+            vip.manShoeScore = dic["ManShoeScore"];
+            vip.womanShoeScore = dic["WomanShoeScore"];
+            vip.hatScore = dic["HatShoeScore"];
+            vip.beltScore = dic["BeltShoeScore"];
+            vip.bagScore = dic["BagShoeScore"];
             //加载控件数据
-            
+
             if (vip.Sex == "男")
             {
                 NameLB.Content = vip.Name + " （先生）";
@@ -76,6 +80,7 @@ namespace vip.Windows
             xyScoreLB.Content = vip.xyScore;
             cmScoreLB.Content = vip.cmScore;
 
+
             tpnManScoreTLB.Content = vip.tpnManScore;
             tpnWomanScoreTLB.Content = vip.tpnWomanScore;
             xyScoreTLB.Content = vip.xyScore;
@@ -88,77 +93,7 @@ namespace vip.Windows
             
         }
 
-        private bool isaChangeScores()
-        {
-
-            try
-            {                     
-                if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
-                {
-                    var dic = new Dictionary<string, object>();
-                    dic["ID"] = vip.ID;
-                    if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
-                    {
-                        dic["Scores"] = finalScoreLB.Content;
-                    }
-                    if (tpnManFinalScoreLB.Content.ToString() != tpnManScoreLB.Content.ToString())
-                    {
-                        dic["TpnManScore"] = tpnManFinalScoreLB.Content;
-                    }
-                    if (tpnWomanFinalScoreLB.Content.ToString() != tpnWomanScoreLB.Content.ToString())
-                    {
-                        dic["TpnWomanScore"] = tpnWomanFinalScoreLB.Content;
-                    }
-
-                    if (xyFinalScoreLB.Content.ToString() != xyScoreLB.Content.ToString())
-                    {
-                        dic["XyScore"] = xyFinalScoreLB.Content;
-                    }
-
-                    if (cmFinalScoreLB.Content.ToString() != cmScoreLB.Content.ToString())
-                    {
-                        dic["CmScore"] = cmFinalScoreLB.Content;
-                    }
-
-
-                    if (tpnManFinalScoreTLB.Content.ToString() != tpnManScoreTLB.Content.ToString())
-                    {
-                        var aa = tpnManFinalScoreTLB.Content.ToString();
-                        var bb = tpnManScoreTLB.Content.ToString();
-                        dic["TpnManScore"] = tpnManFinalScoreTLB.Content;
-                    }
-                    if (tpnWomanFinalScoreTLB.Content.ToString() != tpnWomanScoreTLB.Content.ToString())
-                    {
-                        dic["TpnWomanScore"] = tpnWomanFinalScoreTLB.Content;
-                    }
-
-                    if (xyFinalScoreTLB.Content.ToString() != xyScoreTLB.Content.ToString())
-                    {
-                        dic["XyScore"] = xyFinalScoreTLB.Content;
-                    }
-
-                    if (cmFinalScoreTLB.Content.ToString() != cmScoreTLB.Content.ToString())
-                    {
-                        dic["CmScore"] = cmFinalScoreTLB.Content;
-                    }
-
-
-                    dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-                    Core.SqlAction.ChangeScores(dic);
-                    return true;
-                    }
-                        
-                return true;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                return false;
-            }
-
-        }      
+           
 
         private void addScoresTB_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -186,6 +121,12 @@ namespace vip.Windows
             var addxyScore = addxyScoreTB.Text.Replace(" ", "");
             var addcmScore = addcmScoreTB.Text.Replace(" ", "");
 
+            var addmanShoeScore = addmanShoeScoreTB.Text.Replace(" ", "");
+            var addwomanShoeScore = addwomanShoeScoreTB.Text.Replace(" ", "");
+            var addhatScore = addhatScoreTB.Text.Replace(" ", "");
+            var addbeltScore = addbeltScoreTB.Text.Replace(" ", "");
+            var addbagScore = addbagScoreTB.Text.Replace(" ", "");
+
             if (addtpnManScore == "")
             {
                 addtpnManScore = "0";
@@ -202,12 +143,46 @@ namespace vip.Windows
             {
                 addcmScore = "0";
             }
+            if (addmanShoeScore == "")
+            {
+                addmanShoeScore = "0";
+            }
+            if (addwomanShoeScore == "")
+            {
+                addwomanShoeScore = "0";
+            }
+            if (addhatScore == "")
+            {
+                addhatScore = "0";
+            }
+            if (addbeltScore == "")
+            {
+                addbeltScore = "0";
+            }
+            if (addbagScore == "")
+            {
+                addbagScore = "0";
+            }
             tpnManFinalScoreLB.Content = (int.Parse(tpnManScoreLB.Content.ToString()) + int.Parse(addtpnManScore)).ToString();
             tpnWomanFinalScoreLB.Content = (int.Parse(tpnWomanScoreLB.Content.ToString()) + int.Parse(addtpnWomanScore)).ToString();
             xyFinalScoreLB.Content = (int.Parse(xyScoreLB.Content.ToString()) + int.Parse(addxyScore)).ToString();
             cmFinalScoreLB.Content = (int.Parse(cmScoreLB.Content.ToString()) + int.Parse(addcmScore)).ToString();
+            manShoeFinalScoreLB.Content = (int.Parse(manShoeScoreLB.Content.ToString()) + int.Parse(addmanShoeScore)).ToString();
+            womanShoeFinalScoreLB.Content = (int.Parse(womanShoeScoreLB.Content.ToString()) + int.Parse(addwomanShoeScore)).ToString();
+            hatFinalScoreLB.Content = (int.Parse(hatScoreLB.Content.ToString()) + int.Parse(addhatScore)).ToString();
+            beltFinalScoreLB.Content = (int.Parse(beltScoreLB.Content.ToString()) + int.Parse(addbeltScore)).ToString();
+            bagFinalScoreLB.Content = (int.Parse(bagScoreLB.Content.ToString()) + int.Parse(addbagScore)).ToString();
 
-            tempScoreDataLB.Content = (int.Parse(addtpnManScore) + int.Parse(addtpnWomanScore) + int.Parse(addxyScore) + int.Parse(addcmScore)).ToString();
+            tempScoreDataLB.Content = (int.Parse(addtpnManScore) 
+                                        + int.Parse(addtpnWomanScore) 
+                                        + int.Parse(addxyScore) 
+                                        + int.Parse(addcmScore)
+                                        + int.Parse(addmanShoeScore)
+                                        + int.Parse(addwomanShoeScore)
+                                        + int.Parse(addhatScore)
+                                        + int.Parse(addbeltScore)
+                                        + int.Parse(addbagScore)
+                                        ).ToString();
             finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) + int.Parse(tempScoreDataLB.Content.ToString())).ToString();
         }
         private void ScoresExchange()
