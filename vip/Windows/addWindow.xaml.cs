@@ -57,22 +57,30 @@ namespace vip.Windows
         {
             if (NameTB.Text.Replace(" ", "") == "")
             {
-                MsgBoxWindow.Show("提示：", "[姓名] 必须填写");
+                WaringLB.Visibility = Visibility.Visible;
+                WaringLB.Content = "提示：请填写[姓名]";
+            
                 //MessageBox.Show("[姓名] 必须填写");
             }
             else if (SexCB.SelectedValue == null)
             {
-                MsgBoxWindow.Show("提示：", "[性别] 必须填写");
+                WaringLB.Visibility = Visibility.Visible;
+                WaringLB.Content = "提示：请填写[性别]";
+      
                 //MessageBox.Show("[性别] 必须填写");
             }
             else if (PhoneTB.Text.Replace(" ", "") == "")
             {
-                MsgBoxWindow.Show("提示：", "[电话] 必须填写");
+                WaringLB.Visibility = Visibility.Visible;
+                WaringLB.Content = "提示：请填写[电话]";
+         
                 //MessageBox.Show("[电话] 必须填写");
             }
             else if (PhoneTB.Text.Replace(" ", "").Length != 11)
             {
-                MsgBoxWindow.Show("提示：", "[电话] 需要11位");
+                WaringLB.Visibility = Visibility.Visible;
+                WaringLB.Content = "提示：[电话]少于11位";
+      
                 //MessageBox.Show("[电话] 需要11位");
             }
 

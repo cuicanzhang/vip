@@ -32,7 +32,7 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
-                                <RowDefinition Height="14"></RowDefinition>
+                                <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
@@ -70,7 +70,9 @@
                                 </Grid>
                             </StackPanel>
 
-                            <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="130"  TextWrapping="Wrap" VerticalAlignment="Top" Width="130"  Grid.Column="1" Grid.Row="4"/>
+                            <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="115"  TextWrapping="Wrap" VerticalAlignment="Top" Width="130"  Grid.Column="1" Grid.Row="4"/>
+                            <Label Name="WaringLB" Content="提示"  FontSize="14" Height="28" Visibility="Hidden" Grid.Row="5" Grid.ColumnSpan="2" Foreground="Red" FontWeight="Bold"/>
+
                             <Button Content="修改" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="75" FontSize="14" Click="Button_Click" Height="24" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Column="1" Grid.Row="6"/>
                         </Grid>
                     </StackPanel>
