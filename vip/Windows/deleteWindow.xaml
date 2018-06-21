@@ -32,7 +32,7 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
-                                <RowDefinition Height="60"></RowDefinition>
+                                <RowDefinition Height="14"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
@@ -70,8 +70,8 @@
                                 </Grid>
                             </StackPanel>
 
-                            <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="80"  TextWrapping="Wrap" VerticalAlignment="Top" Width="130"  IsEnabled="False" Grid.Column="1" Grid.Row="4"/>
-                            <Button Content="删除"  HorizontalAlignment="Center"  VerticalAlignment="Bottom"   Width="75" FontSize="14" Click="Button_Click" Foreground="Red" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Column="1" Grid.Row="6"/>
+                            <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="130"  TextWrapping="Wrap" VerticalAlignment="Top" Width="130"  IsEnabled="False" Grid.Column="1" Grid.Row="4"/>
+                            <Button Content="删除"  HorizontalAlignment="Right"  VerticalAlignment="Bottom"   Width="75" FontSize="14" Click="Button_Click" Foreground="Red" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Column="1" Grid.Row="6"/>
                         </Grid>
                     </StackPanel>
 

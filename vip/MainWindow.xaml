@@ -351,7 +351,7 @@
                                         <Label Content="腰带消费：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="0" Grid.Row="8"/>
                                         <Label Content="包包消费：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="0" Grid.Row="9"/>
 
-                                        <Label x:Name="TotalCostLB" Content="0" HorizontalAlignment="Left"   FontSize="16" Grid.Column="1" Grid.Row="0"/>
+                                        <Label x:Name="TotalCostLB"  HorizontalAlignment="Left"   FontSize="16" Grid.Column="1" Grid.Row="0"/>
                                         <TextBox x:Name="TpnManScoreTB"  Height="26" TextWrapping="Wrap" Text=""   FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="1"/>
                                         <TextBox x:Name="TpnWomanScoreTB"  Height="26" TextWrapping="Wrap" Text=""   FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="2"/>
                                         <TextBox x:Name="XyScoreTB"  Height="26"  TextWrapping="Wrap" Text=""   FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="3" TextChanged="XyScoreTB_TextChanged"/>
@@ -367,23 +367,28 @@
                             </Border>
                             <Border BorderBrush="Black" BorderThickness="0" Margin="10,0,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="1">
                                 <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto">
-                                    <DataGrid x:Name="dispDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="300"  Width="993" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" BorderBrush="Black" Foreground="Black" OpacityMask="#FFF90D0D" Grid.Row="1"  Grid.RowSpan="2"  >
+                                    <DataGrid x:Name="dispDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="332"  Width="1015" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" BorderBrush="Black" Foreground="Black" OpacityMask="#FFF90D0D" Grid.Row="1"  Grid.RowSpan="2"  >
                                         <DataGrid.Background>
                                             <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
                                         </DataGrid.Background>
                                         <DataGrid.Columns>
 
-                                            <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="80"  />
-                                            <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="45" />
-                                            <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="120" />
-                                            <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="100" />
-                                            <DataGridTextColumn Header="累计消费" Binding="{Binding TotalCost}" Width="100" />
-                                            <DataGridTextColumn Header="现有积分" Binding="{Binding Scores}" Width="80" />
+                                            <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="*"  />
+                                            <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="*" />
+                                            <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="*" />
+                                            <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="*" />
+                                            <DataGridTextColumn Header="累计消费" Binding="{Binding TotalCost}" Width="*" />
+                                            <DataGridTextColumn Header="现有积分" Binding="{Binding Scores}" Width="*" />
                                             <DataGridTextColumn Header="太男消费" Binding="{Binding TpnManScore}" Width="*" />
                                             <DataGridTextColumn Header="太女消费" Binding="{Binding TpnWomanScore}" Width="*" />
                                             <DataGridTextColumn Header="香影消费" Binding="{Binding XyScore}" Width="*" />
                                             <DataGridTextColumn Header="CM  消费" Binding="{Binding CmScore}" Width="*" />
-
+                                            <DataGridTextColumn Header="男鞋消费" Binding="{Binding CmScore}" Width="*" />
+                                            <DataGridTextColumn Header="女鞋消费" Binding="{Binding CmScore}" Width="*" />
+                                            <DataGridTextColumn Header="帽子消费" Binding="{Binding CmScore}" Width="*" />
+                                            <DataGridTextColumn Header="腰带消费" Binding="{Binding CmScore}" Width="*" />
+                                            <DataGridTextColumn Header="包包消费" Binding="{Binding CmScore}" Width="*" />
+                                                                                       
                                             <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}" Width="*" />
                                             <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}" Width="*" />
                                         </DataGrid.Columns>
