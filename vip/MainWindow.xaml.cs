@@ -90,12 +90,39 @@ namespace vip
             }
 
         }
+        public void clearVipInfo()
+        {
+            NameTB.Text = "";
+            SexTB.Text = "";
+            BirthdayTB.Text = "";
+            RemarksTB.Text = "";
+            PhoneTB.Text = "";
+            ScoresTB.Text = "";
+            CreateTime.Text = "";
+            LastModiTime.Text = "";
+            TotalCostLB.Content = "";
+            TpnManScoreTB.Text = "";
+            TpnWomanScoreTB.Text = "";
+            XyScoreTB.Text = "";
+            CmScoreTB.Text = "";
+            ManShoeScoreTB.Text = "";
+            WomanShoeScoreTB.Text = "";
+            HatScoreTB.Text = "";
+            BeltScoreTB.Text = "";
+            BagScoreTB.Text = "";
+        }
         public void dataReLoad()
         {
             Core.SqlAction.SelectBirthday();
             vipCountLB.Content = config.vipCount;
             vipBirthdayCountLB.Content = config.vipBirthdayCount;
 
+        }
+        public void reloadNone(string str)
+        {
+            dispDataGrid.ItemsSource = Core.SqlAction.Select(str).DefaultView;
+            clearVipInfo();
+            dataReLoad();
         }
         public void reload(string str)
         {
@@ -116,6 +143,7 @@ namespace vip
         {
             dispDataGrid.ItemsSource = Core.SqlAction.Select(serarchTB.Text).DefaultView;
             dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
+            clearVipInfo();
         }
         private void dispAllBtn_Click(object sender, RoutedEventArgs e)
         {

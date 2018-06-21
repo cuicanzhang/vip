@@ -90,7 +90,7 @@ namespace vip.Windows
             if (Core.SqlAction.DeleteVip(vip.ID))
             {
                 var mainWindow = (MainWindow)Owner;
-                mainWindow.reload("");
+                mainWindow.reloadNone("");
                 this.Close();
                 //MessageBox.Show("添加成功");
             }
