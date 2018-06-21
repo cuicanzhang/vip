@@ -97,7 +97,7 @@ namespace vip
             BirthdayTB.Text = "";
             RemarksTB.Text = "";
             PhoneTB.Text = "";
-            ScoresTB.Text = "";
+            ScoresLB.Content = "";
             CreateTime.Text = "";
             LastModiTime.Text = "";
             TotalCostLB.Content = "";
@@ -149,6 +149,7 @@ namespace vip
         {
             dispDataGrid.ItemsSource = Core.SqlAction.Select("").DefaultView;
             dispDataGrid.GridLinesVisibility = DataGridGridLinesVisibility.All;
+            clearVipInfo();
         }
         private void DispBirthday_Click(object sender, RoutedEventArgs e)
         {
@@ -344,7 +345,7 @@ namespace vip
                 RemarksTB.Text=dic["Remarks"] ;
 
                 TotalCostLB.Content = dic["TotalCost"];
-                ScoresTB.Text=dic["Scores"];
+                ScoresLB.Content=dic["Scores"];
                 TpnManScoreTB.Text=dic["TpnManScore"];
                 TpnWomanScoreTB.Text=dic["TpnWomanScore"];
                 XyScoreTB.Text=dic["XyScore"];
