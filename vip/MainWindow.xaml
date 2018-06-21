@@ -268,17 +268,17 @@
                                         <Label Content="姓名：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="0" Grid.Row="0" Width="58"  />
                                         <Label Content="性别：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="2" Grid.Row="0" Width="58"  />
                                         <Label Content="生日：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="2" Grid.Row="1" Width="58"  />
-                                        <Label Content="备注：" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="2" Grid.Row="2" Width="58"  />
+                                        <Label Content="备注：" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0"  FontSize="16" Height="32" Grid.Column="2" Grid.Row="2" Width="58"  />
                                         <TextBox Name="NameTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text="" Width="120" FontSize="16" IsReadOnly="True" Grid.Column="1" Grid.Row="0"  />
                                         <TextBox Name="SexTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text="" Width="120" FontSize="16" IsReadOnly="True" Grid.Column="3" Grid.Row="0"  />
                                         <TextBox Name="BirthdayTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True" Grid.Column="3" Grid.Row="1"  />
-                                        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text="" Width="390" FontSize="14" IsReadOnly="True" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3" Margin="0,3" />
+                                        <TextBox Name="RemarksTB" HorizontalAlignment="Left" Height="78" TextWrapping="Wrap" Text="" Width="390" FontSize="14" IsReadOnly="True" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3" Margin="0,3" />
                                         <Label Content="电话：" HorizontalAlignment="Left"  FontSize="16" Grid.Column="0" Grid.Row="1"/>
                                         <Label Content="积分：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="0" Grid.Row="2"/>
                                         <Label Content="首次消费：" HorizontalAlignment="Left"   FontSize="16" Grid.Column="4" Grid.Row="0"/>
                                         <Label Content="最近消费：" HorizontalAlignment="Left" FontSize="16" Grid.Column="4" Grid.Row="1"/>
                                         <TextBox x:Name="PhoneTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True"  Grid.Column="1" Grid.Row="1"/>
-                                        <TextBox x:Name="ScoresTB" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True"  Grid.Column="1" Grid.Row="2"/>
+                                        <TextBox x:Name="ScoresTB"  HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="120" FontSize="16" IsReadOnly="True"  Grid.Column="1" Grid.Row="2" VerticalAlignment="Top"/>
                                         <TextBox x:Name="CreateTime" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="180" FontSize="16" IsReadOnly="True"  Grid.Column="5" Grid.Row="0"/>
                                         <TextBox x:Name="LastModiTime" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" Text=""  Width="180" FontSize="16" IsReadOnly="True"  Grid.Column="5" Grid.Row="1"/>
                                     </Grid>
@@ -373,24 +373,24 @@
                                         </DataGrid.Background>
                                         <DataGrid.Columns>
 
-                                            <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="*"  />
-                                            <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="*" />
-                                            <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="*" />
-                                            <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="*" />
-                                            <DataGridTextColumn Header="累计消费" Binding="{Binding TotalCost}" Width="*" />
-                                            <DataGridTextColumn Header="现有积分" Binding="{Binding Scores}" Width="*" />
-                                            <DataGridTextColumn Header="太男消费" Binding="{Binding TpnManScore}" Width="*" />
-                                            <DataGridTextColumn Header="太女消费" Binding="{Binding TpnWomanScore}" Width="*" />
-                                            <DataGridTextColumn Header="香影消费" Binding="{Binding XyScore}" Width="*" />
-                                            <DataGridTextColumn Header="CM  消费" Binding="{Binding CmScore}" Width="*" />
-                                            <DataGridTextColumn Header="男鞋消费" Binding="{Binding CmScore}" Width="*" />
-                                            <DataGridTextColumn Header="女鞋消费" Binding="{Binding CmScore}" Width="*" />
-                                            <DataGridTextColumn Header="帽子消费" Binding="{Binding CmScore}" Width="*" />
-                                            <DataGridTextColumn Header="腰带消费" Binding="{Binding CmScore}" Width="*" />
-                                            <DataGridTextColumn Header="包包消费" Binding="{Binding CmScore}" Width="*" />
-                                                                                       
-                                            <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}" Width="*" />
-                                            <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}" Width="*" />
+                                            <DataGridTextColumn Header="姓名" Binding="{Binding Name}" Width="auto"  />
+                                            <DataGridTextColumn Header="性别" Binding="{Binding Sex}" Width="auto" />
+                                            <DataGridTextColumn Header="电话" Binding="{Binding Phone}" Width="auto" />
+                                            <DataGridTextColumn Header="生日" Binding="{Binding Birthday}" Width="auto" />
+                                            <DataGridTextColumn Header="累计消费" Binding="{Binding TotalCost}" Width="auto" />
+                                            <DataGridTextColumn Header="现有积分" Binding="{Binding Scores}" Width="auto" />
+                                            <DataGridTextColumn Header="太男消费" Binding="{Binding TpnManScore}" Width="auto" />
+                                            <DataGridTextColumn Header="太女消费" Binding="{Binding TpnWomanScore}" Width="auto" />
+                                            <DataGridTextColumn Header="香影消费" Binding="{Binding XyScore}" Width="auto" />
+                                            <DataGridTextColumn Header="CM  消费" Binding="{Binding CmScore}" Width="auto" />
+                                            <DataGridTextColumn Header="男鞋消费" Binding="{Binding CmScore}"  Width="auto" />
+                                            <DataGridTextColumn Header="女鞋消费" Binding="{Binding CmScore}"  Width="auto" />
+                                            <DataGridTextColumn Header="帽子消费" Binding="{Binding CmScore}"  Width="auto" />
+                                            <DataGridTextColumn Header="腰带消费" Binding="{Binding CmScore}"  Width="auto" />
+                                            <DataGridTextColumn Header="包包消费" Binding="{Binding CmScore}"  Width="auto" />
+
+                                            <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}"  Width="auto" />
+                                            <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}"  Width="auto" />
                                         </DataGrid.Columns>
                                         <DataGrid.ContextMenu>
                                             <ContextMenu x:Name="rightMenu" StaysOpen="true" >

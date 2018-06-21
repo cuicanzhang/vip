@@ -228,70 +228,42 @@ namespace vip.Windows
             var subbeltScore = subbeltScoreTB.Text.Replace(" ", "");
             var subbagScore = subbagScoreTB.Text.Replace(" ", "");
 
-
-            var subtpnManScore1 = subtpnManScoreTB.Text.Replace(" ", "");
-            var subtpnWomanScore1 = subtpnWomanScoreTB.Text.Replace(" ", "");
-            var subxyScore1 = subxyScoreTB.Text.Replace(" ", "");
-            var subcmScore1 = subcmScoreTB.Text.Replace(" ", "");
-            var submanShoeScore1 = submanShoeScoreTB.Text.Replace(" ", "");
-            var subwomanShoeScore1 = subwomanShoeScoreTB.Text.Replace(" ", "");
-            var subhatScore1 = subhatScoreTB.Text.Replace(" ", "");
-            var subbeltScore1 = subbeltScoreTB.Text.Replace(" ", "");
-            var subbagScore1 = subbagScoreTB.Text.Replace(" ", "");
-
             if (subtpnManScore == "")
             {
-                subtpnManScore = "0";
-                subtpnManScore1 = "0";
-            
+                subtpnManScore = "0";            
             }
             if (subtpnWomanScore == "")
             {
-                subtpnWomanScore = "0";
-                subtpnWomanScore1 = "0";
-           
+                subtpnWomanScore = "0";           
             }
             if (subxyScore == "")
             {
-                subxyScore = "0";
-                subxyScore1 = "0";
-          
+                subxyScore = "0";          
             }
             if (subcmScore == "")
             {
-                subcmScore = "0";
-                subcmScore1 = "0";
-    
+                subcmScore = "0";    
             }
-
             if (submanShoeScore == "")
             {
                 submanShoeScore = "0";
-                submanShoeScore1 = "0";
-
             }
             if (subwomanShoeScore == "")
             {
                 subwomanShoeScore = "0";
-                subwomanShoeScore1 = "0";
-
             }
             if (subhatScore == "")
             {
                 subhatScore = "0";
-                subhatScore1 = "0";
-
             }
             if (subbeltScore == "")
             {
                 subbeltScore = "0";
-                subbeltScore1 = "0";
 
             }
             if (subbagScore == "")
             {
                 subbagScore = "0";
-                subbagScore1 = "0";
 
             }
 
@@ -344,7 +316,7 @@ namespace vip.Windows
             {
                 submanShoeScoreTB.Text = manShoeScoreTLB.Content.ToString();
             }
-            if (int.Parse(subwomanShoeScore) <= int.Parse(womanShoeFinalScoreTLB.Content.ToString()))
+            if (int.Parse(subwomanShoeScore) <= int.Parse(womanShoeScoreTLB.Content.ToString()))
             {
                 womanShoeFinalScoreTLB.Content = (int.Parse(womanShoeScoreTLB.Content.ToString()) - int.Parse(subwomanShoeScore)).ToString();
 
@@ -381,16 +353,29 @@ namespace vip.Windows
                 subbagScoreTB.Text = bagScoreTLB.Content.ToString();
             }
 
-            tempScoreDataLB.Content = (int.Parse(subtpnManScore1)
-                                        + int.Parse(subtpnWomanScore1)
-                                        + int.Parse(subxyScore1)
-                                        + int.Parse(subcmScore1)
-                                        + int.Parse(submanShoeScore1)
-                                        + int.Parse(subwomanShoeScore1)
-                                        + int.Parse(subhatScore1)
-                                        + int.Parse(subbeltScore1)
-                                        + int.Parse(subbagScore1)
+            if(int.Parse(subtpnManScore) <= int.Parse(tpnManScoreTLB.Content.ToString())
+                && int.Parse(subtpnWomanScore) <= int.Parse(tpnWomanScoreTLB.Content.ToString())
+                && int.Parse(subxyScore) <= int.Parse(xyScoreTLB.Content.ToString())
+                && int.Parse(subcmScore) <= int.Parse(cmScoreTLB.Content.ToString())
+                && int.Parse(submanShoeScore) <= int.Parse(manShoeScoreTLB.Content.ToString())
+                && int.Parse(subwomanShoeScore) <= int.Parse(womanShoeScoreTLB.Content.ToString())
+                && int.Parse(subhatScore) <= int.Parse(hatScoreTLB.Content.ToString())
+                && int.Parse(subbeltScore) <= int.Parse(beltScoreTLB.Content.ToString())
+                && int.Parse(subbagScore) <= int.Parse(bagScoreTLB.Content.ToString())
+                )
+            {
+                tempScoreDataLB.Content = (int.Parse(subtpnManScore)
+                                        + int.Parse(subtpnWomanScore)
+                                        + int.Parse(subxyScore)
+                                        + int.Parse(subcmScore)
+                                        + int.Parse(submanShoeScore)
+                                        + int.Parse(subwomanShoeScore)
+                                        + int.Parse(subhatScore)
+                                        + int.Parse(subbeltScore)
+                                        + int.Parse(subbagScore)
                                         ).ToString();
+            }
+            
             finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) - int.Parse(tempScoreDataLB.Content.ToString())).ToString();
             
         }
