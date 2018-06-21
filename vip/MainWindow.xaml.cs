@@ -320,6 +320,12 @@ namespace vip
                 XyScoreTB.Text=dic["XyScore"];
                 CmScoreTB.Text=dic["CmScore"] ;
 
+                ManShoeScoreTB.Text = dic["ManShoeScore"];
+                WomanShoeScoreTB.Text = dic["WomanShoeScore"];
+                HatScoreTB.Text = dic["HatScore"];
+                BeltScoreTB.Text = dic["BeltScore"];
+                BagScoreTB.Text = dic["BagScore"];
+
 
                 LastModiTime.Text=dic["LastModiTime"];
                 CreateTime.Text=dic["CreateTime"];
@@ -389,5 +395,9 @@ namespace vip
             this.WindowState = WindowState.Minimized;
         }
 
+        private void XyScoreTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
