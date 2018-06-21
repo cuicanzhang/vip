@@ -86,6 +86,7 @@ namespace vip.Windows
                 //dic["Birthday"] = BirthdayDP.SelectedDate.Value.ToString("yyyy-MM-dd");
                 dic["Remarks"] = RemarksTB.Text;
 
+                dic["TotalCost"] = scoresLB.Content;
                 dic["Scores"] = scoresLB.Content;
                 dic["TpnManScore"] = tpnManScoreTB.Text.Replace(" ", "");
                 dic["TpnWomanScore"] = tpnWomanScoreTB.Text.Replace(" ", "");

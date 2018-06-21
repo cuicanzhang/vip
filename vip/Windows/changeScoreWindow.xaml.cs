@@ -44,6 +44,7 @@ namespace vip.Windows
             vip.Phone = dic["Phone"];
             vip.Birthday = dic["Birthday"];
             vip.Remarks = dic["Remarks"];
+            vip.TotalCost = dic["TotalCost"];
             vip.Scores = dic["Scores"];
             vip.tpnManScore = dic["TpnManScore"];
             vip.tpnWomanScore = dic["TpnWomanScore"];
@@ -194,6 +195,7 @@ namespace vip.Windows
                                         + int.Parse(addbagScore)
                                         ).ToString();
             finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) + int.Parse(tempScoreDataLB.Content.ToString())).ToString();
+
         }
         private void ScoresExchange()
         {
@@ -389,10 +391,8 @@ namespace vip.Windows
                                         + int.Parse(subbeltScore1)
                                         + int.Parse(subbagScore1)
                                         ).ToString();
-            var aa = ScoresLB.Content.ToString();
-            var bb = tempScoreDataLB.Content.ToString();
             finalScoreLB.Content = (int.Parse(ScoresLB.Content.ToString()) - int.Parse(tempScoreDataLB.Content.ToString())).ToString();
-
+            
         }
         
         
@@ -406,33 +406,53 @@ namespace vip.Windows
 
         private void scoresTC_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            subScoreTB.Text = "";
+
+            addtpnManScoreTB.Text = "";
+            addtpnWomanScoreTB.Text = "";
+            addxyScoreTB.Text = "";
+            addcmScoreTB.Text = "";
+            addmanShoeScoreTB.Text = "";
+            addwomanShoeScoreTB.Text = "";
+            addhatScoreTB.Text = "";
+            addbeltScoreTB.Text = "";
+            addbagScoreTB.Text = "";
+
+            tpnManFinalScoreLB.Content = "";
+            tpnWomanFinalScoreLB.Content = "";
+            xyFinalScoreLB.Content = "";
+            cmFinalScoreLB.Content = "";
+            manShoeFinalScoreLB.Content = "";
+            womanShoeFinalScoreLB.Content = "";
+            hatFinalScoreLB.Content = ""; 
+            beltFinalScoreLB.Content = "";
+            bagFinalScoreLB.Content = "";
+
+            subtpnManScoreTB.Text = "";
+            subtpnWomanScoreTB.Text = "";
+            subxyScoreTB.Text = "";
+            subcmScoreTB.Text = "";
+            submanShoeScoreTB.Text = "";
+            subwomanShoeScoreTB.Text = "";
+            subhatScoreTB.Text = "";
+            subbeltScoreTB.Text = "";
+            subbagScoreTB.Text = "";
+
+            tpnManFinalScoreTLB.Content = "";
+            tpnWomanFinalScoreTLB.Content = "";
+            xyFinalScoreTLB.Content = "";
+            cmFinalScoreTLB.Content = "";
+            manShoeFinalScoreTLB.Content = "";
+            womanShoeFinalScoreTLB.Content = "";
+            hatFinalScoreTLB.Content = "";
+            beltFinalScoreTLB.Content = "";
+            bagFinalScoreTLB.Content = "";
+
+
+
             if (scoresTC.SelectedIndex == 1 )
             {
-                tempScoreLB.Content = "兑换积分";
-                if (addtpnManScoreTB.Text != "" || addtpnWomanScoreTB.Text != "" || addxyScoreTB.Text != "" || addcmScoreTB.Text != ""
-                    || subtpnManScoreTB.Text != "" || subtpnWomanScoreTB.Text != "" || subxyScoreTB.Text != "" || subcmScoreTB.Text != "")
-                {
-                    addtpnManScoreTB.Text = "";
-                    addtpnWomanScoreTB.Text = "";
-                    addxyScoreTB.Text = "";
-                    addcmScoreTB.Text = "";
-                    tpnManFinalScoreLB.Content = "";
-                    tpnWomanFinalScoreLB.Content = "";
-                    xyFinalScoreLB.Content = "";
-                    cmFinalScoreLB.Content = "";
-                    
-
-                    subtpnManScoreTB.Text = "";
-                    subtpnWomanScoreTB.Text = "";
-                    subxyScoreTB.Text = "";
-                    subcmScoreTB.Text = "";
-                    tpnManFinalScoreTLB.Content = "";
-                    tpnWomanFinalScoreTLB.Content = "";
-                    xyFinalScoreTLB.Content = "";
-                    cmFinalScoreTLB.Content = "";
-
-                    tempScoreDataLB.Content = "";
-                }                 
+                tempScoreLB.Content = "兑换积分";           
             }
 
             if (scoresTC.SelectedIndex == 0)
@@ -446,15 +466,7 @@ namespace vip.Windows
                 womanShoeFinalScoreLB.Content = vip.womanShoeScore;
                 hatFinalScoreLB.Content = vip.hatScore;
                 beltFinalScoreLB.Content = vip.beltScore;
-                bagFinalScoreLB.Content = vip.bagScore;
-
-
-                if (subScoreTB.Text != "")
-                {
-                    subScoreTB.Text = "";
-                    tempScoreDataLB.Content = "";
-                }
-                    
+                bagFinalScoreLB.Content = vip.bagScore;                    
             }
             if (scoresTC.SelectedIndex == 2)
             {
@@ -469,14 +481,6 @@ namespace vip.Windows
                 hatFinalScoreTLB.Content = vip.hatScore;
                 beltFinalScoreTLB.Content = vip.beltScore;
                 bagFinalScoreTLB.Content = vip.bagScore;
-
-                if (subScoreTB.Text != "")
-                {
-                    subScoreTB.Text = "";
-                    tempScoreDataLB.Content = "";
-                }
-
-
             }
 
         }
@@ -490,8 +494,10 @@ namespace vip.Windows
         {
             if (tempScoreDataLB.Content.ToString() != "0")
             {
+                vip.TotalCost = (int.Parse(vip.TotalCost) + int.Parse(tempScoreDataLB.Content.ToString())).ToString();
                 if (ChangeScores("ScoresAdd"))
                 {
+                    
                     var mainWindow = (MainWindow)Owner;
                     mainWindow.reload(vip.Phone);
                     this.Close();
@@ -518,6 +524,7 @@ namespace vip.Windows
                         if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
                         {
                             dic["Scores"] = finalScoreLB.Content;
+                            dic["TotalCost"] = vip.TotalCost;
                         }
                         if (tpnManFinalScoreLB.Content.ToString() != tpnManScoreLB.Content.ToString())
                         {
@@ -575,6 +582,7 @@ namespace vip.Windows
                         if (finalScoreLB.Content.ToString() != ScoresLB.Content.ToString())
                         {
                             dic["Scores"] = finalScoreLB.Content;
+                            dic["TotalCost"] = vip.TotalCost;
                         }
                         if (tpnManFinalScoreTLB.Content.ToString() != tpnManScoreTLB.Content.ToString())
                         {
@@ -662,8 +670,10 @@ namespace vip.Windows
         {
             if (tempScoreDataLB.Content.ToString() != "0")
             {
+                vip.TotalCost = (int.Parse(vip.TotalCost) - int.Parse(tempScoreDataLB.Content.ToString())).ToString();
                 if (ChangeScores("ScoresSub"))
                 {
+                    
                     var mainWindow = (MainWindow)Owner;
                     mainWindow.reload(vip.Phone);
                     this.Close();

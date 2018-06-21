@@ -117,6 +117,7 @@ namespace vip
                 tb.Columns.Add(new SQLiteColumn("Birthday", ColType.Text));
                 tb.Columns.Add(new SQLiteColumn("Remarks", ColType.Text));
 
+                tb.Columns.Add(new SQLiteColumn("TotalCost", ColType.Integer, false, false, true, "0"));
                 tb.Columns.Add(new SQLiteColumn("Scores", ColType.Integer, false, false, true, "0"));
                 tb.Columns.Add(new SQLiteColumn("TpnManScore", ColType.Integer, false, false, true, "0"));
                 tb.Columns.Add(new SQLiteColumn("TpnWomanScore", ColType.Integer, false, false, true, "0"));

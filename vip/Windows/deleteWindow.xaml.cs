@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -41,9 +42,12 @@ namespace vip.Windows
         {
             SexCB.Items.Add("男");
             SexCB.Items.Add("女");
-            
         }
-
+        private void loadBirthdayDate()
+        {
+            birthdayMonthCB.ItemsSource = Tools.birthdayDic()["month"];
+            birthdayDayCB.ItemsSource = Tools.birthdayDic()["day"];
+        }
         public deleteWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();
@@ -58,16 +62,26 @@ namespace vip.Windows
             //加载控件数据
             NameTB.Text = vip.Name;
             loadSex();
+            loadBirthdayDate();
             SexCB.SelectedIndex=SexCB.Items.IndexOf(vip.Sex);
             PhoneTB.Text = vip.Phone;
-            BirthdayDP.SelectedDate =Convert.ToDateTime(vip.Birthday);
+            Regex reg = new Regex(@"(.*)月(.*)日");
+            Match match = reg.Match(vip.Birthday);
+            birthdayMonthCB.SelectedValue = match.Groups[1].Value;
+            birthdayDayCB.SelectedValue = match.Groups[2].Value;
+            //BirthdayDP.SelectedDate =Convert.ToDateTime(vip.Birthday);
             RemarksTB.Text = vip.Remarks;
-            ScoresTB.Text = dic["Scores"];
-            tpnManScoresTB.Text= dic["TpnManScore"];
-            tpnWomanScoresTB.Text = dic["TpnWomanScore"];
-            xyScoresTB.Text = dic["XyScore"];
-            cmScoresTB.Text = dic["CmScore"];   
+            scoresLB.Content = dic["Scores"];
+            tpnManScoreTB.Text= dic["TpnManScore"];
+            tpnWomanScoreTB.Text = dic["TpnWomanScore"];
+            xyScoreTB.Text = dic["XyScore"];
+            cmScoreTB.Text = dic["CmScore"];
 
+            manShoeScoreTB.Text = dic["ManShoeScore"];
+            womanShoeScoreTB.Text = dic["WomanShoeScore"];
+            hatScoreTB.Text = dic["HatScore"];
+            beltScoreTB.Text = dic["BeltScore"];
+            bagScoreTB.Text = dic["BagScore"];
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

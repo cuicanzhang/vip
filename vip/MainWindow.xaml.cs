@@ -265,21 +265,22 @@ namespace vip
             dic["Birthday"] = mySelectedElement[4].ToString();
             dic["Remarks"] = mySelectedElement[5].ToString();
 
-            dic["Scores"] = mySelectedElement[6].ToString();
-            dic["TpnManScore"] = mySelectedElement[7].ToString();
-            dic["TpnWomanScore"] = mySelectedElement[8].ToString();
-            dic["XyScore"] = mySelectedElement[9].ToString();
-            dic["CmScore"] = mySelectedElement[10].ToString();
+            dic["TotalCost"] = mySelectedElement[6].ToString();
+            dic["Scores"] = mySelectedElement[7].ToString();
+            dic["TpnManScore"] = mySelectedElement[8].ToString();
+            dic["TpnWomanScore"] = mySelectedElement[9].ToString();
+            dic["XyScore"] = mySelectedElement[10].ToString();
+            dic["CmScore"] = mySelectedElement[11].ToString();
 
-            dic["ManShoeScore"] = mySelectedElement[11].ToString();
-            dic["WomanShoeScore"] = mySelectedElement[12].ToString();
-            dic["HatScore"] = mySelectedElement[13].ToString();
-            dic["BeltScore"] = mySelectedElement[14].ToString();
-            dic["BagScore"] = mySelectedElement[15].ToString();
+            dic["ManShoeScore"] = mySelectedElement[12].ToString();
+            dic["WomanShoeScore"] = mySelectedElement[13].ToString();
+            dic["HatScore"] = mySelectedElement[14].ToString();
+            dic["BeltScore"] = mySelectedElement[15].ToString();
+            dic["BagScore"] = mySelectedElement[16].ToString();
 
 
-            dic["LastModiTime"] = mySelectedElement[16].ToString();
-            dic["CreateTime"] = mySelectedElement[17].ToString();
+            dic["LastModiTime"] = mySelectedElement[17].ToString();
+            dic["CreateTime"] = mySelectedElement[18].ToString();
             return dic;
         }
         private Dictionary<string, string> initAdminDic(DataRowView mySelectedElement)
@@ -314,6 +315,7 @@ namespace vip
                 BirthdayTB.Text= dic["Birthday"];
                 RemarksTB.Text=dic["Remarks"] ;
 
+                TotalCostLB.Content = dic["TotalCost"];
                 ScoresTB.Text=dic["Scores"];
                 TpnManScoreTB.Text=dic["TpnManScore"];
                 TpnWomanScoreTB.Text=dic["TpnWomanScore"];
@@ -325,7 +327,6 @@ namespace vip
                 HatScoreTB.Text = dic["HatScore"];
                 BeltScoreTB.Text = dic["BeltScore"];
                 BagScoreTB.Text = dic["BagScore"];
-
 
                 LastModiTime.Text=dic["LastModiTime"];
                 CreateTime.Text=dic["CreateTime"];

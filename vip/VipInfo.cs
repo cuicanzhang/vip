@@ -17,6 +17,7 @@ namespace vip
         public string LastModiTime { get; set; }
         public string CreateTime { get; set; }
 
+        public string TotalCost { get; set; }
         public string Scores { get; set; }
         public string tpnManScore { get; set; }
         public string tpnWomanScore { get; set; }
