@@ -316,7 +316,7 @@
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="10,0,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="0">
                                 <StackPanel HorizontalAlignment="Left"  Height="auto" Margin="10,10,10,10"  Width="auto" >
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -358,9 +358,9 @@
                                     </Grid>
                                 </StackPanel>
                             </Border>
-                            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="1">
-                                <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto" Margin="2,2,2,2">
-                                    <DataGrid x:Name="dispDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="380"  Width="993" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" BorderBrush="Black" Foreground="Black" OpacityMask="#FFF90D0D" Grid.Row="1"  Grid.RowSpan="2"  >
+                            <Border BorderBrush="Black" BorderThickness="0" Margin="10,0,0,5" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" Grid.Row="3" Grid.Column="1">
+                                <StackPanel HorizontalAlignment="Left"  Height="auto"  Width="auto">
+                                    <DataGrid x:Name="dispDataGrid" CanUserAddRows="False" LoadingRow="dispDataFridLoadingRow" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="300"  Width="993" ItemsSource="{Binding}" MouseDoubleClick="changeAction_Click" SelectionChanged="dispDataGrid_SelectionChanged" BorderBrush="Black" Foreground="Black" OpacityMask="#FFF90D0D" Grid.Row="1"  Grid.RowSpan="2"  >
                                         <DataGrid.Background>
                                             <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
                                         </DataGrid.Background>
