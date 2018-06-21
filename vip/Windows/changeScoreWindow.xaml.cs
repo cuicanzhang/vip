@@ -51,9 +51,9 @@ namespace vip.Windows
             vip.cmScore = dic["CmScore"];
             vip.manShoeScore = dic["ManShoeScore"];
             vip.womanShoeScore = dic["WomanShoeScore"];
-            vip.hatScore = dic["HatShoeScore"];
-            vip.beltScore = dic["BeltShoeScore"];
-            vip.bagScore = dic["BagShoeScore"];
+            vip.hatScore = dic["HatScore"];
+            vip.beltScore = dic["BeltScore"];
+            vip.bagScore = dic["BagScore"];
             //加载控件数据
 
             if (vip.Sex == "男")
@@ -79,12 +79,22 @@ namespace vip.Windows
             tpnWomanScoreLB.Content = vip.tpnWomanScore;
             xyScoreLB.Content = vip.xyScore;
             cmScoreLB.Content = vip.cmScore;
+            manShoeScoreLB.Content = vip.manShoeScore;
+            womanShoeScoreLB.Content = vip.womanShoeScore;
+            hatScoreLB.Content = vip.hatScore;
+            beltScoreLB.Content = vip.beltScore;
+            bagScoreLB.Content = vip.bagScore;
 
 
             tpnManScoreTLB.Content = vip.tpnManScore;
             tpnWomanScoreTLB.Content = vip.tpnWomanScore;
             xyScoreTLB.Content = vip.xyScore;
             cmScoreTLB.Content = vip.cmScore;
+            //manShoeScoreTLB.Content = vip.manShoeScore;
+            //womanShoeScoreTLB.Content = vip.womanShoeScore;
+            //hatScoreTLB.Content = vip.hatScore;
+            //beltScoreTLB.Content = vip.beltScore;
+            //bagScoreTLB.Content = vip.bagScore;
 
         }
 
@@ -339,6 +349,11 @@ namespace vip.Windows
                 tpnWomanFinalScoreLB.Content = vip.tpnWomanScore;
                 xyFinalScoreLB.Content = vip.xyScore;
                 cmFinalScoreLB.Content = vip.cmScore;
+                manShoeFinalScoreLB.Content = vip.manShoeScore;
+                womanShoeFinalScoreLB.Content = vip.womanShoeScore;
+                hatFinalScoreLB.Content = vip.hatScore;
+                beltFinalScoreLB.Content = vip.beltScore;
+                bagFinalScoreLB.Content = vip.bagScore;
 
 
                 if (subScoreTB.Text != "")
@@ -422,6 +437,26 @@ namespace vip.Windows
                         if (cmFinalScoreLB.Content.ToString() != cmScoreLB.Content.ToString())
                         {
                             dic["CmScore"] = cmFinalScoreLB.Content;
+                        }
+                        if (manShoeFinalScoreLB.Content.ToString() != manShoeScoreLB.Content.ToString())
+                        {
+                            dic["ManShoeScore"] = manShoeFinalScoreLB.Content;
+                        }
+                        if (womanShoeFinalScoreLB.Content.ToString() != womanShoeScoreLB.Content.ToString())
+                        {
+                            dic["WomanShoeScore"] = womanShoeFinalScoreLB.Content;
+                        }
+                        if (hatFinalScoreLB.Content.ToString() != hatScoreLB.Content.ToString())
+                        {
+                            dic["HatScore"] = hatFinalScoreLB.Content;
+                        }
+                        if (beltFinalScoreLB.Content.ToString() != beltScoreLB.Content.ToString())
+                        {
+                            dic["BeltScore"] = beltFinalScoreLB.Content;
+                        }
+                        if (bagFinalScoreLB.Content.ToString() != bagScoreLB.Content.ToString())
+                        {
+                            dic["BagScore"] = bagFinalScoreLB.Content;
                         }
 
                         dic["LastModiTime"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");

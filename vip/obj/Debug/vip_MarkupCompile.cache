@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\
 vip
 none
 false
 DEBUG;TRACE
-C:\Users\Ming\Source\Repos\vip\vip\App.xaml
+C:\Users\Canlan\Source\Repos\vip\vip\App.xaml
 101866781236
 
 24-280392974
-17-934871879
+171642811016
 LoginWindow.xaml;MainWindow.xaml;MsgBoxWindow.xaml;Windows\deleteAdminWindow.xaml;Windows\modifyAdminWindow.xaml;Windows\addAdminWindow.xaml;Windows\changeScoreWindow.xaml;Windows\addWindow.xaml;Windows\deleteWindow.xaml;Windows\modifyWindow.xaml;
 
 False

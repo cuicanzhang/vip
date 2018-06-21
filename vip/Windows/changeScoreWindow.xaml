@@ -360,7 +360,7 @@
                                     
 
 
-                                    <Button Content="确认" HorizontalAlignment="Left" Width="75" Click="ScoresAdd_Click" FontSize="16" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Column="3" Grid.Row="11" />
+                                    <Button Content="确认" HorizontalAlignment="Left" Width="75" Click="ScoresAdd_Click" FontSize="16" BorderBrush="{x:Null}" Background="{x:Null}" Grid.Column="3" Grid.Row="11" Height="27" VerticalAlignment="Top" />
                                 </Grid>
                             </Grid>
                         </TabItem>

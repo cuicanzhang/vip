@@ -320,6 +320,7 @@ namespace vip
                 XyScoreTB.Text=dic["XyScore"];
                 CmScoreTB.Text=dic["CmScore"] ;
 
+
                 LastModiTime.Text=dic["LastModiTime"];
                 CreateTime.Text=dic["CreateTime"];
 
