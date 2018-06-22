@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vip.Windows"
         mc:Ignorable="d"
-        Title="" Height="150" Width="230" AllowsTransparency="True" WindowStyle="None" >
+        Title="" Height="165" Width="230" AllowsTransparency="True" WindowStyle="None" >
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
     </Window.Background>
@@ -14,11 +14,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="5"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Label Content="添 加 管 理 员" HorizontalAlignment="Center"  VerticalAlignment="Bottom"  FontSize="16" Height="31" FontWeight="Bold"   Grid.Row="0" />
-
+            <Label Name="WaringLB" Content="提示"  FontSize="10" Height="28" Grid.Row="2" Visibility="Hidden"    Foreground="Red" FontWeight="Bold"/>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>

@@ -173,9 +173,16 @@ namespace vip
                     if (mySelectedElement != null)
                     {
 
-                        if (action == "modifyAdmin")
+                        if (action == "modifyAdminName")
                         {
-                            Windows.modifyAdminWindow w = new Windows.modifyAdminWindow(initAdminDic(mySelectedElement));
+                            Windows.modifyAdminNameWindow w = new Windows.modifyAdminNameWindow(initAdminDic(mySelectedElement));
+                            w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                            w.Owner = this;
+                            w.ShowDialog();
+                        }
+                        if (action == "modifyAdminPass")
+                        {
+                            Windows.modifyAdminPassWindow w = new Windows.modifyAdminPassWindow(initAdminDic(mySelectedElement));
                             w.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                             w.Owner = this;
                             w.ShowDialog();
@@ -254,9 +261,13 @@ namespace vip
         {
             menuAdminAction("addAdmin");
         }
-        private void modifyAdminAction_Click(object sender, RoutedEventArgs e)
+        private void modifyAdminNameAction_Click(object sender, RoutedEventArgs e)
         {
-            menuAdminAction("modifyAdmin");
+            menuAdminAction("modifyAdminName");
+        }
+        private void modifyAdminPassAction_Click(object sender, RoutedEventArgs e)
+        {
+            menuAdminAction("modifyAdminPass");
         }
         private void deleteAdminAction_Click(object sender, RoutedEventArgs e)
         {

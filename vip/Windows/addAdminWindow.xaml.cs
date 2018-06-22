@@ -36,17 +36,20 @@ namespace vip.Windows
             
                 if (adminNameTB.Text.Replace(" ", "") == "")
                 {
-                    MsgBoxWindow.Show("提示：", "[用户名] 必须填写");
+                    WaringLB.Visibility = Visibility.Visible;
+                    WaringLB.Content = "提示：请填写[用户名]";
                     //MessageBox.Show("[用户名] 必须填写");
                 }
                 else if (adminPassPB.Password == "")
                 {
-                    MsgBoxWindow.Show("提示：", "[用户密码] 必须填写");
+                    WaringLB.Visibility = Visibility.Visible;
+                    WaringLB.Content = "提示：请填写[密码]";
                     //MessageBox.Show("[用户密码] 必须填写");
                 }
                 else if (adminRePassPB.Password != adminPassPB.Password)
                 {
-                    MsgBoxWindow.Show("提示：", "两次输入的密码不一致！");
+                    WaringLB.Visibility = Visibility.Visible;
+                    WaringLB.Content = "提示：两次输入的[密码]不同！";
                     //MessageBox.Show("两次输入的密码不一致！");
                 }
                 else
@@ -61,7 +64,12 @@ namespace vip.Windows
                         mainWindow.reloadAdmin(adminNameTB.Text.Replace(" ", ""));
                         
                         this.Close();
-                        //MessageBox.Show("添加成功");
+                    //MessageBox.Show("添加成功");
+                    }
+                    else
+                    {
+                        WaringLB.Visibility = Visibility.Visible;
+                        WaringLB.Content = "提示：管理员已存在！";
                     }
                 }    
         }

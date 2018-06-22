@@ -71,8 +71,6 @@ C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\deleteWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\addAdminWindow.g.cs
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\addAdminWindow.baml
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyAdminWindow.g.cs
-C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyAdminWindow.baml
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\deleteAdminWindow.g.cs
 C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\deleteAdminWindow.baml
 C:\Users\Ming\Source\Repos\vip\vip\obj\Debug\Windows\deleteAdminWindow.g.cs
@@ -103,3 +101,7 @@ C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\changeScoreWindow.baml
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\addWindow.baml
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\deleteWindow.baml
 C:\Users\zhang\Source\Repos\vip\vip\obj\Debug\Windows\modifyWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyAdminPassWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyAdminNameWindow.g.cs
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyAdminPassWindow.baml
+C:\Users\Canlan\Source\Repos\vip\vip\obj\Debug\Windows\modifyAdminNameWindow.baml

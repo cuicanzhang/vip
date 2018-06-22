@@ -157,6 +157,11 @@ namespace vip.Windows
                         this.Close();
                         //MessageBox.Show("添加成功");
                     }
+                    else
+                    {
+                        WaringLB.Visibility = Visibility.Visible;
+                        WaringLB.Content = "提示：[电话]号码重复！";
+                    }
                 }
                 
             }

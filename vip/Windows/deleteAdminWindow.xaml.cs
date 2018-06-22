@@ -59,7 +59,8 @@ namespace vip.Windows
             }
             else
             {
-                MsgBoxWindow.Show("提示：", "不能删除当前登录用户！");
+                WaringLB.Visibility = Visibility.Visible;
+                WaringLB.Content = "提示：不能删除当前登录用户！";
                 //MessageBox.Show("不能删除当前用户");
             }
                  

@@ -473,7 +473,8 @@
                                     </DataGrid.Columns>
                                     <DataGrid.ContextMenu>
                                         <ContextMenu x:Name="adminRightMenu" StaysOpen="true" >
-                                            <MenuItem Header="管理员修改" Click="modifyAdminAction_Click" FontSize="14"/>
+                                            <MenuItem Header="修改用户名" Click="modifyAdminNameAction_Click" FontSize="14"/>
+                                            <MenuItem Header="修改密码" Click="modifyAdminPassAction_Click" FontSize="14"/>
                                             <MenuItem Header=""/>
                                             <MenuItem Header=""/>
                                             <MenuItem Header=""/>

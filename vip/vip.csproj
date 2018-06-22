@@ -96,8 +96,11 @@
     <Compile Include="Windows\deleteAdminWindow.xaml.cs">
       <DependentUpon>deleteAdminWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\modifyAdminWindow.xaml.cs">
-      <DependentUpon>modifyAdminWindow.xaml</DependentUpon>
+    <Compile Include="Windows\modifyAdminPassWindow.xaml.cs">
+      <DependentUpon>modifyAdminPassWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\modifyAdminNameWindow.xaml.cs">
+      <DependentUpon>modifyAdminNameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\addAdminWindow.xaml.cs">
       <DependentUpon>addAdminWindow.xaml</DependentUpon>
@@ -139,7 +142,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\modifyAdminWindow.xaml">
+    <Page Include="Windows\modifyAdminPassWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\modifyAdminNameWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

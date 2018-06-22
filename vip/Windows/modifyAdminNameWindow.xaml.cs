@@ -17,14 +17,14 @@ namespace vip.Windows
     /// <summary>
     /// addAdminWindows.xaml 的交互逻辑
     /// </summary>
-    public partial class modifyAdminWindow : Window
+    public partial class modifyAdminNameWindow : Window
     {
         AdminInfo admin = new AdminInfo();
-        public modifyAdminWindow()
+        public modifyAdminNameWindow()
         {
             InitializeComponent();
         }
-        public modifyAdminWindow(Dictionary<string, string> dic)
+        public modifyAdminNameWindow(Dictionary<string, string> dic)
         {
             InitializeComponent();
             //vip初始化
@@ -50,38 +50,30 @@ namespace vip.Windows
             var dic = new Dictionary<string, object>();
             dic["ID"] = admin.ID;
 
-            if (adminNameTB.Text != admin.adminName)
+            if (adminNameTB.Text != admin.adminName && adminNameTB.Text !="")
             {
                 dic["adminName"] = adminNameTB.Text;
+                if (dic.Count > 1)
+                {
+                    if (Core.SqlAction.ModifyAdminName(dic))
+                    {
+                        var mainWindow = (MainWindow)Owner;
+                        mainWindow.reloadAdmin(adminNameTB.Text.Replace(" ", ""));
+                        this.Close();
+                        //MessageBox.Show("添加成功");
+                    }
+                    else
+                    {
+                        WaringLB.Visibility = Visibility.Visible;
+                        WaringLB.Content = "提示：管理员已存在！";
+                    }
+                }    
             }
-
-            if (adminRePassPB.Password != "" || adminPassPB.Password != "")
+            else
             {
-                if (adminRePassPB.Password == adminPassPB.Password)
-                {
-                    dic["adminPass"] = Tools.StringToMD5Hash(adminPassPB.Password);
-                }
-                else
-                {
-                    MsgBoxWindow.Show("提示：", "两次输入的密码必须相同！");
-                    //MessageBox.Show("两次输入的密码必须相同");
-                }
+                WaringLB.Visibility = Visibility.Visible;
+                WaringLB.Content = "提示：当前无任何修改！";
             }
-            
-
-            if (dic.Count > 1)
-            {
-                if (Core.SqlAction.ModifyAdmin(dic))
-                {
-                    var mainWindow = (MainWindow)Owner;
-                    mainWindow.reloadAdmin(adminNameTB.Text.Replace(" ", ""));
-                    this.Close();
-                    //MessageBox.Show("添加成功");
-                }
-            }
-
-
-
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {

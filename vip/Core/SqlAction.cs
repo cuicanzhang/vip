@@ -68,8 +68,7 @@ namespace vip.Core
                 }
                 else
                 {
-                    MsgBoxWindow.Show("提示：", "管理员已存在");
-                    //MessageBox.Show("管理员已存在");
+                                       //MessageBox.Show("管理员已存在");
                     return false;
                 }
             }
@@ -105,15 +104,54 @@ namespace vip.Core
                 conn.Close();
             }
         }
-        public static bool ModifyAdmin(Dictionary<string, object> dic)
+        public static bool ModifyAdminName(Dictionary<string, object> dic)
         {
             try
             {
                 conn.Open();
                 cmd.Connection = conn;
-                SQLiteHelper sh = new SQLiteHelper(cmd);              
+                SQLiteHelper sh = new SQLiteHelper(cmd);
+                if (dic.ContainsKey("adminName"))
+                {
+                    var sql = string.Format("select * from admin where (adminName='{0}')", dic["adminName"]);
+                    DataTable dt = sh.Select(sql);
+                    if (dt.Rows.Count == 0)
+                    {
+                        sh.Update("admin", dic, "ID", dic["ID"]);
+                        return true;
+                    }
+                    else
+                    {
+                        //MessageBox.Show("管理员已存在");
+                        return false;
+                    }
+                }
+                else
+                {
                     sh.Update("admin", dic, "ID", dic["ID"]);
                     return true;
+                }  
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public static bool ModifyAdminPass(Dictionary<string, object> dic)
+        {
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                SQLiteHelper sh = new SQLiteHelper(cmd);
+                sh.Update("admin", dic, "ID", dic["ID"]);
+                return true;
             }
             catch (Exception ex)
             {
@@ -157,6 +195,7 @@ namespace vip.Core
             }
 
         }
+
         public static bool AddVip(Dictionary<string,object > dic)
         {
             try
@@ -174,7 +213,6 @@ namespace vip.Core
                 }
                 else
                 {
-                    MsgBoxWindow.Show("提示：", "会员已存在");
                     //MessageBox.Show("会员已存在");
                     return false;
                 }
@@ -230,7 +268,7 @@ namespace vip.Core
                     }
                     else
                     {
-                        MsgBoxWindow.Show("提示：", "会员手机号码重复");
+                        //MsgBoxWindow.Show("提示：", "会员手机号码重复");
                         //MessageBox.Show("会员手机号码重复");
                         return false;
                     }
