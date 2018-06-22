@@ -391,11 +391,11 @@
                                             <DataGridTextColumn Header="太女消费" Binding="{Binding TpnWomanScore}" Width="auto" />
                                             <DataGridTextColumn Header="香影消费" Binding="{Binding XyScore}" Width="auto" />
                                             <DataGridTextColumn Header="CM  消费" Binding="{Binding CmScore}" Width="auto" />
-                                            <DataGridTextColumn Header="男鞋消费" Binding="{Binding CmScore}"  Width="auto" />
-                                            <DataGridTextColumn Header="女鞋消费" Binding="{Binding CmScore}"  Width="auto" />
-                                            <DataGridTextColumn Header="帽子消费" Binding="{Binding CmScore}"  Width="auto" />
-                                            <DataGridTextColumn Header="腰带消费" Binding="{Binding CmScore}"  Width="auto" />
-                                            <DataGridTextColumn Header="包包消费" Binding="{Binding CmScore}"  Width="auto" />
+                                            <DataGridTextColumn Header="男鞋消费" Binding="{Binding ManShoeScore}"  Width="auto" />
+                                            <DataGridTextColumn Header="女鞋消费" Binding="{Binding WomanShoeScore}"  Width="auto" />
+                                            <DataGridTextColumn Header="帽子消费" Binding="{Binding HatScore}"  Width="auto" />
+                                            <DataGridTextColumn Header="腰带消费" Binding="{Binding BeltScore}"  Width="auto" />
+                                            <DataGridTextColumn Header="包包消费" Binding="{Binding BagScore}"  Width="auto" />
 
                                             <DataGridTextColumn Header="最近消费" Binding="{Binding LastModiTime}"  Width="auto" />
                                             <DataGridTextColumn Header="首次消费" Binding="{Binding CreateTime}"  Width="auto" />
